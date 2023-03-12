@@ -1,0 +1,1 @@
+﻿package  {	import GameObject;		public class Armor extends PowerUp	{		public function Armor(p:Player) 		{			// constructor code			super(p);		}				override protected function collideWithPlayer()		{			super.collideWithPlayer();			this.playerRef.setAttack(50);		}	}	}

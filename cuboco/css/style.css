@@ -1,0 +1,24 @@
+
+div#controls {
+  position: absolute;
+  left: 420px;
+  top: 10px;
+}
+
+img {
+  border: 1px solid #000;
+}
+
+@font-face {
+  font-family: 'romance';
+  src: url('../fonts/Romance_novel.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Champignon';
+  src: url('../fonts/Champignon.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}

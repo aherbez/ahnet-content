@@ -1,0 +1,85 @@
+<html>
+
+<head>
+
+<script type="text/javascript">
+
+function submitForm()
+{
+	var data = document.getElementById('data').value;
+	// alert('submitting form!\n' + data);
+	
+	var params = "title=" + data;
+	//alert(params);
+	
+	var url = 'ex_form2.php';
+	
+	var requestObj = new XMLHttpRequest();
+	
+	requestObj.open('POST',url,true);
+	requestObj.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+	requestObj.setRequestHeader("Content-length",params.length);
+	
+	
+	requestObj.onreadystatechange = function()
+	{
+		if (requestObj.readyState == 4)
+		{
+			//alert(requestObj.responseText);
+			
+			var result = eval('(' + requestObj.responseText + ')');
+			//alert(result.status);
+			var message = '';
+			
+			if (result.status == 1)
+			{
+				message = 'SUCCESS!!!';
+			}
+			else
+			{
+				if (result.reason == 1)
+				{
+					message = 'Wrong answer!';
+				}
+				else if (result.reason == 2)
+				{
+					message = 'No input!';
+				}
+			}
+			//alert(message);
+			document.getElementById('result').innerHTML = message;
+			
+		}
+	
+	};
+	
+	requestObj.send(params);
+	
+	//alert(requestObj);
+}
+
+
+
+</script>
+
+</head>
+
+
+<body>
+
+<form method="POST" action="">
+
+<input type="text" name="title" id="data" /><br />
+
+<input type="button" value="submit" onclick="submitForm()" />
+</form>
+
+<div id="result" >
+Nothing yet
+</div>
+
+
+
+
+</body>
+</html>

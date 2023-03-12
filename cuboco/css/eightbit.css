@@ -1,0 +1,27 @@
+@font-face {
+  font-family: 'hvbo';
+  src: url('../fonts/Helvetica_Italic.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'hvbld';
+  src: url('../fonts/Helvetica_Bold.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'pretendo';
+  src: url('../fonts/Pretendo.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'BenguiatBTC-med';
+  src: url('../fonts/BenguiatStdMedium.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}

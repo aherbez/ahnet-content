@@ -1,0 +1,59 @@
+<?php
+
+session_start();
+
+$success = true;
+
+if (!empty($_SESSION['userID']))
+{
+	$userID = $_SESSION['userID'];
+
+	// $sql = "SELECT * FROM user_item WHERE userID = $userID";
+	// $sql = "SELECT * FROM items WHERE id = 119";
+	
+	$sql = "SELECT i.* FROM user_item ui, items i WHERE
+			i.id = ui.itemID AND
+			ui.userID = $userID";
+			
+	// this water bottle 's weight  English
+	// waterBottle.weight
+	
+	$result = mysql_query($sql);
+	
+	$items = [];
+	
+	while ($item = mysql_fetch_assoc($result))
+	{
+		array_push($items,$item);
+	}
+
+}
+else
+{
+	$success = false;
+	echo('no user!');
+}
+
+?>
+
+<html>
+<head>
+</head>
+
+<body>
+
+<h1>Items for you!</h1>
+
+<?php
+
+for ($i=0; $i<count($items); $i++)
+{
+	echo($items[$i]['name'] . "<br />");
+}
+
+
+?>
+
+
+</body>
+</html>

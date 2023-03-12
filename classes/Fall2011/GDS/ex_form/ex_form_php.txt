@@ -1,0 +1,12 @@
+<?php
+
+// echo('Hello from server!');
+echo('<pre>');
+
+print_r($_POST);
+
+echo('</pre>');
+
+
+
+?>

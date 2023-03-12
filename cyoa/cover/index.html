@@ -1,0 +1,162 @@
+<html>
+
+    <head>
+
+        <link rel="stylesheet" href="css/style.css" />
+    </head>
+
+    <body>
+        <div id="left">
+            <div id="pageWrapper">
+                <canvas id="page" width="980" height="1600"></canvas>
+            
+                <img id="outputImg" width="500"  />
+            </div>
+        </div>
+
+
+        <div id="right">
+            
+            <div class="uiControl">
+                <h2>Image</h2>
+                <span>
+                Recommended resolution: 860x1100, or any multiple of that. <br />
+                Smaller images will be scaleed up, larger images scaled down.<br />
+                Images with alternative aspect ratios will be cropped.
+                </span>
+                <br />
+                <input id="fileBtn" type="file" value="Add Image" onchange="handleFile(event)"/>
+            
+            
+            </div>
+
+            <div class="uiControl">
+                <span class="label">Outer Border Color</span>
+                <span class="uiInput">
+                    <input type="color" id="colorOuterEl" onchange="updateText()"
+                        value="#61abeb" />
+                </span>
+            </div>
+
+            <div class="uiControl">
+                <span class="label">Inner Border Color</span>
+                <span class="uiInput">
+                    <input type="color" id="colorInnerEl" value="#637836" onchange="updateText()" />
+                </span>
+            </div>
+
+            <hr />
+
+            <h2>Text</h2>
+            <div class="uiControl">
+                <span class="label">Capsule Text</span>
+                <span class="uiInput">
+                    <input type="text" id="capsuleEl" size="70" 
+                        onchange="updateText()" value="CHOOSE YOUR OWN ADVENTURE #1" />
+                </span>
+            </div>
+
+            <div class="uiControl">
+                <span class="label">Under-capsule</span>
+                <span class="uiInput">
+                    <input type="text" id="underCapsuleEl" size="70" 
+                        onchange="updateText()" 
+                        value="YOU'RE THE STAR OF THE STORY! CHOOSE FROM 40 POSSIBLE ENDINGS"/>
+                </span>
+            </div>
+
+            <div class="uiControl">
+                <span class="label">Title</span>
+                <span class="uiInput">
+                    <input type="text" id="titleEl" size="70" 
+                        onchange="updateText()" value="THE CAVE OF TIME"/>
+                </span>
+            </div>
+
+            <div class="uiControl">
+                <span class="label">Author Text</span>
+                <span class="uiInput">
+                    <input type="text" id="authorEl" size="70" 
+                        onchange="updateText()" value="BY EDWARD PACKARD" />
+                </span>
+            </div>
+
+            <div class="uiControl">
+                <span class="label">Illustrator Text</span>
+                <span class="uiInput">
+                    <input type="text" id="illustratorEl" size="70" 
+                        onchange="updateText()" value="ILLUSTRATED BY PAUL GRANGER" />
+                </span>
+            </div>
+            
+            <!--
+            <div class="uiControl">
+                <h2>Main text</h2>
+                <textarea id="mainTextEl" onchange="updateText()" rows="10" columns="200">Enter text here</textarea>
+            </div>
+
+            <br />
+
+            <h2>Options</h2>
+            <span>If you clear out the options, "The End" will be displayed instead</span>
+            <br /><br />
+            <div class="uiControl">
+                    <span class="label">Page Number</span>
+                    <span class="uiInput">
+                        <input type="text" id="pageNumEl" onchange="updateText()" value="1" />
+                    </span>
+                </div>
+
+            <div class="uiControl">
+                <span class="label">Option 1</span>
+                <span class="uiInput">
+                    <input type="text" id="opt-1" size="70" onchange="updateText()" value="Option one" />
+                    page: <input type="text" id="pg-1" size="4" onchange="updateText()" />
+                </span>
+            </div>
+            
+            <div class="uiControl">
+                <span class="label">Option 2</span>
+                <span class="uiInput">
+                    <input type="text" id="opt-2" size="70" onchange="updateText()" />
+                    page:
+                    <input type="text" id="pg-2" size="4" onchange="updateText()" />
+                </span>
+            </div>
+            
+            <div class="uiControl">
+                <span class="label">Option 3</span>
+                <span class="uiInput">
+                    <input type="text" id="opt-3" size="70" onchange="updateText()" />
+                    page: <input type="text" id="pg-3" size="4" onchange="updateText()" />
+                </span>
+            </div>
+
+
+            <div class="uiControl">
+                <span class="label">Option 4</span>
+                <span class="uiInput">
+                    <input type="text" id="opt-4" size="70" onchange="updateText()" />
+                    page: <input type="text" id="pg-4" size="4" onchange="updateText()" />
+                </span>
+            </div>            
+
+            <div class="uiControl">
+                    <span class="label">Name / Personal note</span>
+                    <span class="uiInput">
+                        <input type="text" id="noteEl" size="70" onchange="updateText()" />
+                    </span>
+                </div>   
+
+            <div class="uiControl">
+                <h2>Output</h2>
+                To finish off, right-click on the page and select "Save Image As...".
+
+            </div>
+            -->
+        </div>
+
+
+        <script type="text/javascript" src="js/main.js"></script>
+    </body>
+</html>

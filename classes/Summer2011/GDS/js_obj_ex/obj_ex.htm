@@ -1,0 +1,36 @@
+<html>
+
+<head>
+
+<script type="text/javascript" src="DataPoint.js"></script>
+<script type="text/javascript" src="Map.js"></script>
+<script type="text/javascript">
+
+// the data is broken up into multiple lines for readability
+// the \ at the end is to escape the newline character 
+var data = '[{"age":1,"value":1000,"state":2,"year":2011},\
+				{"age":1,"value":500,"state":2,"year":2010},\
+				{"age":1,"value":500,"state":1,"year":2010},\
+				{"age":1,"value":700,"state":1,"year":2011}\
+				]';
+				
+function init()
+{
+	var theMap = Map(document.getElementById('map'));
+	theMap.setData(data);
+	theMap.setYear(2011);
+}
+
+</script>
+
+
+</head>
+
+
+<body onload="init()">
+
+<canvas id="map" width="904" height="593"></canvas>
+
+
+</body>
+</html>

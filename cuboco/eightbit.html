@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="icon" href="img/cuboco.ico" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/eightbit.css" />
+  </head>
+  <body>
+
+    <img id="output" width="400" />
+
+    <div id="controls">
+    </div>
+
+    <script src="js/imggen.js"></script>
+    <script src="js/eightbit.js"></script>
+    <script type="text/javascript">
+
+      let imgGen = new EightbitGamebox("output", "controls", {
+        width: 800,
+        height: 1140
+      });
+
+      imgGen.data = {
+        mainText: 'main text',
+        logoText: 'logo text',
+        secondText: 'second text',
+        sealText: 'seal text',
+        sealColor: "#bc7614",
+        noteText: 'hello note',
+        logoText: 'Cuboco'
+      };
+
+      /*
+      let imgGen = new RoleplayBook("output", "controls", {
+        width: 1000,
+        height: 1200
+      });
+
+      imgGen.data = {
+        bannerTxt: ['FOR','DUNGEONS & DRAGONS', 'EXPERT SET'],
+        cornerTxt: 'X2',
+        topText: 'Dungeon Module X2',
+        moduleTitle: ['Castle Amber',"(Chateau d' Amberville)"],
+        authorText: 'by Tom Moldvay',
+        subtitleText: 'AN ADVENTURE FOR CHARACTERS LEVELS 3-6',
+        descText: "apophenia j-pop jeans silent footage Kowloon San Francisco chrome Legba neon. rifle smart- nodal point meta- network cardboard pre- modem shoes pistol. ablative gang girl realism cartel network 3D-printed systemic uplink nodality. Tokyo girl sign futurity jeans human drone courier A.I. neon. wristwatch grenade range-rover shrine concrete pen bicycle dome towards j-pop. into spook -ware tower rain shrine free-market construct denim boy. semiotics corrupted table into tower table boy corrupted nodality industrial grade. realism beef noodles construct savant assault rifle disposable vinyl realism 8-bit. A.I. lights network market warehouse dead media sub-orbital engine decay. sub-orbital garage fluidity faded crypto- cardboard courier alcohol math- claymore mine."
+      };
+      */
+
+    </script>
+
+  </body>
+</html>

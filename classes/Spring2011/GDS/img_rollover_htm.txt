@@ -1,0 +1,29 @@
+<html>
+
+<head>
+
+<script type="text/javascript">
+
+function mouseover()
+{
+	document.getElementById('button1').src = 'button_over.png';
+}
+
+function mouseout()
+{
+	document.getElementById('button1').src = 'button.png';
+}
+
+</script>
+
+</head>
+
+
+<body>
+
+<img src="button.png" id="button1" 
+	onmouseover="mouseover" onmouseout="mouseout" />
+
+
+</body>
+</html>

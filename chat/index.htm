@@ -1,0 +1,254 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+
+<style type='text/css'>
+body{
+	font-family: arial, sans;
+}
+
+div#output{
+	border: 1px solid #000;
+	width: 100%;
+	height: 30px;
+	font-family: courier, serif;
+	display: none;
+}
+
+div#history{
+	border: 1px solid #000;
+	width: 80%;
+	padding: 5px;
+	height: 200px;
+	overflow: hidden;
+}
+
+div#entry{
+	border: 1px solid #000;
+	width: 80%;
+	padding: 5px;
+	height: 20px;
+}
+
+div#feedback{
+	color: #888;
+	height: 20px;
+
+}
+
+div#inner_history{
+	position: relative;
+	top: 0;
+}
+
+</style>
+
+<SCRIPT type='text/javascript'>
+CHAR1 = 0;
+CHAR2 = 1;
+
+Current = CHAR1;
+State   = CHAR1;
+
+var Lines = Array();
+Lines[CHAR1] = Array();
+Lines[CHAR2] = Array();
+
+Lines[CHAR1][0] = 'Lorem ipsum dolor sit amet';
+Lines[CHAR1][1] = 'consectetur adipiscing elit';
+Lines[CHAR1][2] = 'Etiam pharetra, nibh vitae dignissim pellentesque';
+Lines[CHAR1][3] = 'lacus sapien';
+Lines[CHAR1][4] = 'bibendum nulla';
+Lines[CHAR1][5] = 'id sollicitudin';
+Lines[CHAR1][6] = 'ligula lacus eu nibh.';
+Lines[CHAR1][7] = 'Curabitur felis ligula,';
+Lines[CHAR1][8] = 'congue in lobortis eu, vestibulum nec urna.';
+Lines[CHAR1][9] = 'Mauris dictum pharetra aliquam.';
+
+Lines[CHAR2][0] = 'Suspendisse at est';
+Lines[CHAR2][1] = 'non leo aliquet consequat.';
+Lines[CHAR2][2] = 'Suspendisse quis';
+Lines[CHAR2][3] = 'libero vitae felis';
+Lines[CHAR2][4] = 'facilisis fermentum.';
+Lines[CHAR2][5] = 'Proin et lectus';
+Lines[CHAR2][6] = 'at lorem';
+Lines[CHAR2][7] = 'sollicitudin vehicula';
+Lines[CHAR2][8] = 'sed sed justo.';
+Lines[CHAR2][9] = 'Phasellus vel ligula ante.';
+
+var Char1 = 0;
+var Char2 = 0;
+
+var CharEntry1 = '';
+var CharEntry2 = '';
+
+var CurrLines = Array();
+CurrLines[CHAR1] = 0;
+CurrLines[CHAR2] = 0;
+
+var NextLine = Array();
+NextLine[CHAR1] = '';
+NextLine[CHAR2] = '';
+
+var Styles = Array();
+Styles[CHAR1] = '<span style="color: #f00">';
+Styles[CHAR2] = '<span style="color: #00f">';
+
+var Names = Array();
+Names[CHAR1] = 'rusty_pixel';
+Names[CHAR2] = 'indigoNoise';
+
+var currDots = 0;
+var historyNumLines = 0;
+
+function pr(text)
+{
+	document.getElementById('output').innerHTML = text;
+}
+
+function out(text)
+{
+	document.getElementById('feedback').innerHTML = text;
+}
+
+function formatHeading(char)
+{
+	var d = new Date();
+	var timestamp = '';
+	timestamp += d.getHours();
+	timestamp += ':';
+	var min = d.getMinutes();
+	if (min < 10) min = '0' + min;
+	timestamp += min;
+	timestamp += ':';
+	var sec = d.getSeconds();
+	if (sec < 10) sec = '0' + sec;
+	timestamp += sec;
+	var heading = '[';
+	heading += timestamp;
+	heading += ' ' + Names[char];
+	heading += '] ';
+	return heading;
+}
+
+function init()
+{
+	pr('started');
+      	State = CHAR1;
+	CurrLines[CHAR1] = 0;
+	CurrLines[CHAR2] = 0;
+	currDots = 0;
+       	setTimeout('update()',500);
+}
+
+function addHistory(text,char)
+{
+	var current = document.getElementById('inner_history').innerHTML;
+	var newtext = '';
+	newtext += Styles[char];
+	newtext += formatHeading(char);
+	newtext += text;
+	newtext += '</span>';
+	newtext += '<br/>';
+	current += newtext;
+	document.getElementById('inner_history').innerHTML = current;
+	historyNumLines++;
+		
+	// check to see if text should move up
+	var test_ht = document.getElementById('history').style.height;
+	pr(test_ht);
+	if (historyNumLines*20 > 200) 
+	{
+		var newtop = (historyNumLines*20 - 200);
+		newtop *= -1;
+		document.getElementById('inner_history').style.top = newtop;
+	}
+}
+
+function update()
+{
+       	if (State == CHAR1)
+       	{
+               	if (Char1 < Lines[CHAR1].length)
+		if (NextLine[CHAR1].length < Lines[CHAR1][CurrLines[CHAR1]].length)
+               	{
+                       	//currtext += Lines[CHAR1][Char1] + '<br/>';
+			var target = NextLine[CHAR1].length;
+               		NextLine[CHAR1] += Lines[CHAR1][CurrLines[CHAR1]].substring(target,(target+1));	 
+			var typing_text = Names[CHAR1] + ' is typing';
+			for (i=0;i<currDots;i++)
+			{
+				typing_text += '.';
+			}
+			out(typing_text);
+			currDots++;
+			if (currDots > 3) currDots = 0;
+		}
+		else
+		{
+			out('');
+                 	addHistory(NextLine[CHAR1],CHAR1);
+			NextLine[CHAR1] = '';
+			CurrLines[CHAR1]++;
+			State = CHAR2;
+		}
+       	}
+       	setTimeout('update()',100);
+}
+
+function processKey(event)
+{
+	if (State == CHAR2)
+	{
+		pr('added char');
+		if (NextLine[CHAR2].length < Lines[CHAR2][CurrLines[CHAR2]].length)
+		{
+			var target = NextLine[CHAR2].length;
+			NextLine[CHAR2] += Lines[CHAR2][CurrLines[CHAR2]].substring(target,target+1);
+			document.getElementById('entry').innerHTML = NextLine[CHAR2];
+		}
+		else
+		{
+			document.getElementById('entry').innerHTML = '';
+			addHistory(NextLine[CHAR2],CHAR2);
+			CurrLines[CHAR2]++;
+			NextLine[CHAR2] = '';
+			State = CHAR1;
+		}
+	}
+}
+
+</SCRIPT>
+      
+</HEAD>
+
+<BODY onload="init()" onKeyDown="processKey(event)">
+
+<h1>Chat Fiction</h1>
+
+<table style="width: 100%">
+<tr>
+<td width="40%" valign="top">
+This is a first-pass example of a system to present fiction as a series of IM interactions. The entire text is predetermined and stored in a couple of javascript arrays. 
+<br /><br />
+The text advances either through time (in the case of the non-player character), or by the player typing. During the player's turn, each keypress adds a character to the entry text. Once the player has pressed a number of keys equal to that line of dialog, the text is entered into the chat history and control passes back to the NPC. 
+
+<br />
+</td>
+<td valign="top">
+<DIV ID="output">
+	foo
+</DIV>
+
+<BR> 
+
+<DIV ID="history">
+	<DIV ID="inner_history"></DIV>
+</DIV>
+
+<DIV ID="feedback"></DIV>
+<DIV ID="entry"></DIV>
+</tr>
+</table>
+</BODY>
+</HTML>

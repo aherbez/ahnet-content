@@ -1,0 +1,70 @@
+canvas {
+  border: 1px solid #000;
+  position: absolute;
+  left: -1000px;
+}
+
+body {
+    font-family: Helvetica, Arial, sans;
+}
+
+#outputImg {
+}
+
+h2 {
+    margin-bottom: 3px;
+}
+
+#page {
+    position: absolute;
+    top: 10px;
+    left: -7000px;
+}
+
+#left {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+}
+
+#right {
+    position: absolute;
+    left: 650px;
+    top: 10px;
+}
+
+#mainTextEl {
+    width: 500px;
+}
+
+#preload {
+  font-family: 'hvbo';
+}
+
+@font-face {
+    font-family: 'hvbo';
+    src: url('../fonts/Helvetica_Italic.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'hvbld';
+    src: url('../fonts/Helvetica_Bold.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'pretendo';
+    src: url('../fonts/Pretendo.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'BenguiatBTC-med';
+    src: url('../fonts/BenguiatStdMedium.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}

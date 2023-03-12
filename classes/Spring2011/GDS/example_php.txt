@@ -1,0 +1,63 @@
+<?php
+
+echo('Hi! from PHP');
+
+/*
+$myVar = 23;
+
+echo('<pre>');
+print_r($_POST);
+echo('</pre>');
+*/
+
+if (!empty($_POST['title']) && !empty($_POST['desc']))
+{
+	echo('<pre>');
+	print_r($_POST);
+	echo('</pre>');
+	
+	// connect to your database using mysql_connect
+	
+	// select your database using mysql_select_db
+	
+	// craft a query, something like:
+	// $query = 'insert into table_name () values ()'
+	
+	// run the query using mysql_query
+	
+	// check the result to make sure that it worked
+	
+	// if it worked, print a confirmation using echo
+	
+	// otherwise, display the corresponding error using mysql_error
+	
+}
+else
+{
+	echo('no input yet!');
+}
+
+
+
+?>
+
+<html>
+
+<head>
+<title>Example!</title>
+</head>
+
+<body>
+
+<form action="example.php" method="POST">
+Title: <input name="title" type="text" />
+<br />
+Desc: <textarea name="desc" ></textarea>
+<br />
+<input type="submit" value="enter!" />
+
+</form>
+
+</body>
+
+</html>

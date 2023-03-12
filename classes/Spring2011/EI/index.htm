@@ -1,0 +1,192 @@
+<html>
+
+<head>
+<title>Experimental Interactivity: Spring 2011</title>
+
+
+<link rel="stylesheet" href="classpage.css" />
+<script type="text/javascript">
+
+var maxmod = 14;
+
+function init()
+{
+
+	var mod = '';
+	for (i=1;i<16;i++)
+	{
+		mod = 'm'+i;
+		
+		if (i <= maxmod)
+		{
+			document.getElementById(mod).className = "mod-active";
+		}
+		else
+		{
+			var m = document.getElementById(mod);
+			m.className = "mod-notyet";
+			m.childNodes[1].className = "mod-title-notyet";
+			// alert(m.childNodes[1].innerHTML);
+		}
+	}
+}
+
+
+</script>
+
+</head>
+
+<body onload="init()">
+
+<h1>Experimental Interactivity</h1>
+
+<p>
+Look here to find a handy-dandy reference of files for the class. 
+</p>
+
+
+<h2>Syllabus</h2>
+
+<div class="mod" id="m1">
+	<div class="mod_title">Module 1: Introduction to Classes and the Document Class
+</div>
+	<div class="mod_content">
+		Using class files and object oriented programming, using the document class, and creating simple classes.
+			
+		<a href="class01/" class="class_link">Class files</a>	
+			
+	</div>
+</div>
+
+<div class="mod" id="m2">
+	<div class="mod_title">Module 2: Event Listeners and Class Hierarchies</div>
+	<div class="mod_content">
+		In this class we'll be looking at handling input through event listeners- how they work, and how to generate (and respond to) custom events.
+		We'll also be looking at creating hierarchies of classes. 
+		
+		
+		<a href="class02/" class="class_link">Class files</a>	
+
+	</div>
+</div>
+		
+<div class="mod" id="m3">
+	<div class="mod_title">Module 3: More on class hierarchies</div>
+	<div class="mod_content">
+		In this class, we'll be continuing with the example from last week, and talking a bit about singleton classes and the drawing API.
+		<a href="class03/" class="class_link">Class files</a>	
+	</div>
+</div>
+
+<div class="mod" id="m4">
+	<div class="mod_title">Module 4: Workshop / Project discussions</div>
+	<div class="mod_content">
+		In this class, we took some time to let me touch base with each student about thier project and provide 1-on-1 guidance.
+	</div>
+</div>
+
+
+<div class="mod" id="m5">
+	<div class="mod_title">Module 5: Loading External Media</div>
+	<div class="mod_content">
+		In this class, we'll look at the workflow for loading external data into Flash- finding data online, manipulating it with PHP, generating XML, and loading the result to drive a simple infographic.
+		
+		
+		<a href="class05/" class="class_link">Class files</a>	
+	</div>
+</div>
+
+<div class="mod" id="m6">
+	<div class="mod_title">Module 6: Transitions and External Media</div>
+	<div class="mod_content">
+	</div>
+</div>
+
+<div class="mod" id="m7">
+	<div class="mod_title">Module 7: Midterm presentations</div>
+	<div class="mod_content">
+		
+
+		Midterm Grading
+
+		Lecture/Demo:
+		Intro to 3d Classes and concepts
+		Activity:
+		In-class create 3d example. Critique project #2
+		Assignment
+		Begin Project #3: concept and design
+	</div>
+</div>
+
+<div class="mod" id="m8">
+	<div class="mod_title">Cancelled due to illness</div>
+	<div class="mod_content">
+		Sorry to have been ill- we'll be scheduling a makeup class soon.
+	</div>
+</div>
+
+<div class="mod" id="m9">
+	<div class="mod_title">Module 9: Image upload with Flash and PHP</div>
+	<div class="mod_content">
+		In this class, we'll be looking at working with uploaded images in Flash using PHP. 
+
+		<a href="class09/" class="class_link">Class files</a>
+	</div>
+</div>
+
+<div class="mod" id="m10">
+	<div class="mod_title">Module 10: Image searching with MySQL, PHP, and Flash</div>
+	<div class="mod_content">
+		In this week's class, we'll build on last weeks example to make a searchable image gallery.
+
+		<a href="class10/" class="class_link">Class files</a>
+	</div>
+</div>
+
+<div class="mod" id="m11">
+	<div class="mod_title">Module 11: Flash image gallery part 3: downloading images</div>
+	<div class="mod_content">
+		In this class, we finished up the image gallery example by adding the ability to search by tag and display the images in Flash. All the files are the same as those for class 10- we just ran out of time in week 10's class to cover it all. 
+
+		<a href="class10/" class="class_link">Class files</a>
+	</div>
+</div>
+
+<div class="mod" id="m12">
+	<div class="mod_title">Module 12: Introduction to the Facebook API</div>
+	<div class="mod_content">
+		In this week's class, we'll be looking at how to get at social network data using the Facebook APIs and PHP. 
+		
+		<a href="class12/" class="class_link">Class files</a>
+
+	</div>
+</div>
+
+<div class="mod" id="m13">
+	<div class="mod_title">Module 13: Creating interactive applications with the Canvas tag</div>
+	<div class="mod_conent">
+		In this class, we'll look at how to create rich interactive applications using HTML5 and javascript.
+		
+		<a href="class13/" class="class_link">Class files</a>
+	</div>
+</div>
+
+<div class="mod" id="m14">
+	<div class="mod_title">Module 14: Finals prep</div>
+	<div class="mod_conent">
+	
+		<a href="class14/" class="class_link">Class files</a>
+	</div>
+</div>
+
+<div class="mod" id="m15">
+	<div class="mod_title">Module 15: Finals!!!</div>
+	<div class="mod_content">
+	Final Project Presentations! Each student will present their final project and recieve feedback from myself and thier fellow students.
+	</div>
+</div>
+
+
+</body>
+
+</html>

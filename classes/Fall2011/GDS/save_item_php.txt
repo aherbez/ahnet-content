@@ -1,0 +1,70 @@
+<?php
+
+/* 
+save_item.php
+
+Saves a connection between a given user and a given item
+
+save_item.php?itemID=23
+
+*/
+
+// what item?
+if (empty($_GET['itemID']))
+{
+	echo("{s:0,r:'no item'}");
+	return;
+}
+
+// if we're here, we have a valid $_GET['itemID']
+$itemID = intval($_GET['itemID']);
+
+session_start();
+
+if (empty($_SESSION['userID']))
+{
+	echo("{s:0,r:'no user'}");
+	return;
+}
+
+$userID = $_SESSION['userID'];
+
+echo("SAVING LINK: $userID $itemID<br />");
+
+/*
+// connect to the DB 
+mysql_connect($db_host, $db_user, $db_pass);
+mysql_select_db($db_name);
+
+*/
+
+$sql = "SELECT * from user_item WHERE userID = $userID AND itemID = $itemID";
+// $sql = "SELECT * from user_item WHERE userID = 5 AND itemID = 23";
+
+
+// is there already an entry for this combination
+
+$result = mysql_query($sql);
+
+$found = mysql_num_rows($result);
+
+if ($found)
+{
+	echo("{s:0,r:'already connected'}");
+}
+else
+{
+	$sql = "INSERT INTO user_item (userID,itemID) VALUES ($userID,$itemID)";
+	$result = mysql_query($sql);
+	
+	if ($result)
+	{
+		echo('{s:1}');
+	}
+	else
+	{
+		echo("{s:0,r:'MySQL error'}");
+	}
+}	
+
+?>

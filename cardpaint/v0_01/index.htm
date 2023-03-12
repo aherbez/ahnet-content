@@ -1,0 +1,63 @@
+<html>
+<head>
+<title>
+</title>
+
+<style type="text/css">
+
+body
+{
+	font-family: arial, sans;
+}
+
+canvas {
+	border: 1px solid #000;
+}
+
+div#offscreen
+{
+	position: absolute;
+	left: -10000;
+}
+
+div#desc
+{
+	position: absolute;
+	left: 420px;
+	top: 10px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<canvas id="canvas4" width="400" height="400"></canvas>
+
+<div id="desc">
+<h2>Cardboard Paint v0.1</h1>
+This is a small demo using javascript composite modes to allow the user to draw with 3d cardboard. 
+Cardboard is simulated by layering two images with a slight offset- one for the interior of the cardboard, and one for the exterior. 
+<br /><br />
+Click and drag the mouse to draw. Spacebar will toggle between drawing and erasing. 
+
+<br /><br />
+This is the beginning of what will hopefully grow to be a more fully-featured app, once I've cleaned up the code and added a few more features. Watch this space!
+
+
+</div>
+
+
+<div id="offscreen" display="hidden"></div>
+
+<!--
+<canvas id="canvas1" width="200" height="200"></canvas>
+<canvas id="canvas2" width="200" height="200"></canvas>
+<canvas id="canvas3" width="200" height="200"></canvas>
+<canvas id="canvas5" width="200" height="200"></canvas>
+-->
+<script src="sandwich.js"></script>
+
+</body>
+</html>

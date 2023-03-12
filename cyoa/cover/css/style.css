@@ -1,0 +1,77 @@
+body {
+    font-family: BenguiatBTC-book;
+}
+
+#outputImg {
+    border: 1px solid #000;
+}
+
+h2 {
+    margin-bottom: 3px;
+}
+
+#page {
+    position: absolute;
+    top: 10px;
+    left: -7000px;
+}
+
+#left {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+}
+
+#right {
+    position: absolute;
+    left: 550px;
+    top: 10px;
+}
+
+#mainTextEl {
+    width: 500px;
+}
+
+@font-face {
+    font-family: 'BenguiatBTC-med';
+    src: url('../fonts/BenguiatStdMedium.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'BenguiatBTC-book';
+    src: url('../fonts/BenguiatStdBook.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'BenguiatBTC-bookItalic';
+    src: url('../fonts/BenguiatStdBookItalic.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'BenguiatBTC-bold';
+    src: url('../fonts/BenguiatBold.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'BenguiatBTC-boldItalic';
+    src: url('../fonts/BenguiatStdBoldItalic.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'BenguiatBTC-medItalic';
+    src: url('../fonts/BenguiatStdMediumItalic.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+

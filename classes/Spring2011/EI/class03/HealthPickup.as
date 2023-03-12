@@ -1,0 +1,1 @@
+﻿package  {	import GameObject;		public class HealthPickup extends PowerUp	{		protected var amount:Number;				public function HealthPickup(p:Player) 		{			// constructor code			super(p);			this.amount = 10;		}		override protected function collideWithPlayer()		{			this.playerRef.damage(-this.amount);			this.myState = STATE_DEAD;		}	}	}

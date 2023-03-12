@@ -1,0 +1,87 @@
+<html>
+
+<head>
+
+
+<style type="text/css">
+
+canvas
+{
+	border: 1px solid #000;
+}
+</style>
+
+<script type="text/javascript">
+
+var ctx;
+var CELL_WIDTH = 50;
+var CELL_COUNT = 500/CELL_WIDTH;
+
+var cells;
+
+function init()
+{
+	var canvasEL = document.getElementById('stage');
+	
+	canvasEL.onmousedown = toggleCell;
+	ctx = canvasEL.getContext('2d');
+	
+	
+	
+	cells = new Array();
+	for (var i=0 ; i<CELL_COUNT; i++)
+	{
+		cells[i] = new Array();
+		for (var j=0; j<CELL_COUNT; j++)
+		{
+			cells[i][j] = false;
+		}
+	}
+	
+	cells[0][0] = true;
+	cells[1][1] = true;
+	setInterval(render,30);
+}
+
+function toggleCell(e)
+{
+	var x = e.x - 10;
+	var y = e.y - 10;
+	
+	var i = Math.floor(e.y / CELL_WIDTH);	
+	var j = Math.floor(e.x / CELL_WIDTH);
+	
+	cells[i][j] = !cells[i][j];
+}
+
+function render()
+{
+	ctx.clearRect(0,0,500,500);
+	
+	for (var i=0 ; i<CELL_COUNT; i++)
+	{
+		for (var j=0; j<CELL_COUNT; j++)
+		{
+			if(cells[i][j])
+			{
+				ctx.fillRect(j*CELL_WIDTH,i*CELL_WIDTH,CELL_WIDTH,CELL_WIDTH);
+			}
+		}
+	}	
+}
+
+</script>
+
+</head>
+
+
+<body onload="init()">
+
+<canvas id="stage" width="500" height="500">
+</canvas>
+
+
+
+</body>
+
+</html>

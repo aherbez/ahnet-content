@@ -1,0 +1,269 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+    "http://www.w3.org/TR/html4/strict.dtd"
+    >
+<html lang="en">
+<head>
+    <style type="text/css">
+        body {
+            background: #fff;
+            font-family: arial, sans;
+        }
+        
+        canvas {
+            border: 1px solid #000;
+            background: #fff;
+        }
+        
+        div#output {
+            background: #fff;
+            border: solid 1px #000;
+            width: 100%;
+            height: 40px;
+            display: none;
+        }
+        
+        div#scoreDisp {
+            background: #fff;
+            border: 1px solid #000;
+            width: 550px;
+            height: 20px;
+        }
+    </style>
+    
+    <script type="text/javascript">
+    
+    var canvas;
+    var ctx;
+    var xpos = 0;
+    var fps = 1000/12;
+    var shipPos = 275;
+    var Images = new Array();
+    var playerpos_x = 0;
+    var playerpos_y = 0;
+    var playerSpeed = 10;
+    var playerDir = 0;
+    var monster;
+    var background;
+    var score = 0;
+    var vel_x = 0;
+    var vel_y = 0;
+    var player_accel = 0.1;
+    var x_dir = 0;
+    var y_dir = 0;
+
+    document.onkeyup = keyUp;
+    document.onkeydown = keyDown;
+    
+    
+    function LoadImages()
+    {
+        background = new Image();
+        background.src = 'concrete.jpg';
+        
+        for (var i=0;i<5;i++)
+        {
+            Images[i] = new Image();    
+        }
+        
+        Images[0].src = 'MIB_48.png';
+        Images[1].src = 'monster01.png';
+        Images[2].src = 'monster02.png';
+        Images[3].src = 'monster03.png';
+        
+    }
+    
+    function newMonster()
+    {
+        var m = new Object();
+        m.image = Math.floor(Math.random()*3)+1;
+        // output(m.image);
+        
+        m.pos_x = Math.random() * (550-48);
+        m.pos_y = Math.random() * (400-48);
+        
+        return m;
+    }
+    
+    function init()
+    {
+        // alert('starting');
+        canvas = document.getElementById('stage');
+        ctx = canvas.getContext('2d');
+        
+        LoadImages();
+        monster = newMonster();
+        
+        document.getElementById('scoreDisp').innerHTML = 'aliens: ' + score;
+
+        setTimeout(render,fps);
+    }
+    
+    function output(txt)
+    {
+        document.getElementById('output').innerHTML = txt;
+    }
+    
+    function drawMonster()
+    {
+        ctx.drawImage(Images[monster.image],monster.pos_x,monster.pos_y)
+    }
+    
+    function render()
+    {
+        updateGame();
+        
+        //ctx.clearRect(0,0,550,400);
+        ctx.drawImage(background,0,0);
+                  
+        drawMonster();
+        
+        ctx.drawImage(Images[0],playerpos_x,playerpos_y);
+        //xpos += 2;
+        
+        
+                
+        setTimeout(render,fps); 
+    }
+    
+    function caughtOne()
+    {
+        score += 1;
+        document.getElementById('scoreDisp').innerHTML = 'aliens: ' + score;
+    }
+    
+    function checkCollision()
+    {
+        var dif_x = Math.abs(playerpos_x - monster.pos_x);
+        var dif_y = Math.abs(playerpos_y - monster.pos_y);
+        
+        if (dif_x < 24 && dif_y < 24)
+        {
+            monster = newMonster();
+            caughtOne();
+        }
+        
+    }
+    
+    function updateGame()
+    {
+
+        if (x_dir != 0)
+        {
+            vel_x += (player_accel * x_dir);
+        }
+        else
+        {
+            vel_x = vel_x *0.8;
+        }
+        if (y_dir != 0)
+        {
+            vel_y += (player_accel * y_dir);
+        }
+        else
+        {
+            vel_y = vel_y * 0.8;
+        }
+
+        playerpos_x += vel_x;
+        playerpos_y += vel_y;
+        
+        if (playerpos_x < 0) {playerpos_x = 0; vel_x = 0;}
+        if (playerpos_x > (550-48)) {playerpos_x = (550-48); vel_x = 0;}
+        if (playerpos_y < 0) {playerpos_y = 0; vel_y = 0;}
+        if (playerpos_y > (400-48)) {playerpos_y = (400-48); vel_y = 0;}
+        
+        checkCollision();
+    }
+    
+    function keyUp(e)
+    {
+        var theKey;
+        
+        if (window.event)
+        {
+            theKey = window.event.keyCode;
+        }
+        else if (e)
+        {
+            theKey = e.which;
+        }
+        
+        if (theKey == 38 || theKey == 40)
+        {
+            y_dir = 0;
+        }
+        if (theKey == 37 || theKey == 39)
+        {
+            x_dir = 0;
+        }
+    }
+    
+    function keyDown(e)
+    {
+        var theKey;
+        
+        if (window.event)
+        {
+            theKey = window.event.keyCode;
+        }
+        else if (e)
+        {
+            theKey = e.which;
+        }
+        
+        output('key pressed ' + theKey);
+        
+        if (theKey == 38)
+        {
+            //playerpos_y -= playerSpeed;
+            //playerDir = 1;
+            y_dir = -1;
+            // vel_y -= player_accel;
+        }
+        else if (theKey == 40)
+        {
+            //playerpos_y += playerSpeed;
+            //playerDir = 3;
+            y_dir = 1;
+            //vel_y += player_accel;
+        }
+        else if (theKey == 37)
+        {
+            //playerpos_x -= playerSpeed;
+            //playerDir = 4;
+            x_dir = -1;
+            //vel_x -= player_accel;
+        }
+        else if (theKey == 39)
+        {
+            //playerpos_x += playerSpeed;
+            //playerDir = 2;
+            x_dir = 1;
+            //vel_x += player_accel;
+        }
+        
+        if (vel_x > playerSpeed) {vel_x = playerSpeed;}
+        if (vel_x < 0-playerSpeed) {vel_x = 0-playerSpeed;}
+        if (vel_y > playerSpeed) {vel_y = playerSpeed;}
+        if (vel_y < 0-playerSpeed) {vel_y = 0-playerSpeed;}
+    }
+    
+    </script>
+    
+    <title>canvas test 01</title>
+</head>
+<body onLoad="init()">    
+ 
+    <div >
+        Small experiment with using the canvas tag to create games. Use the arrow keys to control the Man In Black and capture aliens. I haven't implemented an image preloader yet, so if you're not seeing anything, try refreshing the page.
+    </div>
+    <br /><br />
+    <center>       
+    <div id="scoreDisp"> &nbsp </div>
+    <canvas width="550" height="400" id="stage">
+    </canvas>
+    
+    <div id="output" />
+    </center>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<html>
+<head>
+
+<style type="text/css">
+
+canvas
+{
+	border: 1px solid #000;
+}
+
+</style>
+
+<script type="text/javascript">
+
+var ctx;
+var cat;
+var fps;
+
+var catPos;
+var catDir;
+var catSpeed;
+
+function init()
+{
+	var theCanvas = document.getElementById('stage');
+	ctx = theCanvas.getContext('2d');
+	
+	cat = new Image();
+	cat.src = 'cat.gif';
+	
+	catPos = new Object();
+	catPos.x = 0;
+	catPos.y = 0;
+	
+	catDir = new Object();
+	catDir.x = 1;
+	catDir.y = 1;
+	
+	catSpeed = 5;
+	
+	// ctx.drawImage(cat,0,0);
+	fps = 1000/30;
+	
+	setInterval(update,fps);
+}
+
+function update()
+{
+	ctx.clearRect(0,0,550,400);
+	catPos.x += catSpeed * catDir.x;
+	catPos.y += catSpeed * catDir.y;
+	
+	if (catPos.x < 0 || catPos.x > 500)
+	{
+		catDir.x *= -1;
+	}
+	if (catPos.y < 0 || catPos.y > 360)
+	{
+		catDir.y *= -1;
+	}
+	
+	
+	ctx.drawImage(cat,catPos.x,catPos.y);
+}
+
+</script>
+
+
+</head>
+
+<body onload="init()">
+
+<canvas width="550" height="400" id="stage" >
+</canvas>
+
+
+</body>
+</html>

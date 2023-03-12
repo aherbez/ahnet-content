@@ -1,0 +1,73 @@
+<html>
+
+<head>
+
+<style type="text/css">
+
+	body {
+		background-image: url("background.jpg");
+	}
+
+	#stage {
+		position:absolute;
+		left: 50%;
+		margin-left: -300px;
+	}
+
+	#instructions {
+		position: absolute;
+		left: 10px;
+		top: 10px;
+		width: 300px;
+		border: 1px solid #000;
+		background-color: rgba(255, 255, 255, 0.85);
+		font-family:Arial, Helvetica, sans-serif;
+		border-radius: 10px;
+		padding: 10px;
+	}
+
+	#instructions h2 {
+		padding-top: 2px;
+		margin-top: 2px;
+		border-bottom: 1px solid #000;
+	}
+
+</style>
+
+</head>
+
+<body>
+
+	<div id="instructions">
+		<h2>How to play</h2>
+		<p>
+			In this game, one of the robots has done something terrible, and it's your job to find out who did it.
+		</p>
+
+		<p>
+			The robots will make various statements, but you have to be careful. Some of them are of the KNI-2000 line, and always tell the truth, but others are of the KNV-1000 line and always lie (faulty speech generation chips in that line). Any given robot will either <em>always</em> tell the truth, or will <em>always</em> lie.
+		</p>
+
+		<p><strong>Important!</strong> Whether a given robot tells the truth or not has nothing to do with their guilt or innocence- truth-tellers can be guilty, and lie-tellers can be innocent.</p>
+
+		<p>
+			To play, click on the "Get Next Clue" button, which will give you a new statement. Use the collected statements to determine who is lying, who is telling the truth, and (most importantly) who is guilty. When you think you know who did it, click on their portrait to accuse them.
+		</p>
+
+		<p>
+			Once you've guessed at a culprit, the actual guilty party will be revealed, as well as the liar / truth-teller nature of all the robots and their statements. Refresh the page to play again.
+		</p>
+	</div>
+
+	<canvas id="stage" width="600" height="800"></canvas>
+
+	<script type="text/javascript" src="js/bots.js"></script>
+	<script type="text/javascript" src="js/avatar.js"></script>
+	<script type="text/javascript" src="js/game.js"></script>
+	<script type="text/javascript" src="js/rl.js"></script>
+
+
+</body>
+
+
+</html>

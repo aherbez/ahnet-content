@@ -1,0 +1,60 @@
+body
+{
+	font-family: arial, sans;
+}
+
+embed
+{
+	clear: both;
+	border: 1px solid #000;
+}
+
+.mod-active
+{
+	color: #000;
+}
+
+.mod-notyet
+{
+	color: #ddd !important; 
+}
+
+.mod-title-notyet
+{
+	border-bottom: 1px solid #ddd;
+	margin-top: 20px;
+	font-weight: bold;
+}
+
+.mod_title
+{
+	border-bottom: 1px solid #000;
+	margin-top: 20px;
+	font-weight: bold;
+}
+
+.class_link
+{
+	border: 1px solid #000;
+	color: #ddd;
+	background: #444;
+	font-weight: bold;
+	text-decoration: none;
+	padding: 5px;
+	
+	margin-top: 20px;
+	
+	width: 100px;
+	
+	display: block;
+   
+    font-size: 14px;
+    color: white;
+    
+    background-color: #272727;
+    
+    border: 1px solid #666666;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5p
+}

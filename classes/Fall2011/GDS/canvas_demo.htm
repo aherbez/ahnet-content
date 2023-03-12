@@ -1,0 +1,116 @@
+<html>
+
+<head>
+<title>canvas demo</title>
+
+<style type="text/css">
+
+canvas
+{
+	border: 1px solid #000;
+}
+</style>
+
+<script type="text/javascript">
+
+var ctx;
+var theCat;
+var catPos;
+var skewAmount;
+
+function init()
+{
+	// sets up the canvas
+	var canvasEl = document.getElementById('stage');
+	ctx = canvasEl.getContext('2d');
+	
+	// set up the cat
+	theCat = new Image();
+	theCat.src = 'cat2.jpg';
+	catPos = new Object();
+	catPos.x = 0;
+	catPos.y = 0;
+	
+	skewAmount = 10;
+	setInterval(render,30);
+
+}
+
+// skew a given canvas in Y by a given angle
+function skew(context,angle)
+{
+	angle = angle * (2 * Math.PI / 360);	// convert from degrees to radians
+	var tan = Math.tan(angle);				// get the tangent for the angle
+	
+	// MATH!!! http://stackoverflow.com/questions/673216/skew-matrix-algorithm
+	/*
+	|a b 0 |
+	|c d 0 |
+	|e f 1 |
+	*/
+	context.transform(1,tan,0,1,0,0);
+	
+}
+
+// takes a 2d context in, and draws a polygon at 0,0
+function drawPoly(context)
+{
+  	var lingrad = ctx.createLinearGradient(0,0,0,150);
+    lingrad.addColorStop(0, '#00ABEB');
+    lingrad.addColorStop(0.5, '#fff');
+    lingrad.addColorStop(0.5, '#66CC00');
+    lingrad.addColorStop(1, '#fff');
+
+
+	context.fillStyle = lingrad;		// fill with white
+	context.beginPath();			// start a path
+	context.moveTo(0,0);			// move to the start point
+	context.lineTo(200,50);			// draw
+	context.lineTo(200,100);		
+	context.lineTo(0,100);
+	context.lineTo(0,0);
+	context.stroke();				// apply a stroke
+	context.fill();					// apply a fill
+}
+
+function render()
+{
+	ctx.clearRect(0,0,500,500);	// start off by clearing out the last frame
+	ctx.save();	// stores the default state kinda like a {
+	
+	ctx.scale(3,3);  // stretch the whole canvas
+	ctx.drawImage(theCat,catPos.x,catPos.y); // draw an image 
+	
+	ctx.restore();	// back to default (discard scale) (kinda like a })
+	
+	ctx.save();  // save the default state
+
+	ctx.translate(50,50);  	// move in a bit to draw the text bubble
+	drawPoly(ctx);			// call our custom polygon function 
+	ctx.fillStyle = '#000';	// switch back to black to draw text
+	skew(ctx,skewAmount);	// call out custom skew function
+	ctx.font = 'bold 25px sans-serif';	// set the font
+	ctx.fillText('HELLO WORLD',2,35);	// write some text
+
+	ctx.restore();			// undo changes to the canvas transform
+	// skewAmount += 1;	
+}
+
+
+</script>
+
+</head>
+
+<body onload="init()">
+
+
+<canvas id="stage" width="500" height="500">
+</canvas>
+
+
+</body>
+
+
+
+
+</html>

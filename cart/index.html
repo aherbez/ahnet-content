@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/style.css" />
+    <title>NES box</title>
+  </head>
+  <body>
+
+    <div id="preload"> </div>
+
+    <canvas id="stage" width="800" height="1140"></canvas>
+
+    <div id="left">
+      <img id="outputImg" width="500"/>
+    </div>
+
+    <div id="right">
+
+      <div class="uiControl">
+          <h1>
+            NES Cover generator
+          </h1>
+
+          <h2>Image</h2>
+          <!--
+          <span>
+          Recommended resolution: 1100x800, or any multiple of that. <br />
+          Smaller images will be scaleed up, larger images scaled down.<br />
+          Images with alternative aspect ratios will be cropped.
+          </span>
+          <br />
+          -->
+          <input id="fileBtn" type="file" value="Add Image" onchange="handleFile(event)"/>
+          <br />
+      </div>
+
+
+      <br />
+
+      <div class="uiControl">
+          <h2>Main text</h2>
+          <span class="uiInput">
+              <input type="text" id="mainText"
+                size="70" value="Main Text" />
+          </span>
+          <div>
+            <label for="textColor">Main Text Color</label>
+            <input type="color" id="textColor" value="#89ac1c" />
+          </div>
+      </div>
+
+      <div class="uiControl">
+          <h2>Logo text</h2>
+          <span class="uiInput">
+              <input type="text" id="logoText"
+                size="70" value="Lumos Labs" />
+          </span>
+          <div>
+            <label for="logoColor">Logo Color</label>
+            <input type="color" id="logoColor" value="#cb0303" />
+          </div>
+      </div>
+
+      <div class="uiControl">
+          <h2>Secondary text</h2>
+          <span class="uiInput">
+              <input type="text" id="secondText"
+                size="70" value="SECONDARY TEXT" />
+          </span>
+          <div>
+            <label for="textColor2">Second Text Color</label>
+            <input type="color" id="textColor2" value="#faac02" />
+          </div>
+      </div>
+
+      <div class="uiControl">
+          <h2>Seal text</h2>
+          <span class="uiInput">
+
+            <textarea id="sealText">Seal Text</textarea>
+            <div>
+              <label for="textColor2">Seal Color</label>
+              <input type="color" id="sealColor" value="#bc7614" />
+            </div>
+              <!-- <input type="text" id="sealText" size="70" value="Seal text" />-->
+          </span>
+      </div>
+
+      <div class="uiControl">
+          <h2>Output</h2>
+          To finish off, right-click on the page and select "Save Image As...".
+      </div>
+    </div>
+
+
+    <script src="js/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="icon" href="img/cuboco.ico" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/choicebook.css" />
+  </head>
+  <body>
+
+    <img id="output" width="400" />
+
+    <div id="controls">
+    </div>
+
+    <script src="js/imggen.js"></script>
+    <script src="js/choicebook.js"></script>
+    <script type="text/javascript">
+
+      let imgGen = new ChoiceBook("output", "controls", {
+        width: 800,
+        height: 1140
+      });
+
+
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,39 @@
+<?php
+// example data-fetch webpage
+$host = 'mysql3546345.secureserver.net';
+$user = 'db_username';
+$password = 'db_password';
+$db_name = 'myDatabase';
+
+if (!empty($_GET['thingName'))
+{
+	// grab data about the thing
+	$connection = mysql_connect($host,$user,$password);
+	if (!$connection)
+	{
+		die(mysql_error());
+	}
+	// succeded in connecting to the database
+	mysql_select_db($db_name);
+	
+	// SELECT * FROM thing_table where name = "Bob;" DROP TABLE things;"
+	$query = 'SELECT * from thing_table where name = "';
+	$query = $query . mysql_real_escape_string($_GET['thingName']);
+	$query = $query . '"';
+	
+	$result = mysql_query($query);
+	
+	$row = mysql_fetch_assoc($result);
+	
+	mysql_close();
+	
+	// we've gotten a row from the DB
+	// next, output it as XML
+	
+	echo('<xml>');
+	echo('<thing>');
+	echo('<firstName>' . $row['first_name'] . '</firstName>');
+	echo('</thing>');
+	echo('</xml>');
+	
+}
