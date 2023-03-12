@@ -1,0 +1,59 @@
+<html>
+
+<head>
+<title>
+Design and Analysis of Algorithms: week 1
+</title>
+
+<style type='text/css'>
+
+body
+{
+    font-family: arial, sans;
+}
+
+canvas#stage
+{
+    position: absolute;
+    left: 10px;
+    top: 10px;
+}
+
+div#desc
+{
+    position: absolute;
+    left: 620px;
+    top: 10px;
+    margin: 10px;
+}
+
+</style>
+
+</head>
+
+<body onload='init()'>
+
+<canvas id="stage" width="600" height="400">
+</canvas>
+
+<div id="desc">
+    <h3> Design and Analysis of Algorithms week 1: Mastermind(ish)</h3>
+    <p>
+    As I work my way through Stanford's excellent online class on the design and analysis of algorithms, I've decided to up the ante a bit on the homework assignments- not only will I do the stated assignment, but I will also wrap it up in some manner of game or game-like interactive demo. This is the first such demo. </p>
+    <p>
+        This week's assignment was to implement merge sort and then to modify the merge sort implementation to count the number of inversions (or out-of-order numbers) in an array of integers. Inversions are useful, as they allow two lists to be compared, with the number of inversions functioning as a metric of how similar they are. </p>
+    <p> In this game, the goal is to guess the correct ordering of the eight colors. Each time the page starts, a random order is selected. To play, try to guess what it is by clicking on the color swatches to the left in an order of your choice. Once you've ordered the eight colors, you'll see a small version of the order with a red/green bar at the bottom. The red/green bar corresponds to how far away you are (number of inversions / max possible number) from the correct order. The game (although a very hard, possibly unfun one) is to use the information about past guesses to inform your choices. </p>
+    
+</div>
+
+
+<!-- <script type="text/javascript" src="input.js"></script> -->
+<script type='text/javascript' src="constants.js"></script>
+<script type="text/javascript" src="mergesort.js"></script>
+<script type="text/javascript" src="week1.js"></script>
+
+
+</body>
+
+
+</html>
