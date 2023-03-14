@@ -1,0 +1,97 @@
+<h1>Quiz 4</h1>
+
+<ol>
+
+<li>
+<p>Which is the correct way to check to see if both TodayIsFriday and EverythingIsAwesome are true? (2 pts)</p>
+
+<ul>
+	<li>A) if (TodayIsFriday &amp; EverythingIsAwesome)</li>
+	<li>B) if (TodayIsFriday &amp;&amp; EverythingIsAwesome)</li>
+	<li>C) if (TodayIsFriday | EverythingIsAwesome)</li>
+	<li>D) if (TodayIsFriday || EverythingIsAwesome)</li>
+</ul>
+
+
+<div class="quiz_ans">
+Since we want an AND relationship, rather than an OR, we can immediately discard both C and D, since they use pipes (|), indicating an OR. <br /><br />
+That leaves us with A and B, both of which have &amp; symbols, representing an AND relationship. The difference is that the single &amp; will cause a bitwise comparison, while the double &amp;&amp; will cause a logical check, which is what we want in this case, making B is the correct choice.<br /><br />
+Note that if both TodayIsFriday and EverythingIsAwesome were boolean values and we used a bitwise and, we would end up with the same results. That's because boolean values are represtented as integers, and a bitwise AND on 1 and 1 would result in 1, which would then evaluate to true. However, that's dangerous to rely on, since if the values being compared were integers, we could easily end up with a false result for non-zero inputs (4 &amp; 2, for example, would result in 0);
+</div>
+
+</li>
+
+
+<li>
+	<p>Which of the following is NOT part of a function signature: (2 pts)</p>
+
+<ul>
+<li>A) the name of the function</li>
+<li>B) the return type of the function</li>
+<li>C) the number and type of inputs</li>
+<li>D) they are all part of the function signature</li>
+</ul>
+
+
+<div class="quiz_ans">
+Function signatures include the name, return type, and the number and type of inputs, so D is the correct choice.
+</div>
+
+</li>
+
+<li>
+
+<p>Floating point error is caused by: (2 pts)</p>
+
+<ul>
+<li>A) using variables of type float instead of type double</li>
+<li>B) performing math that involves both floats and integers</li>
+<li>C) the fundamental nature of how floating-point numbers are represented</li>
+<li>D) mathematical errors in code</li>
+</ul>
+
+<div class="quiz_ans">
+C is the correct choice. While there are many situations where floating-point error may not actually cause problems, or even be noticeable, it is nevertheless a built-in byproduct of how computers store numbers with decimal points. <br /><br />
+If you'd like to know more about floating-point error, have a look at <a href="http://floating-point-gui.de/">http://floating-point-gui.de/</a>
+
+</div>
+
+</li>
+
+<li>
+
+
+<p>In the following code snippet, we have a float variable (MyFloat) and we want to see if it's 4. Fill in the if statement with code that would safely check MyFloat against 4, accounting for possible floating-point error. (4 pts)</p>
+
+
+<pre><code class="c++">float MyFloat = SomeVeryInvolvedMathematicalCalculation();
+
+if (                                                                )
+{
+	cout << “MyFloat is 4!\n”;
+}
+</code></pre>
+
+<div class="quiz_ans">
+So the most typical way to check a variable against a number would be:
+
+<pre><code class="c++">if (MyFloat == 4.0)</code></pre>
+
+That works great for integers, but with floating-point values (especially ones that have been the result of lots of calculations), it's very common to end up with values that are ever so slightly larger or smaller than they <em>should</em> be. In this case, it means that we could easily end up with either 3.99999999999 or 4.0000000001. <br /><br />
+If we compare 3.999999 to 4.0 using ==, we'll end up with a false value instead of true. So, we need to do things slightly differently. One way is to check to see if the value is <strong>both</strong> greater than a value sightly below the target <strong>and</strong> less than a value slightly greater than the target. That would give us something like the following:<br /><br />
+
+<pre><code class="c++">if (MyFloat > 3.99999 &amp;&amp; MyFloat < 4.00001)</code></pre>
+
+That would work, but has the downside that if we change the target value, we need to change both of the numbers that our variable is compared to. It would be really easy to accidentally change only one of values and leave the other one unchanged, leading to errors. <br /><br />
+
+A better (in my opinion) way to do it would be to subtract the target from the variable, and check to see if the result is less than a given, small number. That would look like the following:
+
+<pre><code class="c++">if (abs(MyFloat - 4) &lt; 0.001)</code></pre>
+
+Note the use of the <pre><code class="c++">abs()</code></pre> function to take the absolute value of the difference. That ensures that the test will function both if the variable is less than the target (giving a positive result for the difference) <em>and</em> if the variable was greater (giving us a negative difference).
+
+
+</div>
+
+</li>
+</ol>

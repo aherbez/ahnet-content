@@ -1,0 +1,174 @@
+<h1>Variables continued, logical operators, and functions</h1>
+
+<h2>Floating-point variable types</h2>
+
+<p>So far, we've mainly been using integers and strings. Very often, you'll need to work with whole-number values, and for that, you'll need to use a decimal variable type. The most common type is a float (short for floating-point, since the decimal can move around). Floats are declared just like every other variable type, as in:</p>
+
+<pre><code class="C++">float MyFloat = 0.23;</code></pre>
+
+<p>The float variable type is generally 32 bits in length and provides roughly 7 digits. There is also the double type, which is generally 64 bits. With twice the bits, comes twice the precision, but also twice the space. There's also the “long double” type, which is bigger still. Using just plain floats is generally all you'll need. 
+Note that this is just like integers, in that you can choose both the type of number (float or int) and the number of bits. If you ever want to check just how many bits are being allocated for a given type of variable on a given system, you can use the sizeof(type) command, which will give you the number of bytes (8 bits each) for that type. For example:</p>
+
+<pre><code class="C++">// would output 4 (for 4 bytes, or 32 bits) on most systems
+cout << sizeof(int) << “\n”; </code></pre>
+
+<h3>Floating-point error</h3>
+
+<p>There's a really big gotcha when using floating-point numbers, in the form of “floating point error”. It's caused by the way floating point numbers are represented in memory, and it means is that floating-point numbers are a bit fuzzy. As you perform mathematical operations on floats, it's very common for them to drift slightly, so that something that should be 1.00000 ends up being slightly more (1.0000000000001), or slightly less (0.9999999999999999). The key thing to understand about floating point error is that there is absolutely no way to completely prevent it. Instead, you have to just work around it. </p>
+
+<p>One way that this often trips new programmers up is in comparing floats for equality. Let's say we had a float variable that we wanted to test against 2, as in: </p>
+
+<pre><code class="C++">float MyFloat = 2;
+// lots of math happens- is MyFloat still 2?
+if (MyFloat == 2)
+{
+	DoSomething();
+}</code></pre>
+
+<p>While the above code would compile and run just fine, it would be very prone to odd behavior, since MyFloat could end up being slightly more or less than 2 (1.9999999999 or 2.0000000001). In either case, it would not be strictly equal to 2. Fortunately, there's an easy solution- instead of testing for equality, test to see if the difference between your variable and the target number is less than some minimum, as in:</p>
+
+<pre><code class="C++">if (abs(MyNum – 2) < 0.001)
+{
+	DoSomething();
+}</code></pre>
+
+<p>Note the use of the “abs”, or absolute value function- that's necessary since we can't know which way the floating-point error will run- “MyNum – 2” might end up being a small positive number, or a small negative one, with no way to know in advance.</p>
+
+<h2>Logical operators - &amp;&amp; and ||</h2>
+
+<p>So far, we've looked at a few different tests, in the form of if and while statements. We've used fairly simple logic for all of them so far, mainly just testing numbers to see if they're less than, greater than, or equal to given values. Very often, you'll want to string together multiple tests into a single idea. For example, you might decide to go to the store only if you are out of food, are  hungry, and if it isn't raining. To represent that in code, you need some way to string together multiple logical ideas. </p>
+
+<p>For that, we have the logical operators- logical AND (&amp;&amp;) and logical OR (||). 
+Both take two inputs, evaluate each of them as true / false values, then produce a single true / false output. AND (&&) is only true if both inputs are true, and OR (||) is only false if both inputs are false.
+So, the above example could be written as:</p>
+
+<pre><code class="C++">if ((FoodLevel &lt; 10) &amp;&amp; (IamHungry) &amp;&amp; (!Raining))</code></pre> 
+
+<p>Note that, while AND and OR take two inputs, you can chains of them together. This is just like addition- “A + B + C” means the same thing as “(A + B) + C”, with each individual addition operation involving only two numbers.</p>
+
+<h2>Functions</h2>
+
+<p>Functions are the most fundamental tool in organizing your code into readable, easily-maintainable chunks. Each one should do one specific thing, and can be thought of as a “black box” of functionality. Ideally, you should only have to think about what inputs a function requires (if any), and what outputs (if any) it produces. </p>
+
+<p>Every function definition requires the following:</p>
+
+<ol>
+<li>a name (function names follow the same rules as variable names)</li>
+<li>a return type (even if it doesn't return anything- more on that in a bit)</li>
+<li>[optionally] a list of arguments representing the inputs to the function</li>
+</ol>
+
+<p>In C++, we define a function in the following way:</p>
+
+<pre><code class="C++">[return type] [function name]( [argument type] [argument name])</code></pre>
+
+<p>So, if we had a function named “AddTwoNumbers” that operated on integers, it would be defined as:</p>
+
+<pre><code class="C++">int AddTwoNumbers(int num1, int num2);</code></pre>
+
+<h3>Return values</h3>
+
+<p>The first part of a function declaration is the return type. Think of this as making a promise to the compiler that every possible run of that function will produce a value of that type. A very common error is to create a function that should have a return type, but to have pathways through it that skip the return statement, as in:</p>
+
+<pre><code class="C++">int MyIntFunction()
+{
+	if (SomeValue)
+	{
+		return 4;
+	}
+	// if SomeValue was false, we would skip the only return value, which would be an error
+}</code></pre>
+
+<p>Always  make sure that your functions that have a return value are guaranteed to return something. The above example could be re-written as:</p>
+
+<pre><code class="C++">int MyIntFunction()
+{
+	if (SomeValue)
+	{
+		return 4;
+	}
+	
+	return 0; // if SomeValue was false, return a sensible default value
+}</code></pre>
+
+<p>Note that not all functions will have return values- this is totally fine. However, you must still explicitly say that nothing will be returned by using the void variable type, as in:</p>
+
+<pre><code class="C++">void MyNoReturnFunction();</code></pre> 
+
+<h3>Inputs to functions (arguments)</h3>
+<p>Many functions will require inputs. For such functions, you have to specify the type and number of arguments. In the function signature. If we had a function that took two integers (but produced no output), for example, we would define it as:</p>
+
+<pre><code class="C++">void MyFunction(int numA, int numB)</code></pre>
+
+<p>Note that declaring arguments looks a lot like declaring variables. There's one major difference though, in that the names given (“numA”, and “numB”, above) are temporary, and used just for the life of the function. You can think of them as a kind of nickname the function uses for whatever was passed in. Another way to look at it is as follows:</p>
+
+<pre><code class="C++">void MyFunction (int numA, int numB)
+{
+	// as if we had said:
+	// int numA = “whatever the first thing passed into this function was”
+	// int numB = “whatever the second thing passed into this function was”
+}</code></pre>
+
+<h3>Forward declarations</h3>
+
+<p>Sometimes, you'll want to declare a function, but define it later. This can be important, since if you make use of a function that is defined farther down in the code, the compiler won't know what to make of it, and will generate an error. In such cases, you can use forward declaration to get around that.</p>
+
+<pre><code class="C++">// would generate an error:
+int FunctionOne()
+{
+	int result = FunctionTwo();	// fails, since FunctionTwo hasn't been defined yet
+}
+int FunctionTwo()
+{
+	return 23;
+}</code></pre>
+
+<p>To use forward declaration, you add a function prototype earlier in the code. A function prototype includes all of the key information about a function (the name, return type, and types of any arguments), but leaves out the implementation. Re-writing the above to use forward declaration would look like this:</p>
+
+<pre><code class="C++">int FunctionTwo();	// use forward declaration to inform the compiler that the function exists
+int FunctionOne()
+{
+	int result = FunctionTwo();	// fails, since FunctionTwo hasn't been defined yet
+}
+int FunctionTwo()
+{
+	return 23;
+}</code></pre>
+
+
+<h2>Recursion</h2>
+
+<p>Recursion can be a big topic, but ultimately all it means is writing functions that call themselves. This can be a great way to attack certain problems. For example, if we wanted to calculate the Nth term of the Fibonacci sequence, for example, it could get tricky quite quickly. Using a recursive function is an elegant way to approach it, as in:</p>
+
+<pre><code class="C++">int GetFibonacci(int n)
+{
+	if (n == 0 || n == 1)
+	{
+		return 1;
+	}
+	
+	return (GetFibonacci(n-1) + GetFibonacci(n – 2));
+}</code></pre>
+
+<p>When writing recursive functions, it's important to have a base case that will cause the function to bottom-out. In the above, our base case is when n is either 0 or 1 (indicating the first two numbers in the sequence). Neglecting to have a base case, or failing to ensure that the function proceeds towards the base case are common sources of error with recursive functions.</p>
+
+<p>While recursive functions can be a good way to approach certain problems, they can also be very dangerous, as they can quickly expand to use all available memory. Be VERY VERY careful when using recursive approaches, and when in doubt, avoid them.</p>
+
+
+<h1>Week 4 Assignment: Management Game, Part Two</h1>
+
+<p>This week's assignment is to go add on to last week's assignment, to add more functionality and structure it using functions.</p>
+
+<p>Your submission should build off of what you did for week 3, but with the following additions:
+
+<ul>
+<li>Create a function for each action offered to the player</li>
+<li>Create a function to display the current status</li>
+<li>Create a function to display the choices available (bonus points for making some appear / dissappear based on the current status- you can't buy food if gold &lt;= 0, for example)</li>
+<li>Add at least three more options in addition to what you implemented for last week's assignment</li>
+</ul>
+
+
+
+
+

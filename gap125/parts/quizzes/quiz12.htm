@@ -1,0 +1,86 @@
+<h1>Writing files, text vs binary</h1>
+
+<ol>
+
+<li><p>Which of the following are text-based file formats (circle all that apply, 2pts)</p>
+
+<ul>
+<li>A) HTML</li>
+<li>B) WAV</li>
+<li>C) OBJ</li>
+<li>D) JPG</li>
+</ul>
+
+
+<div class="quiz_ans">HTML files are a kind of markup, and are text-based. WAV files are binary (as are pretty much all audio formats). OBJ files, while they represent 3d models, are actually text-based. JPG files are binary. So, the correct answer is A and C.</div>
+
+</li>
+
+<li><p>Which of the following are binary file formats (circle all that apply, 2pts)</p>
+
+<ul>
+<li>A) HTML</li>
+<li>B) WAV</li>
+<li>C) OBJ</li>
+<li>D) JPG</li>
+</ul>
+
+<div class="quiz_ans">The correct answers are B and D. See above for a breakdown of the file types.</div>
+
+</li>
+
+<li>
+<p>Text files are generally read by ___________, while binary files are read by __________(2 pts)</p>
+
+<ul>
+<li>A) bytes, lines</li>
+<li>B) characters, bits</li>
+<li>C) lines, bytes</li>
+<li>D) both types are read in the same way</li>
+</ul>
+
+<div class="quiz_ans">
+	<p>C is the correct answer. While there are multiple ways to read in text files, it's very common to read them line-by-line, processing each line as you go. Many formats (OBJ, for one) are structured to support exactly that kind of parsing.</p>
+
+	<p>Binary files, on the other hand, lack any concept of line breaks, and are generally read by taking in a given number of bytes at a time.</p> 
+
+</div>
+
+</li>
+
+<li>
+<p>Provide an example of a situation where you would choose to write data out as text (2 pts)</p>
+
+
+<div class="quiz_ans">There are a lot of different ways you could go here. Some things that would lead you to store data as text include:
+
+<ul>
+<li>Data that is inherently text-based (such as the name of a character and their backstory for an RPG).</li>
+<li>Data that will be edited by humans (level config data that you want to allow the game design team access to)</li>
+</ul>
+
+<p>In general, text-based formats are a little easier to deal with, at the cost of being a bit bigger in size</p>
+
+</div>
+
+</li>
+
+<li>
+<p>Provide an example of a situation where you would choose to write out data as binary information (2 pts)</p>
+
+<div class="quiz_ans">
+	There are also a lot of ways to go here. Some things that would lend themselves better to binary include:
+
+	<ul>
+	<li>Data that represents audio</li>
+	<li>Data that represents images, in raster graphics form</li>
+	<li>Large amounts of data</li>
+	<li>Data that is to be sent over the network</li>
+	<li>Data that is <em>not</em> meant to be directly read or altered by people</li>
+	</ul>
+
+<p>In general, binary is great for situations where you need your data to be as compact as possible (either because it's large, or because it needs to consume the minimum amount of bandwidth). It is also useful if the data you're dealing with is strictly numeric, with no good text-based representation. For example, audio is represented as a sequence of numbers that change over time. While one <em>could</em> represent that in a text-based manner, all that would do would be to increase the filesize for no additional benefit (since it's pretty much impossible to edit audio by hand, without loading the entire stream into some kind of tool).</p>
+
+</div>
+</li>
+</ol>

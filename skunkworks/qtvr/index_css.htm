@@ -1,0 +1,261 @@
+<html>
+
+<head>
+
+<title>HTML5 QTVR Viewer</title>
+
+<script src='libs/RequestAnimationFrame.js'></script>
+<script type="text/javascript">
+
+var canvas;
+var ctx;
+var images;
+var loaded;
+var imgNames = ['front.jpg', 'right.jpg', 'back.jpg', 'left.jpg', 'top.jpg', 'bottom.jpg'];
+var IMG_SIZE = 256;
+var theta = 0;
+var angle = 0;
+
+function init()
+{
+	canvas = document.getElementById('view');
+	ctx = canvas.getContext('2d');
+	images = new Array();
+	loaded = 0;
+
+	for (var i=0; i < 6; i++)
+	{
+		images[i] = new Image();
+		images[i].src = imgNames[i];
+		images[i].onload = makeLoaderFunc(i);
+	}
+
+	// requestAnimationFrame(render);
+}
+
+function makeLoaderFunc(i)
+{
+	return function() {
+		loaded = loaded | (1 << i);
+	};
+}
+
+function drawLoader()
+{
+	ctx.beginPath();
+	ctx.arc(250, 250, 100, 0, Math.PI * 2, false);
+	ctx.closePath();
+	ctx.strokeStyle = "#000";
+	ctx.stroke();	
+}
+
+function drawScene()
+{
+	/*
+	ctx.beginPath();
+	ctx.arc(250, 250, 100, 0, Math.PI * 2, false);
+	ctx.closePath();
+	ctx.fillStyle = "#0f0";
+	ctx.fill();	
+	*/
+	var posX;
+
+	for (var i = 0; i < 4; i++)
+	{
+		posX = (IMG_SIZE * i) + theta;  
+
+		if (posX > IMG_SIZE)
+		{
+			posX -= IMG_SIZE;
+		}
+		if (posX < -IMG_SIZE)
+		{
+			posX += IMG_SIZE;
+		}
+
+		console.log(i + ': ' + posX);
+		ctx.drawImage(images[i], posX, (canvas.height - IMG_SIZE)/2);
+	}
+	
+	theta += 1;
+
+	// console.log(canvas.width + ' ' + canvas.height);
+}
+
+function render()
+{
+	ctx.width = ctx.width;	// clear canvas
+
+	if (loaded < 63)
+	{	
+		drawLoader();
+	}
+	else
+	{
+		drawScene();
+	}
+
+	requestAnimationFrame(render);
+}
+
+var xAngle = 0;
+var yAngle = 0;
+
+function startup()
+{
+/*
+        var xAngle = 0, yAngle = 0;
+        document.addEventListener('keydown', function(e)
+        {
+                switch(e.keyCode)
+                {
+
+                        case 37: // left
+                                yAngle -= 90;
+                                break;
+
+                        case 38: // up
+                                xAngle += 90;
+                                break;
+
+                        case 39: // right
+                                yAngle += 90;
+                                break;
+
+                        case 40: // down
+                                xAngle -= 90;
+                                break;
+                };
+
+                $('cube').style.webkitTransform = "rotateX("+xAngle+"deg) rotateY("+yAngle+"deg)";
+        }, false);*/
+
+
+	document.addEventListener('keydown', function(e)
+	{
+		switch(e.keyCode)
+		{
+			case 37:
+				yAngle -= 90;
+				break;
+			case 38: 
+				xAngle += 90;
+				break;
+			case 39:
+				yAngle += 90;
+				break;
+			case 40:
+				xAngle -= 90;
+				break;
+		}
+
+		document.getElementById('cube').style.webkitTransform = "rotateX(" + xAngle + "deg) rotateY(" + yAngle + "deg)";
+
+	}, false);
+
+
+}
+
+</script>
+
+<style type="text/css">
+
+canvas {
+
+	border: 1px solid #000;
+}
+
+#viewer {
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		margin-top: -128px;
+		margin-left: -128px;
+      	-webkit-perspective: 120;
+      	-webkit-perspective-origin: 50% 100px;
+    }
+
+#cube {
+  position: relative;
+  margin: 0 auto;
+  height: 256px;	
+  width: 256px;
+  -webkit-transition: -webkit-transform 2s linear;
+  -webkit-transform-style: preserve-3d;
+}
+
+.face {
+  position: absolute;
+  height: 256px;
+  width: 256px;
+  padding: 0px;
+  background-color: rgba(50, 50, 50, 0.7);
+}
+
+#cube > div:first-child  {
+-webkit-transform: rotateX(90deg) translateZ(128px);
+-moz-transform: rotateX(90deg) translateZ(128px);
+}
+
+#cube > div:nth-child(2) {
+-webkit-transform: translateZ(128px);
+-moz-transform: translateZ(128px);
+}
+
+#cube > div:nth-child(3) {
+-webkit-transform: rotateY(90deg) translateZ(128px);
+-moz-transform: rotateY(90deg) translateZ(128px);
+text-align: center;
+}
+
+#cube > div:nth-child(4) {
+-webkit-transform: rotateY(180deg) translateZ(128px);
+-moz-transform: rotateY(180deg) translateZ(128px);
+}
+
+#cube > div:nth-child(5) {
+-webkit-transform: rotateY(-90deg) translateZ(128px);
+-moz-transform: rotateY(-90deg) translateZ(128px);
+}
+
+#cube > div:nth-child(6) {
+-webkit-transform: rotateX(-90deg) rotate(180deg) translateZ(128px);
+-moz-transform: rotateX(-90deg) rotate(180deg) translateZ(128px);
+}
+
+
+</style>
+
+</head>
+
+<body onLoad="startup();">
+
+<div id="viewer">
+
+	<div id="cube">
+		<div class="face">
+			<img src="front.jpg" class="img-00" />
+		</div>
+		<div class="face">
+			<img src="right.jpg" class="img-01" />
+		</div>
+		<div class="face">
+			<img src="back.jpg" class="img-02" />
+		</div>
+		<div class="face">
+			<img src="left.jpg" class="img-03" />
+		</div>
+		<div class="face">
+			<img src="top.jpg" class="img-04" />
+		</div>
+		<div class="face">
+			<img src="bottom.jpg" class="img-05" />
+		</div>
+	</div>	
+</div>
+<!--
+<canvas id="view" width="500" height="500" ></canvas>
+-->
+
+</body>
+</html>

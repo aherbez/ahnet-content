@@ -1,0 +1,13 @@
+body {
+    font-family: arial, sans;
+}
+
+canvas {
+    border: 1px solid #000;
+}
+
+div#notes {
+    position: absolute;
+    left: 820px;
+    top: 10px;
+}

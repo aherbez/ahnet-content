@@ -1,0 +1,109 @@
+<h1>Quiz 1</h1>
+
+<ol>
+
+<li>
+<p>Rank the following in terms of abstraction, with 1 being the lowest / closest to the bare metal of a computer, and 4 being the highest level / greatest amount of abstraction (4pts)</p>
+
+<ul>
+<li>__3__ Interpreted languages (Javascript, Python)</li>
+<li>__2__ Compiled languages (C++)</li>
+<li>__4__ Markup languages (HTML, JSON)</li>
+<li>__1__ Machine language (assembly / ASM) </li>
+</ul>
+</li>
+
+<div class="quiz_ans">
+Explanation: Assembly language is pretty much directly inputting the bits that the computer makes use of, so it's the lowest-level option. 
+<br /><br />
+Next up from there are compiled languages, like C++, since they still the entire program is translated (<em>compiled</em>) into machine language before running. 
+<br /><br />
+Next up from there are the interpreted languages, which are constantly shuffling data back and forth between you and the computer. This generally involves a bit more separation from the raw metal of the machine, so they're 3rd in the list.
+<br /><br />
+Finally, markup languages like HTML, XML, and JSON aren't programming languages at all- they're just structured data. Definitely very important, but the farthest away from any kind of low-level implementation of logic (since they don't actually contain any logic).
+
+</div>
+
+
+<li>
+	<p>True or False: The object (.OBJ) files created by the compiler are meant to be read by humans. (1 pt).</p>
+
+<div class="quiz_ans">
+FALSE. The .OBJ files are fed into the linker to generate the final executable. They contain the results after compiling the code, and are therefore not meant to be read by humans (they're for the computer).
+
+
+</div>
+
+</li>
+
+
+<li><p>Which of the following lines could be used to store user input into the firstName variable? Circle your answer (2 pts)</p>
+
+<ul>
+<li>A) <pre><code class="C++">cin &gt;&gt; firstName;</code></pre></li>
+<li>B) <pre><code class="C++">cout &gt;&gt; firstName;</code></pre></li>
+<li>C) <pre><code class="C++">cin &lt;&lt; firstName;</code></pre></li>
+<li>D) <pre><code class="C++">cout &gt;&gt; firstName;</code></pre></li>
+</ul>
+
+<div class="quiz_ans">
+A is the correct choice. We need to use <code class="C++">cin</code> to take input (<code class="C++">cout</code> is used for output). Once we're using cin, we also need to use the proper operator. The &gt;&gt; operator is what we want, and will extract input from the default input stream. The &lt;&lt; operator, on the other hand, will output to the default output stream.<br />
+
+Incidentally, I mistakenly had the exact same answer for B and D- I meant to have D read as "cout &lt;&lt; firstName", which would be the correct way to output the firstName variable. Regardless, A is the correct answer. 
+</div>
+
+
+</li>
+
+
+<li>
+<p>The following code is almost correct, but would fail to compile. Add to it so that it would compile and successfully and print “Hello World” to the console. Hint: there are two different changes you could make, either one of which would fix the issue. (3pts)</p>
+
+<pre><code class="C++">#include &lt;iostream&gt;
+
+int main()
+{
+	cout &gt;&gt; "Hello, world\n";
+	return 0;
+}
+</code></pre>
+
+<div class="quiz_ans">
+
+So the problem here is that we're using the cout function, but it's possible that there is more than one "cout" function defined. So we need to make it clear to the compiler that we intend to use the cout function that is defined in the iostream library. The iostream library is a part of the standard library, so we can fix the problem by ensuring that we indicate that we're in the context of the standard library. <br /><br />
+There are two ways we could do that. The first one is to preifx our call to cout with "std::". The "std" is shorthand for the standard library, and the "::" is the scope resolution operator. So "std::cout" translates into "the cout function defined in the standard library". That would give us something like the following:<br /><br />
+
+<pre><code class="C++">#include &lt;iostream&gt;
+
+int main()
+{
+	std::cout &gt;&gt; "Hello, world\n";
+	return 0;
+}
+</code></pre>
+<br />
+That would work just fine, but would require that we continue to use "std::" every time we wanted to use the cout (or cin, or many other functions). A better way would be to just tell the compiler that the entire file should reference the standard library. To do that, we can include a line at the top of the file, as in:
+<br /><br />
+<pre><code class="cpp hljs">#include &lt;iostream&gt;
+
+using namespace std;
+
+int main()
+{
+	cout &gt;&gt; "Hello, world\n";
+	return 0;
+}
+</code></pre>
+<br />
+That would be equivalent to having added "std::" to all of our function calls. 
+
+
+
+
+</div>
+
+
+</li>
+
+</ol>
+

@@ -1,0 +1,10 @@
+{
+	"items":[
+		{"name": "Award Worthy", "desc":"Max out your cinemagic element", "cost": 3, "img": ""},
+		{"name": "5 More Turns", "desc": "Add 5 extra turns", "cost": 3, "img": ""},
+		{"name": "Color Grab", "desc": "Snatch up all gems of this type", "cost": 2, "img": ""},
+		{"name": "Blast 'Em", "desc": "Lower the enemy film's take", "cost": 2, "img": ""},
+		{"name": "Rainbow Gem", "desc": "Match any gem with this", "cost": 1, "img": ""},
+		{"name": "Magic Hat", "desc": "Pull anything out!", "cost": 2, "img": ""}
+	]
+}

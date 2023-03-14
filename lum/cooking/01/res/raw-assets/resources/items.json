@@ -1,0 +1,346 @@
+{
+    "sourceImages": [
+        ""
+    ],
+    "items": [
+        {
+            "id": 1,
+            "frameId": 1,
+            "sourceSheet": 1,
+            "offset": {
+                "x": 0,
+                "y": 0
+            },
+            "name": "boiling water",
+            "transforms": {
+                "any": {
+                    "newId": 2, 
+                    "replace": true
+                }
+            }
+        },
+        {
+            "id": 2,
+            "frameId": 0,
+            "sourceSheet": 1,
+            "offset": {
+                "x": 1,
+                "y": 0
+            },
+            "name": "boiling water",
+            "transforms": {
+                "empty": {
+                    "newId": 1,
+                    "replace": true
+                }
+            }
+        },
+        {
+            "id": 3,
+            "frameId": 2,
+            "sourceSheet": 1,
+            "offset": {
+                "x": 2,
+                "y": 0
+            },
+            "name": "onion",
+            "transforms": {
+                "chop": {
+                    "newId": 6,
+                    "replace": false
+                }
+            }
+        },
+        {
+            "id": 4,
+            "frameId": 3,
+            "sourceSheet": 1,
+            "offset": {
+                "x": 3,
+                "y": 0
+            },
+            "name": "red bowl",
+            "transforms": {}
+        },
+        {
+            "id": 5,
+            "frameId": 4,
+            "sourceSheet": 1,
+            "offset": {
+                "x": 4,
+                "y": 0
+            },
+            "name": "white bowl",
+            "transforms": {}
+        },
+        {
+            "id": 6,
+            "frameId": 5,
+            "sourceSheet": 1,
+            "offset": {
+                "x": 5,
+                "y": 0
+            },
+            "name": "chopped onion",
+            "transforms": {}
+        },
+        {
+            "id": 7,
+            "frameId": 6,
+            "sourceSheet": 1,
+            "offset": {
+                "x": 0,
+                "y": 1
+            },
+            "name": "chopped eggplant",
+            "transforms": {}
+        },
+        {
+            "id": 8,
+            "frameId": 7,
+            "sourceSheet": 1,
+            "offset": {
+                "x": 1,
+                "y": 1
+            },
+            "name": "chopped garlic",
+            "transforms": {}
+        },
+        {
+            "id": 9,
+            "frameId": 8,
+            "sourceSheet": 1,
+            "offset": {
+                "x": 2,
+                "y": 1
+            },
+            "name": "chopped mushroom",
+            "transforms": {}
+        },
+        {
+            "id": 10,
+            "frameId": 9,
+            "sourceSheet": 1,
+            "offset": {
+                "x": 3,
+                "y": 1
+            },
+            "name": "chopped pepper",
+            "transforms": {}
+        },
+        {
+            "id": 11,
+            "frameId": 10,
+            "sourceSheet": 1,
+            "offset": {
+                "x": 4,
+                "y": 1
+            },
+            "name": "chopped shrimp",
+            "transforms": {}
+        },
+        {
+            "id": 12,
+            "frameId": 11,
+            "sourceSheet": 1,
+            "offset": {
+                "x": 5,
+                "y": 1
+            },
+            "name": "chopped tuna",
+            "transforms": {}
+        },
+        {
+            "id": 13,
+            "frameId": 13,
+            "sourceSheet": 1,
+            "offset": {
+                "x": 0,
+                "y": 2
+            },
+            "name": "egg",
+            "transforms": {}
+        },
+        {
+            "id": 14,
+            "frameId": 12,
+            "sourceSheet": 1,
+            "offset": {
+                "x": 1,
+                "y": 2
+            },
+            "name": "eggplant",
+            "transforms": {
+                "chop": {
+                    "newId": 7,
+                    "replace": false
+                }
+            }
+        },
+        {
+            "id": 15,
+            "frameId": 14,
+            "sourceSheet": 1,
+            "offset": {
+                "x": 2,
+                "y": 2
+            },
+            "name": "garlic",
+            "transforms": {
+                "chop": {
+                    "newId": 8,
+                    "replace": false
+                }
+            }
+        },
+        {
+            "id": 16,
+            "frameId": 16,
+            "sourceSheet": 1,
+            "offset": {
+                "x": 3,
+                "y": 2
+            },
+            "name": "pan",
+            "transforms": {
+                "oil": {
+                    "newId": 17,
+                    "replace": true
+                }
+            }
+        },
+        {
+            "id": 17,
+            "frameId": 15,
+            "sourceSheet": 1,
+            "offset": {
+                "x": 4,
+                "y": 2
+            },
+            "name": "oiled pan",
+            "transforms": {},
+            "actions": ["cook"]
+        },
+        {
+            "id": 18,
+            "frameId": 17,
+            "sourceSheet": 1,
+            "offset": {
+                "x": 5,
+                "y": 2
+            },
+            "name": "pepper",
+            "transforms": {
+                "chop": {
+                    "newId": 10,
+                    "replace": false
+                }
+            }
+        },
+        {
+            "id": 19,
+            "frameId": 18,
+            "sourceSheet": 1,
+            "offset": {
+                "x": 0,
+                "y": 3
+            },
+            "name": "knife",
+            "transforms": {},
+            "actions": ["chop"]
+        },
+        {
+            "id": 20,
+            "frameId": 19,
+            "sourceSheet": 1,
+            "offset": {
+                "x": 1,
+                "y": 3
+            },
+            "name": "mushroom",
+            "transforms": {
+                "chop": {
+                    "newId": 9,
+                    "replace": false
+                }
+            }
+        },
+        {
+            "id": 21,
+            "frameId": 20,
+            "sourceSheet": 1,
+            "offset": {
+                "x": 2,
+                "y": 3
+            },
+            "name": "noodles",
+            "transforms": {}
+        },
+        {
+            "id": 22,
+            "frameId": 22,
+            "sourceSheet": 1,
+            "offset": {
+                "x": 3,
+                "y": 3
+            },
+            "name": "oil",
+            "transforms": {},
+            "actions": ["oil"]
+        },
+        {
+            "id": 23,
+            "frameId": 23,
+            "sourceSheet": 1,
+            "offset": {
+                "x": 5,
+                "y": 3
+            },
+            "name": "red plate",
+            "transforms": {}
+        },
+        {
+            "id": 24,
+            "frameId": 24,
+            "sourceSheet": 1,
+            "offset": {
+                "x": 0,
+                "y": 4
+            },
+            "name": "white plate",
+            "transforms": {}
+        },
+        {
+            "id": 25,
+            "frameId": 25,
+            "sourceSheet": 1,
+            "offset": {
+                "x": 1,
+                "y": 4
+            },
+            "name": "shrimp",
+            "transforms": {
+                "chop": {
+                    "newId": 11,
+                    "replace": false
+                }
+            }
+        },
+        {
+            "id": 26,
+            "frameId": 26,
+            "sourceSheet": 1,
+            "offset": {
+                "x": 2,
+                "y": 4
+            },
+            "name": "tuna",
+            "transforms": {
+                "chop": {
+                    "newId": 12,
+                    "replace": false
+                }
+            }
+        }
+    ]
+}

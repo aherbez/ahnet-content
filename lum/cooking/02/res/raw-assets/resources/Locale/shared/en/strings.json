@@ -1,0 +1,10 @@
+{
+    "hudTime": "TIME",
+    "hudScore": "SCORE",
+    "pauseResume": "Resume",
+    "pauseRestart": "Restart",
+    "pauseMute": "Mute Sound",
+    "pauseHowToPlay": "How To Play",
+    "noCaps": "NO",
+    "yesCaps": "YES"
+}

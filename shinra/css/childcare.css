@@ -1,0 +1,13 @@
+@font-face {
+  font-family: 'oswaldblack';
+  src: url('../fonts/oswaldblack.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'acre-medium';
+  src: url('../fonts/acre-medium.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}

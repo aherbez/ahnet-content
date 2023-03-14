@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <style>
+            body {
+                font-family: arial, sans;
+            }
+            h1 {
+                width: 100%;
+                text-align: center;
+                
+            }
+            canvas {
+                border: 1px solid #000;
+                position: absolute;
+                display: none;
+            }
+            #outputImg {
+                display: block;
+                margin: auto;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1>360 Image Drawing Guide</h1>
+        <canvas id="stage" width="2048" height="1024"></canvas>
+
+        <img id="outputImg" width="1000" height="500" />
+
+        <p>
+            Right-click and select "save image as..." to download full-resolution image. Alternatively, grab  of these PDFs:
+
+            <ul>
+                <li><a href="lightgrid_x3.pdf">three smaller grids</a></li>
+                <li><a href="lightgrid_x1.pdf">one larger grid</a></li>
+            </ul>
+        </p>
+
+
+        <script src="js/main.js"></script>
+
+
+    </body>
+</html>

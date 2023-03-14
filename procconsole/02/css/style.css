@@ -1,0 +1,36 @@
+#col-editor {
+    background: var(--sidebar-color);
+    color: var(--sidebar-text);
+    border-right: 1px solid #FFF;
+    height: 100%;
+    width: 50%;
+    position: fixed;
+    left: 0;
+    top: 0;
+}
+
+#col-stage {
+    width: 50%;
+    height: 100%;
+    position: fixed;
+    left: 50%;
+    top: 0;
+}
+
+#editor {
+    width: 400px;
+    height: 400px;
+    border: 1px solid #000;
+}
+
+#code {
+    white-space: pre-wrap;
+    font-family: 'Courier New', Courier, monospace;
+    height: 100%;
+    right: 0;
+    border: none;
+    padding: 10px 10px;
+    font-size: 1.5rem;
+    line-height: 2.5rem;
+    border: 1px solid #000;
+}

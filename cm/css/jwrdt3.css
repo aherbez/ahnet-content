@@ -1,0 +1,20 @@
+#header-img-jw {
+    text-indent: -9999px;
+    background-image: url(/images/reddit/sprites.png);
+    background-position: 0px -313px;
+    background-repeat: no-repeat;
+    height: 40px;
+    width: 120px;
+    display: inline-block;
+    vertical-align: bottom;
+    margin-bottom: 3px;
+}
+
+.arrow.up {
+    background-image: url('/images/reddit/sprites.png');
+}
+
+
+.arrow.down {
+    background-image: url('/images/reddit/sprites.png');
+}

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Commerical chrono stream intialized</title>
+
+	<link rel="stylesheet" href="css/downloadPage.css" />
+
+<script type="text/javascript">
+(function(b,r,a,n,c,h,_,s,d,k){if(!b[n]||!b[n]._q){for(;s<_.length;)c(h,_[s++]);d=r.createElement(a);d.async=1;d.src="https://cdn.branch.io/branch-latest.min.js";k=r.getElementsByTagName(a)[0];k.parentNode.insertBefore(d,k);b[n]=h}})(window,document,"script","branch",function(b,r){b[r]=function(){b._q.push([r,arguments])}},{_q:[],_v:1},"addListener applyCode banner closeBanner creditHistory credits data deepview deepviewCta first getCode init link logout redeem referrals removeListener sendSMS setIdentity track validateCode".split(" "), 0);
+
+branch.init('key_live_pmfXgpXS5uQUw4mkjTcMIdciCEgRvEGu');
+
+/*
+{
+    icon: 'http://icons.iconarchive.com/icons/wineass/ios7-redesign/512/Appstore-icon.png',
+    title: 'Branch Demo App',
+    description: 'The Branch demo app!',
+    openAppButtonText: 'Open',              // Text to show on button if the user has the app installed
+    downloadAppButtonText: 'Download',      // Text to show on button if the user does not have the app installed
+    sendLinkText: 'Send Link',              // Text to show on desktop button to allow users to text themselves the app
+    phonePreviewText: '+44 9999-9999',      // The default phone placeholder is a US format number, localize the placeholder number with a custom placeholder with this option
+    showiOS: true,                          // Should the banner be shown on iOS devices?
+    showAndroid: true,                      // Should the banner be shown on Android devices?
+    showDesktop: true,                      // Should the banner be shown on desktop devices?
+    iframe: true,                           // Show banner in an iframe, recomended to isolate Branch banner CSS
+    disableHide: false,                     // Should the user have the ability to hide the banner? (show's X on left side)
+    forgetHide: false,                      // Should we show the banner after the user closes it? Can be set to true, or an integer to show again after X days
+    position: 'top',                        // Sets the position of the banner, options are: 'top' or 'bottom', and the default is 'top'
+    mobileSticky: false,                    // Determines whether the mobile banner will be set `position: fixed;` (sticky) or `position: absolute;`, defaults to false *this property only applies when the banner position is 'top'
+    desktopSticky: true,                    // Determines whether the desktop banner will be set `position: fixed;` (sticky) or `position: absolute;`, defaults to true *this property only applies when the banner position is 'top'
+    customCSS: '.title { color: #F00; }',   // Add your own custom styles to the banner that load last, and are gauranteed to take precedence, even if you leave the banner in an iframe
+    make_new_link: false,                   // Should the banner create a new link, even if a link already exists?
+    rating: 5,                              // Number of stars (should be your store rating)
+    reviewCount: 1000,                      // Number of reviews that generate the rating (should be your store reviews)
+    theme: 'light',                         // Uses Branch's predetermined color scheme for the banner { 'light' || 'dark' }, default: 'light'
+    buttonBackgroundColor: css color,        // Overrides the theme's default colors
+    buttonFontColor: css color,
+    buttonBorderColorHover: css color,
+    buttonBackgroundColorHover: css color,
+    buttonFontColorHover: css color
+}
+
+*/
+
+branch.banner({
+    icon: 'http://cinemagicgame.com/Icon-60@3x.png',
+    title: 'Cinemagic: Hollywood Madness',
+    disableHide: true,
+    forgetHide: true,
+    mobileSticky: true,
+    desktopSticky: true,
+    rating: 4.5,
+    reviewCount: 123,      
+    description: 'The amazing movie crafting game!'
+}, {});
+
+</script>
+
+</head>
+
+<body>
+<!--
+	<div id="iOS" style="display: none" class="download">
+		<a href="https://itunes.apple.com/app/id901677841">
+		<img src="images/appstore_ios.svg" />
+		</a>
+	</div>
+
+	<div id="Android" style="display: none" class="download">
+		<a href="https://play.google.com/store/apps/details?id=com.jamwix.cinemagic">
+		<img src="images/appstore_android.png" />
+		</a>
+	</div>
+
+	<div id="Desktop" style="display: none" class="download">
+		Enter your phone number to receive a download link on your device. Your phone number will not be stored. 
+
+		<form onsubmit="sendSMS(this); return false;">
+        	<input id="phone" name="phone" type="tel" placeholder="(415) 555-5555" />
+        	<br/>
+        	<input type="submit"/>
+        </form>
+
+		<div id="SMSConfirm" style="display: none">
+			Thanks! You should receive a link via SMS soon.
+		</div>
+
+	</div>
+-->
+    <div align="center" style="margin-top:50px">
+        <iframe id="ytplayer" align="center" type="text/html" width="800" height="450" src="http://www.youtube.com/embed/nHZGzQUe_mQ?autoplay=1&origin=http://example.com" frameborder="0">
+        </iframe>
+    </div>
+
+	<!-- <script src="js/showDownloadLink.js"></script> -->
+
+</body>
+</html>

@@ -1,0 +1,158 @@
+<h1>Writing data, text vs binary files </h1>
+
+<ol>
+<li>
+<p>When separating out a class into a header (.h) and source (.cpp) file, which of the following is generally true of the header (.h)? (circle all that apply, 2pts)</p>
+
+<ul>
+<li>A) is used to inform other files of what the class can do</li>
+<li>B) specifies the type of variables stored in the class</li>
+<li>C) contains implementation details for the class member functions</li>
+<li>D) specifies the access specifier (public, private, protected) for class members</li>
+<li>E) contains details about how the class does what it does</li>
+</ul>
+
+<div class="quiz_ans">
+
+<p>The key thing about understanding the difference between header and source files is that they separate <em>iterface</em> from <em>implementation</em>. Everything that serves to <em>define</em> the class- to name its variables and methods, and to say what its inputs and outputs are, goes in the header, while everything that actually implements its functionality goes in the source.</p>
+
+<p>A is correct, since header files are included in other source files to provide information about what the class does.</p>
+
+<p>B is correct, since all of the member variables are defined in the header.</p>
+
+<p>C is <strong>not</strong> correct, since all of the actual implmentation details go in the source file</p>
+
+<p>D is correct, since the header is where you separate variables and methods out into public, private, and protected.</p>
+
+<p>E is <strong>not</strong> correct, since all of the details on <em>how</em> the class functions are in the source file.</p>
+
+<p>So, the correct answer was to circle A, B, and D.</p>
+
+</div>
+
+</li>
+
+<li>...and which is generally true of the source (.cpp) file? (circle all that apply, 2 pts)
+
+<ul>
+<li>A) is used to inform other files of what the class can do</li>
+<li>B) specifies the type of variables stored in the class</li>
+<li>C) contains implementation details for the class member functions</li>
+<li>D) specifies the access specifier (public, private, protected) for class members</li>
+<li>E) contains details about how the class does what it does</li>
+</ul>
+
+<div class="quiz_ans">
+The correct answer here was C and E. See above for explanations.
+
+</div>
+
+</li>
+
+<li>What does the “#pragma once” directive do? (2 pts)
+
+<ul>
+<li>A) it helps to provide documentation on the class, and is totally optional</li>
+<li>B) it ensures that the header and source files know about each other</li>
+<li>C) nothing important- it's just automatically added by some IDEs and can be ignored</li>
+<li>D) it ensures that the header file is only included a single time in any one compilation</li>
+</ul>
+
+<div class="quiz_ans">
+<p>The <code class="c++">#pragma once</code> directive prevents a given header from being included more than once during compilation, so D is the correct answer. The reason that something like that is needed is that, very often, many classes will need access to the same class, and will include the same header file. If that header file was processed more than once by the compiler, it would lead to numerous errors, since there would be attempts to re-define things that were already defined.</p>
+
+<p>The #pragma once directive allows a given header file to be included as many times as necessary, but will cause the compiler to only process it the first time its encountered.</p>
+
+</div>
+
+</li>
+
+<li>Let's say that you were implementing a class to represent a specific type of car (possibly for a Grand Theft auto- type game)- let's say a Tesla Motors Model S. Think about the kinds of relationships you would want to create with other classes, and do the following: (4 pts)
+
+<ol>
+<li>List at least 2 classes that your class would inherit from:</li>
+<li>List at least 2 classes that your class would contain via composition:</li>
+</ol>
+
+<div class="quiz_ans">
+	<p>There are a ton of different examples that could work for either part. The easiest way is to ask yourself if it makes sense to say "A Tesla Motors Model S <strong>IS A</strong>________ " or if it makes more sense to say "A Tesla Motors Model S <strong>HAS A</strong>_____________".</p>
+
+	<p>Some examples of good choices for part one are: 
+	<ul>
+		<li>Car</li>
+		<li>Vehicle</li>
+		<li>LandVehicle</li>
+		<li>Drivable</li>
+		<li>GameEntity</li>
+	</ul>
+
+	All of the above are things you might find somewhere it the heirarchy of classes that a possible TeslaModelS class might inherit from, and any one of them would fit into a sentence with "is a".
+
+	</p>
+
+	<p>Examples of good answers for part two include:
+
+	<ul>
+	<li>Engine</li>
+	<li>Tire</li>
+	<li>Suspension</li>
+	<li>Radio</li>
+	<li>Battery</li>
+	</ul>
+
+	All of the above are separate components that are <em>in</em> a car, so it makes sense to include them via compositio.
+
+	</p>
+
+<p>Here's an example of how four additional classes might fit into the TeslaModelS class definition- two (Vechicle, Car) via inheritance, and two (Motor, Tire) via composition:
+
+<pre><code class="c++">
+// base Vehicle class
+class Vehicle 
+{
+	public:
+		Vehicle();
+		~Vehicle();
+		void enter();
+		void exit();
+		// additional public variables / methods 
+	private:
+		// private variables / methods
+};
+
+// Car class inherits from Vehicle
+class Car : public Vehicle
+{
+	public:
+		Car();
+		~Car();
+		void drive();
+		static int FUEL_TYPE_GAS;
+		static int FUEL_TYPE_DIESEL;
+		static int FUEL_TYPE_ELECTRIC;
+		int getFuelType();
+	private:
+		int fuelType;
+		vector&lt;Tire&gt; tires;
+};
+
+class TeslaModelS : public Car
+{
+	public:
+		TeslaModelS();
+		~TeslaModelS();
+
+	private:
+		Motor carMotor;
+		ChargePlug plug;
+};
+</code></pre>
+
+
+</p>
+
+
+</div>
+
+</li>
+</ol>

@@ -1,0 +1,71 @@
+<html>
+
+<head>
+
+<style type="text/css">
+
+body
+{
+	font-family: arial, sans;
+}
+
+input.question
+{
+	border: 1px #000 solid;
+	width: 300px;
+}
+
+input.answer
+{
+	border: 1px #000 solid;
+	width: 100px;
+}
+
+input#extras
+{
+	border: 1px #000 solid;
+	width: 500px;
+}
+
+canvas
+{
+}
+
+</style>
+
+</head>
+
+
+<body onload="main();">
+
+<input type="button" value="Make Image" onclick="makeImage()" />
+<input type="button" value="Toggle Controls" onclick="toggleControls()" />
+
+<div id="controls">
+	<div >
+		<label>Extra Answers:</label>
+		<input type="text" id="extras" />
+	</div>
+
+	<fieldset>
+	<legend>Questions</legend>
+
+	<input type="button" value="+" onclick="addQuestion()" />
+
+	<div id="questions">
+	</div>
+
+	</fieldset>
+</div>
+
+<canvas id="graph" width="800" height="800"></canvas>
+
+
+
+
+<script src="gridpuzz.js"></script>
+
+</body>
+
+
+</html>

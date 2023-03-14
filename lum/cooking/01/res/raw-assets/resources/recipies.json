@@ -1,0 +1,56 @@
+{
+    "recipies": [
+        {
+            "id": 1,
+            "name": "Imperial Palace",
+            "steps": [
+                {
+                    "text": "Boil the noodles",
+                    "items": [ 21, 1 ],
+                    "actions": [[21, 1]]
+                },
+                {
+                    "text": "Add an egg",
+                    "items": [21,13],
+                    "actions": [[21, 13]]
+                },
+                {
+                    "text": "Serve in red bowl",
+                    "items": [4],
+                    "actions": [[4]]
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Bamboo Garden",
+            "steps": [
+                {
+                    "text": "Chop the onion and eggplant",
+                    "items": [19, 3, 14],
+                    "actions": [[19,3],[19, 14]]
+                },
+                {
+                    "text": "Oil the flat pan",
+                    "items": [22, 16],
+                    "actions": [[22,16]]
+                },
+                {
+                    "text": "Add noodles to the boiling water",
+                    "items": [21, 1],
+                    "actions": [[21,1]]
+                },
+                {
+                    "text": "Cook onion and eggplant on flat pan",
+                    "items": [6, 7, 17],
+                    "actions": [[6,17],[7,17]]
+                },
+                {
+                    "text": "Serve in red bowl",
+                    "items": [4],
+                    "actions": [[4]]
+                }
+            ]
+        }
+    ]    
+}

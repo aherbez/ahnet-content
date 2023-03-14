@@ -1,0 +1,84 @@
+<html>
+<head>
+
+<style type="text/css">
+	canvas {
+		border: 1px solid #000;
+	}
+	
+	body {
+		font-family: arial, sans;
+	}
+	
+	canvas#stage {
+		position: absolute;
+		left: 10px;
+		top: 10px;
+		z-index: 1;
+	}
+	
+	canvas#output_img {
+		position: absolute;
+		left: 815px;
+		top: 10px;
+		z-index: 1;
+	}
+	
+	div#output {
+		border: 1px solid #000;
+		position: absolute;
+		top: 405px;
+		left: 10px;
+		width: 800px;
+		height: 40px;
+		display: none;
+	}
+	
+	div#settings {
+		position: absolute;
+		top: 415px;
+		left: 10px;
+	}
+	
+	div#instructions {
+		position: absolute;
+		width: 600px;
+		height: 400px;
+		top: 20px;
+		left: 20px;
+		z-index: 100;
+		display: none;
+	}
+</style>
+
+<script type="text/javascript" src="jquery-1.8.2.min.js"></script>
+
+</head>
+
+
+<body >
+
+<canvas id="stage" width="800" height="400" class="canvasA" ></canvas>
+<canvas id="output_img" width="200" height="400" class="canvasB" ></canvas>
+<div id="output" width="800" height="20" >&nbsp;</div>
+
+<div id="settings">
+	<a href="javascript: void(0);" onclick="showInstructions();">INSTRUCTIONS</a> 
+	seconds per sample: <input type="text" id="sample_size" />
+	image width (number of samples per row): <input type="text" id="image_width" />
+	<input type="button" id="update_settings" value="update"/>
+</div>
+
+<!--
+<div id="instructions">
+Here are instructions on what the hell this is.
+</div>
+-->
+<script type="text/javascript" src="msg003.js" ></script>
+<script type="text/javascript" src="instructions.js"></script>
+<script type="text/javascript" src="sample.js" ></script>
+<script type="text/javascript" src="nts.js" ></script>
+
+</body>
+
+</html>

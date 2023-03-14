@@ -1,0 +1,268 @@
+<html>
+<head>
+<title>Minecraft skin papercraft</title>
+<style type="text/css">
+
+body
+{
+    font-family: arial, sans;    
+}
+
+canvas
+{
+    
+}
+
+</style>
+
+<script type="text/javascript">
+
+var skin = 0;
+var canvas;
+var ctx;
+var skinImg;
+var skinData;
+var color;
+
+function init()
+{
+    skinImg = new Image();
+    canvas = document.getElementById('pattern');
+    ctx = canvas.getContext('2d');
+    
+    setSkin();
+}
+
+// draw rects for a box
+function drawBox(w,h,d)
+{
+    ctx.fillStyle = "#000";
+    
+    // draw left side
+    ctx.strokeRect(0,d,d,h);
+    
+    // draw front
+    ctx.strokeRect(d,d,w,h);
+    
+    // draw right side
+    ctx.strokeRect(w+d,d,d,h);
+    
+    // draw back
+    ctx.strokeRect(w+d+d,d,w,h);
+    
+    // draw top
+    ctx.strokeRect(d,0,w,d);
+    
+    // draw bottom
+    ctx.strokeRect(d,d+h,w,d);
+}
+
+function setColor(c)
+{
+    
+    color = c;
+    ctx.fillStyle = "rgb(" + c.r + "," + c.g + "," + c.b + ")";    
+    // ctx.globalAlpha = (c.a/255.0);
+}
+
+function colorAt(x,y)
+{
+    var pixel = 64*y + x;
+    
+    var c = new Object();
+    c.r = skinData.data[pixel*4];
+    c.g = skinData.data[pixel*4+1];
+    c.b = skinData.data[pixel*4+2];
+    c.a = skinData.data[pixel*4+3];
+    return c;
+}
+
+
+function copyPixels(sx,sy,w,h,dx,dy,scalex,scaley)
+{
+    if (!scaley)
+    {
+        scaley = scalex;
+    }
+    
+    for (x=sx; x<(sx+w); x++)  
+    {
+        for (y=sy; y<(sy+h); y++)
+        {
+            setColor(colorAt(x,y));
+            ctx.fillRect(dx+((x-sx)*scalex),dy+((y-sy)*scaley),scalex,scaley);
+        }
+        
+    }   
+}
+
+function copyPixelsFlipped(sx,sy,w,h,dx,dy,scalex,scaley)
+{
+    if (!scaley)
+    {
+        scaley = scalex;
+    }
+    
+    for (x=(sx+w-1); x>=sx; x--) // go from 8-0
+    {
+        for (y=sy; y<(sy+h); y++)
+        {
+            // when x = sx+w, xf = 0
+            // when x = sx+0, xf = w
+            // x = sx + (w-xf)
+            // x = sx + w - xf
+            // xf = sx+w-x
+            
+            setColor(colorAt(x,y));  
+            var xf = sx + w - x -1
+            ctx.fillRect(dx+((xf)*scalex),dy+((y-sy)*scaley),scalex,scaley);
+        }
+        
+    }   
+}
+
+
+// draw rects for a box
+function drawHead()
+{   
+    ctx.fillStyle = 'black'; 
+    ctx.fillText("head",20,60);
+    copyPixels(0,8,32,8,0,80,10);
+    copyPixels(8,0,8,8,80,0,10);
+    copyPixels(16,0,8,8,80,160,10);   
+    drawBox(80,80,80);
+}
+
+function drawChest()
+{
+    ctx.fillText('chest',150,30);
+    copyPixels(16,20,24,12,0,40,10);
+    copyPixels(20,16,8,4,40,0,10);
+    copyPixels(28,16,8,4,40,160,10);
+    drawBox(80,120,40);
+}
+
+function drawLeg()
+{
+    ctx.fillText('right_leg',100,30);
+    copyPixels(0,20,16,12,0,40,10,12);
+    copyPixels(4,16,4,4,40,0,10);
+    copyPixels(8,16,4,4,40,184,10);
+    drawBox(40,144,40);
+}
+
+function drawLegFlipped()
+{
+    ctx.fillText('left_leg',100,30);
+    copyPixels(0,20,16,12,0,40,10,12);
+    copyPixelsFlipped(4,16,4,4,40,0,10);
+    copyPixelsFlipped(8,16,4,4,40,184,10);
+
+    copyPixelsFlipped(4,20,4,12,40,40,10,12);
+    copyPixelsFlipped(0,20,4,12,80,40,10,12);
+    copyPixelsFlipped(8,20,4,12,0,40,10,12);
+    copyPixelsFlipped(12,20,4,12,120,40,10,12);
+    
+    drawBox(40,144,40);
+}
+
+function drawArm()
+{
+    ctx.fillText('right_arm',100,25);
+    copyPixels(40,20,16,12,0,40,10);
+    copyPixels(44,16,4,4,40,0,10);
+    copyPixels(48,16,4,4,40,160,10);
+    drawBox(40,120,40);
+}
+
+function drawArmFlipped()
+{
+    ctx.fillText('left_arm',100,25);
+    // copyPixels(40,20,16,12,0,40,10);
+    copyPixelsFlipped(44,16,4,4,40,0,10);
+    copyPixelsFlipped(48,16,4,4,40,160,10);
+    
+    copyPixelsFlipped(44,20,4,12,40,40,10);
+    copyPixelsFlipped(40,20,4,12,80,40,10);
+    copyPixelsFlipped(48,20,4,12,0,40,10);
+    copyPixelsFlipped(52,20,4,12,120,40,10);
+
+    drawBox(40,120,40);    
+}
+
+function drawHair()
+{
+    ctx.fillText('hair/helmet',200,60);
+    copyPixels(32,8,32,8,0,88,11);
+    copyPixels(40,0,8,8,88,0,11);
+    copyPixels(32,0,8,8,88,16*11,11);  
+    drawBox(88,88,88);
+}
+
+function setSkin()
+{
+    ctx.fillStyle = "#fff"
+    ctx.fillRect(0,0,650,800);
+    
+    skin = document.getElementById('skinID').value;
+    // document.getElementById('skin').src = 'http://www.minecraftskins.com/view/' + skin;
+    skinImg.src = 'getimg.php?img=' + skin;
+    
+    skinImg.addEventListener('load', function()
+    {
+        var skn_can = document.getElementById('rawSkin');
+        var skn = skn_can.getContext('2d');
+        skn.drawImage(skinImg,0,0);
+
+        ctx.font = 'bold 16px Arial';
+        skinData = skn.getImageData(0,0,64,32);
+        ctx.setTransform (1, 0, 0, 1, 0, 0);
+        drawHair();
+        
+        ctx.setTransform(1,0,0,1,250,250);        
+        drawHead();
+        
+        ctx.setTransform(1,0,0,1,20,500);                
+        drawChest();
+        
+        ctx.setTransform(1,0,0,1,300,520);                        
+        drawLeg();
+
+        ctx.setTransform(1,0,0,1,490,520);                        
+        drawLegFlipped();
+        
+        ctx.setTransform(1,0,0,1,0,280);                                
+        drawArm();
+
+        ctx.setTransform(1,0,0,1,400,0);                                
+        drawArmFlipped();   
+	
+	});
+    
+    // drawBox(ctx,20,20,20);
+}
+
+</script>
+
+</head>
+<body onload="init()">
+    
+<!-- value="27398"  -->
+
+<h1>Minecraft Skin -> Papercraft</h1>
+This page will create a printable image, allowing you to make a papercraft version of any minecraft skin. <br />
+To get started, visit <a href="http://www.minecraftskins.com" target="new">minecraftskins.com</a> and find a skin that you like. <br />
+Once you've done that, copy the image url for the skin into the field below, and click the button. <br />
+Finally, print this page to get started making your own MC papercraft toy. Enjoy!<br />
+<br />
+<form>
+    <input type="text" id="skinID" value="http://www.minecraftskins.com/newuploaded_skins/skin_20120922165703170136.png" size="100"/>
+    <input type="button" value="Set Skin" onclick="setSkin()" />
+</form>
+
+<canvas width="64" height="32" id="rawSkin">&nbsp;</canvas> <br /><br />
+
+<canvas width="650" height="800" id="pattern" >&nbsp;</canvas>
+
+</body>
+</html>

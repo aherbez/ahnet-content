@@ -1,0 +1,159 @@
+
+<h1>Introduction to the STL – Standard Template Library</h1>
+
+<p>C++ is a great language, but it's very bare-bones. Many common tasks can end up being more involved than you might want, which means both writing more code, and having more opportunities for errors. Luckily, there are a large number of libraries out there that can make your life a great deal easier. </p>
+
+<p>Chief amongst these are the libraries collected into the STL, or the Standard Template Library:</p>
+
+<ul>
+<li>Standard: indicates that the libraries are part of namespace std (and that they contain “standard” functionality)</li>
+<li>Template: indicates that the libraries use templating to offer greater flexibility (more on that below)</li>
+<li>Library: indicates that the libraries are.... libraries </li>
+</ul>
+
+<h2>Using std::array</h2>
+
+<p>Last class, we looked at how to use C++ arrays and, while they certainly have a ton of great uses, but they also have some sharp edges. Luckily, there are other options that both provide a bit more functionality and are easier to use. </p>
+
+<p>First off, let's look at std::array. This will give us something very close to regular arrays, but with a few additional (and nice) features. To use std::array, start by including it.</p>
+
+<pre><code class="c++">#include &lt;array&gt;</code></pre>
+
+To actually declare an array (of 5 integers, let's say), do the following:
+
+<pre><code class="c++">array&lt;int, 5&gt; MyArray;</code></pre>
+
+<p>Note the slightly strange syntax. That's due to the T in the STL, namely “templates”. Templating in C++ is a way of defining functions that can take in multiple types of inputs.</p>
+
+<h3>A brief aside (don't actually do this just yet)</h3>
+<p>You can define your own templated functions as follows:</p>
+
+<pre><code class="c++">template &lt;class type&gt; type myAdd(type a, type b)
+{
+	return (a + b);
+}</code></pre>
+
+<p>In the above, the “template” keyword indicates that our myAdd function is a template. The <class type> bit is saying that there will be a variable type of input, which we will refer to as “type”. This is a bit similar to how we label incoming input with variable names in normal functions. </p>
+
+<p>In the above, we're basically saying that this function should take in two inputs of the same type (whatever that is) and return a new value of that same type. Note that for this to work, whatever type we pass in must have a valid “+” (addition) operator. </p>
+
+<p>Many of the libraries in the STL are templated, meaning that you can use the same functions with data of different types. So, when we create a std::array, we're using the same code no matter what type of data we're filling it with. Even though we can use multiple types, we still have to be specific about the type we want for any given array. We also still need to specify the array size, both of which we do within the <> symbols, as follows:</p>
+
+<pre><code class="c++">array&lt;int, 5&gt; MyArray;</code></pre>
+
+<p>Once we've done that, we have an array that is, in many ways, just like the ones we saw last week. For example, if we want to change the value of the third element, we would refer to:</p>
+
+<pre><code class="c++">#MyArray[2] = 23;</code></pre>
+
+<p>However, std::arrray arrays give us a few extra features. First off, we can find the length of an array (even if it's been passed into a function) with the size() method. That looks like the following:</p>
+
+<pre><code class="c++">// would output 5
+cout &lt;&lt; MyArray.size() &lt;&lt; “\n”; </code></pre>
+
+<p>The other big benefit is that std::array arrays can be easily sorted. However, that's not actually implemented in the array library. Instead, it's implemented in the std::algorithm library, so if we want to sort arrays, we'll want to include that, too:</p>
+
+<pre><code class="c++">#include &lt;algorithm&gt;</code></pre>
+
+<p>If we've done that, we can pass our array into sort as follows:</p>
+
+<pre><code class="c++">sort(MyArray.begin(), MyArray.end());</code></pre>
+
+<p>That will result in MyArray being sorted in ascending order. The syntax likely looks a bit odd. What's going on is that sort is implemented as a templated function, and can work on a variety of inputs, as long as they implement a begin() and an end() method. For an array, that's pretty simple, but for other classes it may be more involved.</p>
+
+
+<h3>Iterators</h3>
+
+<p>Both the begin() and end() functions in std::array return something called an iterator. Iterators can be thought of as markers that identify a particular location in some kind of list-like object. They can generally also be incremented to step through the list. </p>
+
+<p>Don't worry about iterators that much for now, just know that using some of the nicer features on offer in the STL will require making use of them. </p>
+
+
+<h2>Using std::vector</h2>
+
+<p>While std::array arrays are great, they are still fixed-size containers. That's fine for many things, but if you wanted to have a container that is of variable size, or that needs to change its size, you'll need something else.</p>
+
+<p>One of the most common options in such cases is the std::vector library, which provides a variable-length, list-like container. To do that, first include the vector library:</p>
+
+<pre><code class="c++">#include &lt;vector&gt;</code></pre>
+
+<p>You can then create vectors, as in:</p>
+
+<pre><code class="c++">vector&lt;int&gt; MyIntVector;</code></pre>
+
+<p>Adding elements to a vector can be done in two ways- you can set them directly at initialization, as in:</p>
+
+<pre><code class="c++">vector&lt;int&gt; MyIntVector = {1,2,3};</code></pre>
+
+<p>You can also add single elements, but not in the way you might think. If you try to just set an element directly, as you would with an array:</p>
+
+<pre><code class="c++">MyIntVector[0] = 23;</code></pre>
+
+<p>That may work (if the index specified exists), or it may result in a segmentation fault- a kind of error that results from reading from a bad location in memory. Instead, you can do one of the following:</p>
+
+<pre><code class="c++">MyIntVector.push_back(23); </code></pre>
+
+<p>… which would add the value to the end of the vector and increase the vector's size by one, or:</p>
+
+MyIntVector.insert(MyIntVector.begin(), 23);
+
+<p>Note that the first thing we pass in is the output from the vector.begin() function. The insert method requires an iterator to specify where in the list the new element should be inserted. The above code would insert the new value at the very beginning of the vector.</p>
+
+<p>If we wanted to insert the new element at the second position of the vector, all we need to do is to add one to the iterator, as in:</p>
+
+<pre><code class="c++">MyIntVector.insert(MyIntVector.begin() + 1, 23);</code></pre>
+
+
+<h2>A closer look at std::string</h2>
+
+<p>We've been using std::string for a while now, in order to avoid the additional complexity of standard C-style strings (which are actually arrays of characters).</p>
+
+<p>We've mainly just used strings to print content to the console, but there are a few methods offered by std::string that are very useful, indeed.</p>
+
+<h3>Getting substrings</h3>
+
+<p>It is often helpful to grab a part of a longer string. For example, you might want to grab the area code (first three numbers) from a string containing a phone number. To do that, you can use the substr() function, as in:</p>
+
+<pre><code class="c++">string PhoneNumber = “415-555-2323”;
+string AreaCode = PhoneNumber.substr(0, 3);</code></pre>
+
+<p>Note that substr() requires two inputs- the first is the index to start, and the second is the number of characters to grab. So, (0,3) means to grab 3 characters, starting at the first one (index 0).</p>
+
+<h3>Using find</h3>
+
+<p>Another common string operation is to check to see if a given string contains a smaller string, and if so, where it is located. Let's say we wanted to check to see if a given phone number (as a string) contained “415” as the area code. We could do the following:</p>
+
+<pre><code class="c++">string PhoneNumber = “415-555-2323”;
+if (PhoneNumber.find(“415”) == 0)
+{
+	cout << “FOUND 415 AREA CODE\n”;
+}</code></pre>
+
+<p>If find() finds the thing we're looking for, it will return the index where the first occurance was found. In this case, we get 0, meaning that “415” is at the start of the string. If the specified string is NOT found, however, we get something that looks like a very odd value. If you need to test for that, be sure to use the string::npos constant, as in:</p>
+
+<pre><code class="c++">if (PhoneNumber.find(“415”) != string::npos)
+{
+	// “415” was found somewhere in the string
+}</code></pre>
+
+<hr />
+
+<h1>MIDTERM</h1>
+
+<center>
+<img src="img/sscLogo.png" />
+</center>
+
+<br /><br />
+
+<p>
+	Welcome, recruit. You have been selected to join the ranks of Stephenson Security Consultants as a junior agent. 
+</p>
+
+<p>Your first set of tasks is ready and waiting for you <a href="http://www.adrianherbez.net/gap125/ssc">here</a>. Enter "download" at the prompt to receive your materials.</p>
+
+<p>
+You will receive a PDF with four missions (plus two bonus misions), as well as a source file to use as a starting point. Do not delete anything from the midterm_blank.cpp file- just add in the code as needed to implement the functionality described in the mission briefings.
+</p>
+
+<p>Good luck, agent</p>
+

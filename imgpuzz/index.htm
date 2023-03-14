@@ -1,0 +1,61 @@
+<html>
+
+<head>
+
+<link rel="stylesheet" href="css/main.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+FIND THESE!
+
+<div id="targets">
+
+<img src="img/dog.jpg" class="img-target" />
+<img src="img/cat.jpg" class="img-target" />
+<img src="img/foobar.gif" class="img-target" />
+<img src="img/parrot.jpg" class="img-target" />
+
+
+</div>
+
+<canvas id="feedback" width="320" height="80"></canvas>
+
+
+<br />
+
+
+
+<script>
+  (function() {
+    var cx = '015817749002126715863:oaasidfsoh8';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    gcse.onreadystatechange = function() {
+    	console.log('READY STATE CHANGED');
+    };
+    gcse.onload = function() {
+    	console.log('CSE LOAD');
+    };
+
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+
+<gcse:searchbox enableImageSearch="true" defaultToImageSearch="true" disableWebSearch="true" safeSearch="moderate" ></gcse:searchbox>
+
+<gcse:searchresults></gcse:searchresults>
+
+
+<script type="text/javascript" src="js/main.js"></script>
+
+
+</body>
+
+
+
+</html>

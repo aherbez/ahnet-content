@@ -1,0 +1,224 @@
+<html>
+
+<head>
+
+<link rel="stylesheet" href="styles/default.css">
+<script src="js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>	
+
+
+</head>
+
+<body>
+<!--
+<h1>Week 1: Introduction, basic program structure</h1>
+
+<p>
+This week we'll be looking at the basics of using C++ to write programs. 
+</p>
+
+<p>
+	We'll start off the class with that old standby of intro programming classes (and books, and websites, and carrier pigeons) everywhere... Hello World! Our program, when run, will output a friendly greeting to the screen.
+</p>
+
+<p>Here's the full listing</p>
+
+<pre><code class="C++">#include &lt;iostream&gt;
+
+using namespace std;
+
+int main()
+{
+
+	cout << "Hello World\n " ;
+
+	return 0;
+}		
+</code></pre>
+
+
+<pre><code class="C++">#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+using namespace std;
+
+int main()
+{
+	string name;
+	cin >> name;
+	cout << "Hello, " << name << "\n" ;
+
+	return 0;
+}		
+</code></pre>
+-->
+<h1>Our first program</h1>
+<p>
+We'll start the class with that old standby of intro programming classes everywhere... Hello World. This program will output a friendly “Hello World” to the console when its run.</p> 
+
+<p>Here's the full listing:</p>
+
+<pre><code class="C++">#include &lt;iostream&gt;
+
+using namespace std;
+
+int main()
+{
+
+	cout << "Hello World\n " ;
+
+	return 0;
+}		
+</code></pre>
+
+<p>While the program is quite simple, there are a few different parts worth mentioning. The easiest way to explain whats going on above is to start with the line that actually does the work, and expand outwards from there, so... </p>
+
+<h2>Printing to the console</h2>
+
+<p>The main work of the program happens in the following line:</p>
+
+<pre><code class="C++">cout << “Hello World\n”;</code></pre>
+
+<p>The cout command will push data to the standard output, which generally means printing to the console. The “<<” operator is used with cout to output data. You can string together multiple occurrences of cout to output multiple bits of information. For example, we could rewrite the above as:</p>
+
+<pre><code class="C++">cout << “Hello “ << “World” << “\n”;</code></pre>
+
+<p>While that wouldn't be particularly useful, it becomes important later when you want to output different types of data, and/or a mixture of literals (like “Hello”) and variables on the same line.</p>
+
+<h2>Wrapping it all in a function</h2>
+
+<p>One step outward from the line that actually prints our message is the function definition in which it's wrapped, namely:</p>
+
+<pre><code class="C++">int main()
+{
+	useful work goes here
+	return 0;
+}</code></pre>
+
+<p>Most useful programs will include thousands of lines of code and many many files. However, all of them must have a single entry point, defined by a function named “main”. Furthermore, that function must always return an integer ('int') value. All of that is to ensure that there is a single, clear starting point for every program.</p>
+
+<p>Now we have the meat of our program contained in a proper wrapper, but that still isn't quite enough for the program to work.</p>
+
+<h2>Libraries and namespaces</h2>
+
+<p>There are two lines remaining in our example program, both of which are needed in order to have cout work for us without errors. First off, there's this:</p>
+
+<pre><code class="C++">#include &lt;iostream&gt;</code></pre>
+
+<p>Anything that starts with a # is a “preprocessor directive”. Such statements aren't part of C++ proper, but rather are meant for the compiler. The #include directive is one of the most common, and is used to include addition libraries in our programs. In this case, we're adding the iostream library, which is a part of the standard library, and defines common tools for input and output.</p> 
+
+<p>At this point, we could use the cout function, but we would need to be clear that we're using the function defined in the standard library (since we could be including other librariers, any one of which might define it's own “cout” function). To do that, we could use the scope resolution operator, or “::”. That would look like the following:</p>
+
+<pre><code class="C++">std::cout << “Hello World\n”;</code></pre>
+
+<p>The :: can be interpreted as similar to an apostrophe S in English. In other words, we're saying “std's “cout” function”. Adding “std::” to everything can get tedious though. If only there was another way...</p>
+
+<h2>“Using” namespaces</h2>
+
+<p>This brings us to the one remaining line:</p>
+
+<pre><code class="C++">using namespace std;</code></pre>
+
+<p>This functions to tell the compiler that it should assume that everything we're doing is happening within the standard library, allowing us to use:</p>
+
+<pre><code class="C++">cout << “Hello”</code></pre>
+
+<p>instead of </p>
+
+<pre><code class="C++">std::cout << “Hello”</code></pre>
+
+<p>...as the “std::” will be assumed.</p>
+ 
+<h2>There's more</h2>
+
+<p>So far, we've seen how to use cout to output data to the screen. We can also use a related function, cin to read data from the standard input. This is an easy way to get input from the user in console-based applications. For example:</p>
+
+<pre><code class="C++">#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+using namespace std;
+
+int main()
+{
+	string name;
+	cin >> name;
+	cout << "Hello, " << name << "\n" ;
+
+	return 0;
+}		
+</code></pre>
+
+<h2>Compiling!</h2>
+
+<p>
+For most of the class, we'l be using Visual Studio to build our code. But for now, we'll do it the old-fashioned way, via the command line. 
+</p>
+
+<p>
+However, the command-line built into Windows leaves quite a lot to be desired. We'll need to make sure we use the command-line interface that Visual Studio provides, accessible by going to: 
+</p>
+
+<p>
+Start->Visual Studio->Visual Studio Command Prompt
+</p>
+
+<p>
+Once you have that open, you can compile your program by navigating to the requisite folder using CD, and running:
+</p>
+
+<pre><code>cl myProgram.cpp</code></pre>
+
+<p>Running that without any additional arguments will produce two files- 
+<ul>
+<li>an object file, and </li>
+<li>the executable itself</li>
+</ul>
+</p>
+
+<p>Object files are intemediary files created by the compiler, which are then passed to the linker. While it may seem strange to have such a two-step process, it makes sense when you consider larger projects that include many source files, some of which may remain unchanged from the last compile.</p>
+
+<p>Instead of recompiling everything, the linker can just re-use object files from the last compilation for files that haven't changed, leading to quicker build times.</p>
+
+
+<hr>
+
+<h1>Week 1 Assignment</h1>
+
+<p>For this week's assignment, create a program that: </p>
+
+<p>
+<ol>
+<li>Prompt the user to enter their name</li>
+<li>Present the user with a friendly greeting including their name</li>
+<li>after that, output: 
+	<ul>
+	<li>your name</li>
+	<li>your favorite game</li>
+	<li>a short description of something you'd like to build</li>
+	</ul>
+</li>
+</ol>
+Each of the above should start on it's own line, and there should be an additional newline at the end.
+</p>
+
+<p>Example output:</p>
+
+<pre><code class="text">Who are you?: Bill
+Hello, Bill
+My name is Adrian
+My favorite game is Deus Ex
+I've always wanted to build a RPG/logic puzzle hybrid game
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

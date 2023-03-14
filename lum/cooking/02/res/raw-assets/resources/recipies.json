@@ -1,0 +1,63 @@
+{
+    "recipies": [
+        {
+            "id": 1,
+            "name": "Imperial Palace",
+            "finished": 37,
+            "steps": [
+                {
+                    "text": "Boil the noodles",
+                    "items": [ 21, 1 ],
+                    "actions": [[21, 1]]
+                },
+                {
+                    "text": "Put the noodles in on a white plate",
+                    "items": [2,24],
+                    "actions": [[2, 24]]
+                },
+                {
+                    "text": "Add an egg",
+                    "items": [13, 36],
+                    "actions": [[13, 36]]
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Bamboo Garden",
+            "finished": 38,
+            "steps": [
+                {
+                    "text": "Chop the eggplant",
+                    "items": [19, 14],
+                    "actions": [[19, 14]]
+                },
+                {
+                    "text": "Oil the flat pan",
+                    "items": [22, 16],
+                    "actions": [[22,16]]
+                },
+                {
+                    "text": "Add noodles to the boiling water",
+                    "items": [21, 1],
+                    "actions": [[21,1]]
+                },
+                {
+                    "text": "Cook eggplant on flat pan",
+                    "items": [7, 17],
+                    "actions": [[7,17]]
+                },
+                {
+                    "text": "Add boiled noodles to bowl",
+                    "items": [2, 4],
+                    "actions": [[4,2]]
+                },
+                {
+                    "text": "Add cooked eggplant to red bowl",
+                    "items": [34, 35],
+                    "actions": [[4]]
+                }
+            ]
+        }
+    ]    
+}

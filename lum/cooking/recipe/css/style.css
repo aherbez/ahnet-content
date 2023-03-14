@@ -1,0 +1,21 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+div#output {
+    border: 1px solid #000;
+    width: 400px;
+    height: 400px;
+}
+
+#difficulty {
+    position: absolute;
+    top: 10px;
+    left: 420px;
+}
+
+#btn {
+    position: absolute;
+    top: 40px;
+    left: 420px;
+}

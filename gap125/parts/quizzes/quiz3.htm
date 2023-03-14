@@ -1,0 +1,136 @@
+<h1>Quiz 3</h1>
+
+<ol>
+
+<li>
+<p>Adding the const keyword before a variable will have what effect?</p>
+
+<ul>
+<li>A) make it so that the variable never goes out of scope</li>
+<li>B) limiting the variable to whole-number (integer) values</li>
+<li>C) result in the compiler throwing an error if you change the value of the variable</li>
+<li>D) forcing the variable to have whole-number values</li>
+</ul>
+
+<div class="quiz_ans">
+C is the correct answer- const is used to prevent the value of variables from changing. A may have seemed like a good choice, and it is true that often const variables may have global scope, the const keyword itself has no impact on scope. The <strong>static</strong> keyword can be used in that way, but usually isn't (more on static when we get to classes). <br/><br />
+
+B and D were repeated answers (my mistake), but are both incorrect- you can certainly have a const variable that is a float (or even a string).
+
+</div>
+
+
+
+</li>
+
+
+
+<li>
+<p>True or False: the following program would print a different number each time it was run</p>
+
+<pre><code class="C++">#include &lt;iostream&gt;
+
+using namespace std;
+
+int main()
+{
+	cout &lt;&lt; rand() &lt;&lt; “\n”;
+	return 0;
+}</code></pre>
+
+<div class="quiz_ans">
+<strong>FALSE</strong> It's true that rand() can be used to provide random numbers, but numbers on computers are never actually random. Instead, they are created as a set sequence using deterministic math, meaning that they always provide the same sequence, given the same starting point. <br /><br /> 
+
+To get random numbers that are actually different each time, we need to make sure that we use a different starting point each time. For that, we need to use the srand() function to set the seed value for random number generation. Altering the above code to produce a different number each time it's run would give us the following:
+
+<pre><code class="C++">#include &lt;iostream&gt;
+#include &lt;ctime&gt;
+
+using namespace std;
+
+int main()
+{	
+	srand(time(NULL));
+	cout &lt;&lt; rand() &lt;&lt; “\n”;
+	return 0;
+}</code></pre>
+
+The above would set the seed value to the current time, as represented by number of seconds since January 1st, 1970. Since running the program at different times will result in different values, that will guarantee different results each time it is run.
+
+</div>
+
+
+</li>
+
+<li>
+<p>Which of the following is a good reason to use const instead of #define?</p>
+
+<ul>
+<li>A) const produces faster execution time</li>
+<li>B) const is type-safe, while #define allows mismatched types (strings where there should be ints, for example)</li>
+<li>C) #define cannot be used with integer values</li>
+<li>D) none of the above - there is never any good reason to use const instead of #define</li>
+</ul>
+
+<div class="quiz_ans">
+D is wrong, as there are definitely good reasons to use const instead of #define. <br />
+A is wrong, as there is no significant difference between the two in terms of execution time <br />
+C is wrong- #define is equivalent to a copy-paste operation, and can be used with floats and string literals as well <br />
+That leaves the correct answer, B. That is the best reason to use const instead of define. Since #define is a straight copy-paste, there's nothing to stop you from using it to set the value of an integer variable to a string, as in:
+
+<pre><code class="C++">#define SOMENUM "foo"
+
+// would result in 
+// int MyNum = "foo";
+// ... which would cause an error
+int MyNum = SOMENUM;
+</code></pre>
+</div>
+</li>
+
+<li>
+<p>What would be the output of the following code?:</p>
+
+<pre><code class="C++">int TestNum = 2;
+switch (TestNum)
+{
+	case 2:
+	{
+		cout << “Hello “;
+	}
+	case 3:
+	{
+		cout << “World \n”;
+		break;
+	}
+	case 4:
+	{
+		cout << “foo\n”;
+		break;
+	}
+}</code></pre>
+
+
+<div class="quiz_ans">
+
+The correct answer is "Hello World". The key thing to notice here is that the clause for 2 lacks a break statement. So, since our TestNum <em>is</em> actually 2, we hit the 2 clause, and "Hello " is output. However, since that clause lacks a break statement, we continue on to case 3, and "World" is <em>also</em> output. The 3 clause does have a break though, and that's where execution stops.
+
+</div>
+</li>
+
+<li>
+
+<p>The actual value of enum variables is of what type?</p>
+
+<ul>
+<li>A) char</li>					
+<li>B) int</li>
+<li>C) float</li>					
+<li>D) bool</li>
+</ul>
+
+<div class="quiz_ans">
+
+B is the correct answer, as the actual value for enums is stored internally as integer values. 
+
+</div>

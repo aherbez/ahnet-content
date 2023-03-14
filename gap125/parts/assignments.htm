@@ -1,0 +1,310 @@
+<h1>Assignments</h1>
+
+<h2><a name="week1">Week 1 Assignment - Hello World</a></h2>
+
+
+<p>For this week's assignment, create a program that: </p>
+
+<p>
+<ol>
+<li>Prompt the user to enter their name</li>
+<li>Present the user with a friendly greeting including their name</li>
+<li>after that, output: 
+	<ul>
+	<li>your name</li>
+	<li>your favorite game</li>
+	<li>a short description of something you'd like to build</li>
+	</ul>
+</li>
+</ol>
+Each of the above should start on it's own line, and there should be an additional newline at the end.
+</p>
+
+<p>Example output:</p>
+
+<pre><code class="text">Who are you?: Bill
+Hello, Bill
+My name is Adrian
+My favorite game is Deus Ex
+I've always wanted to build a RPG/logic puzzle hybrid game
+</code></pre>
+
+
+<h2><a name="week2">Week 2 Assignment - Bomb Defuser</a></h2>
+
+<p>Write a program that asks the player to defuse a bomb. This should take the form of a small text adventure. 
+Key features:
+
+<ul>
+<li>present the player with a short description</li>
+<li>tell them which wires remain</li>
+<li>prompt them to enter a number of the wire to cut</li>
+<li>if the wire has already been cut, tell them so</li>
+<li>if the wires are cut in the proper order, tell them they succeeded</li>
+<li>if the wires are cut in the wrong order, display “BOOM!” (or something similar)</li>
+<li>if they enter anything other than a number, end early</li> 
+<li>at the end of the loop, display one of two messages:
+	<ol>
+		<li>one if they succeeded</li>
+		<li>a different one if the bomb went off (wires cut in the wrong order), or they entered anything other than the specific numbers</li> 
+	</ol>
+</li>
+</ul>
+</p>
+
+<p>Test cases:
+<ul>
+<li>the user enters numbers in the correct order</li>
+<li>the user enters numbers in the incorrect order</li>
+<li>the user enters something other than a number</li>
+</ul>
+</p>
+
+<p>Don't worry about dealing with the case that the user enters anything other than an integer number for the options.</p>
+
+<p>Example runs of the program:</p>
+
+<pre><code class="C++">There is a bomb here, you should probably do something about that.
+Possible wires:
+1: red
+2: green
+3: blue
+Wire to cut: 1
+You cut the red wire
+There is a bomb here, you should probably do something about that.
+Possible wires:
+2: green
+3: blue
+Wire to cut: 2
+You cut the green wire
+There is a bomb here, you should probably do something about that.
+Possible wires:
+3: blue
+Wire to cut: 3
+You cut the blue wire
+You defused the bomb! You're a hero, and gain all sorts of fame and fortune as a result
+Enter anything to continue
+-1
+</code></pre>
+
+<pre><code class="C++">There is a bomb here, you should probably do something about that.
+Possible wires:
+1: red
+2: green
+3: blue
+Wire to cut: 1
+You cut the red wire
+There is a bomb here, you should probably do something about that.
+Possible wires:
+2: green
+3: blue
+Wire to cut: 3
+You cut the blue wire
+BOOM!
+The bomb exploded. People were very dissappointed, to say the least
+Enter anything to continue
+-1</code></pre>
+
+<pre><code class="C++">There is a bomb here, you should probably do something about that.
+Possible wires:
+1: red
+2: green
+3: blue
+Wire to cut: 7
+You decide to give up and go home.
+The bomb exploded. People were very dissappointed, to say the least
+Enter anything to continue
+-1</code></pre>
+
+<p>I've created an example program that implements all of the above- try playing with it to see what I'll be expecting your code to do. <h1><a href="examples/BombDefuser.zip">Download the ZIP here</a></h1></p>
+
+<h2><a name="week3">Week 3 Assignment - Management Game</a></h2>
+
+<p>This week's assignment is to implement a simple management sim type game, in which the player is asked to make decisions to manage their empire. The requirements are that:
+
+<ul>
+<li>There be at least two resources (gold and food, for example)</li>
+<li>Each time the player is prompted, they should see the current values of their resources</li>
+<li>There be at least three options for the player to choose from each round. For example, the player might choose to:
+	<ol>
+		<li>Send a raiding party to a neighboring village (high risk, high reward)</li>
+		<li>Devote all resouces to farming this round (low risk, low reward)</li>
+		<li>Buy food from a neighboring village (reduces gold, increases food)</li> 
+	</ol>
+</li>
+<li>Options should be presented to the user as a list, and the input should be in the form of a number</li>
+<li>Each option should have differnt results, in terms of the effect on your resources, and at least some of them should be randomized (the raiding party might have a 50% chance of success, for example)</li>
+<li>There should be at least one final conidition. For example, you might lose if your food drops to zero. Conversely, you might win if you manage to stockpile enough gold to pay for the construction of a monument to your splendor.</li>
+<li>The player should be able to quit at any time</li>
+</ul>
+
+<p>Example output:
+
+<pre><code>URRENT STATUS: food- 195 gold- 1000
+1: Send out a raiding party
+2: Grow food
+3: Buy food
+4: Sell food
+5: Build Monument (2000 gold)
+6: quit
+What do you want to do: 1
+Result of raid: -93
+CURRENT STATUS: food- 140 gold- 907
+1: Send out a raiding party
+2: Grow food
+3: Buy food
+4: Sell food
+5: Build Monument (2000 gold)
+6: quit
+What do you want to do: 2
+You harvest 19 food
+CURRENT STATUS: food- 154 gold- 907
+1: Send out a raiding party
+2: Grow food
+3: Buy food
+4: Sell food
+5: Build Monument (2000 gold)
+6: quit
+What do you want to do: 4
+You sell 20 food for 24
+CURRENT STATUS: food- 129 gold- 931
+1: Send out a raiding party
+2: Grow food
+3: Buy food
+4: Sell food
+5: Build Monument (2000 gold)
+6: quit
+What do you want to do: 5
+You can't afford that!
+CURRENT STATUS: food- 124 gold- 931
+1: Send out a raiding party
+2: Grow food
+3: Buy food
+4: Sell food
+5: Build Monument (2000 gold)
+6: quit
+What do you want to do: 
+
+</code></pre>
+
+</p>
+
+<h2><a name="week4">Week 4 Assignment - Management Game, Part Two</a></h2>
+
+
+<p>This week's assignment is to go add on to last week's assignment, to add more functionality and structure it using functions.</p>
+
+<p>Your submission should build off of what you did for week 3, but with the following additions:
+
+<ul>
+<li>Create a function for each action offered to the player</li>
+<li>Create a function to display the current status</li>
+<li>Create a function to display the choices available (bonus points for making some appear / dissappear based on the current status- you can't buy food if gold &lt;= 0, for example)</li>
+<li>Add at least three more options in addition to what you implemented for last week's assignment</li>
+</ul>
+
+<h2><a name="week5">Week 5 Assignment - Mini Dungeon</a></h2>
+
+<p>Build off of the <a href="example_code/wk5_minidungeon.pdf">example from today's class</a>
+example from today's class to make a simple ASCII-based dungeon (or other setting) crawler. At a minimum, your game shoud:</p>
+
+<ol>
+<li>Print a "dungeon" or other setting using ASCII characters</li>
+<li>Allow the player to move around in the environment </li>
+<li>Allow for various types (at least 3) of things to happen (item pickups, random events, etc)</li>
+</ol>
+
+<p>Example output:
+
+<pre><code>
+1: move left, 2: move up, 3: move down, 4: move right, 5: quit
+Current status: Health: 100 Food: 20 Gold: 0
+************************************************************
+*..........................................................*
+*..........................................%...............*
+*..........................................%...............*
+*@...........................%.............................*
+*..........................................................*
+*..........................................................*
+*..........................................................*
+*..........................................................*
+*..........................................................*
+*................%.........................................*
+*.................%........................................*
+*..........................................................*
+*..........................................................*
+************************************************************
+
+</code></pre>
+
+<h2><a name="week6">Week 6 Assignment - Midterm</a></h2>
+
+
+<center>
+<img src="img/sscLogo.png" />
+</center>
+
+<br /><br />
+
+<p>
+	Welcome, recruit. You have been selected to join the ranks of Stephenson Security Consultants as a junior agent. 
+</p>
+
+<p>Your first set of tasks is ready and waiting for you <a href="http://www.adrianherbez.net/gap125/ssc">here</a>. Enter "download" at the prompt to receive your materials.</p>
+
+<p>
+You will receive a PDF with four missions (plus two bonus misions), as well as a source file to use as a starting point. Do not delete anything from the midterm_blank.cpp file- just add in the code as needed to implement the functionality described in the mission briefings.
+</p>
+
+<p>Good luck, agent</p>
+
+<h2><a name="week7">Week 7 Assignment (Optional, extra credit) - Chatbot</a></h2>
+
+<p>Next week is spring break, so there is no actual assignment.</p>
+
+<p>However, I did promise that I would provide an opportunity for extra credit, so here it is- note that this is <strong>completely optional</strong></p>
+
+<p>Take the example chatbot from this week's class as a starting point, and make a chatbot of you own. </p>
+
+
+<h2><a name="week8">Week 8 Assignment - Text Adventure</a></h2>
+
+For this week's assignment, take the class example as a starting point and create your own mini text adventure.
+Your program should include multiple locations and the ability to pick up and drop objects.
+The player should also be able to take at least two actions, such as looking around or using an object
+
+<h2><a name="week9">Week 9 Assignment - Final Project Proposal</a></h2>
+
+<p>Write up a proposal for your final project. The proposal should be roughly a page, and should include as much detail as you can manage. This is meant as a starting point for you and I to talk about what makes sense for the final, and to adjust scope. I won’t be grading on how closely your proposal matches your final, but rather on the level of detail you’ve provided. </p>
+
+<h2><a name="week10">Week 10 Assignment - Adding Classes</a></h2>
+
+
+<p>For this week's assignment, revist one of your previous assignments and add some new functionality using classes.</p>
+
+<p>You can do something like what we did in class- adding enemies or pickups to the dungeon example, or maybe you could revist the text adventure and create a proper class to implement a room</p>
+
+<p>Either way, I'll be looking to see that: 
+
+<ol>
+<li>There is new functionality (and functionality that is not <em>exactly</em> the same as what we covered in class), and </li>
+<li>The new functionality includes one or more classes</li>
+</ol>
+</p>
+
+<h2><a name="week11">Week 11 Assignment - Multiple Classes, inheritance and composition</a></h2>
+
+
+<p>Create a small game that uses at least five classes.</p>
+
+<p>Your classes should have the following relationships:
+
+<ul>
+<li>There should be at least one class that is a child of another class (inheritance)</li>
+<li>There should be at least one class that contains an instance of another (composition)</li>
+</ul> 
+</p>
+
+<p>For example, you might implement a base Person class, a few different subclasses for things like the player, shopkeepers, and one or more enemies. You might then also implement an Item class with subclasses for Weapon, Armor, etc. You could then use composition to give the player references to a weapon and armor instance.</p>
+
+<p>That's just one example though- the sky's the limit!</p>

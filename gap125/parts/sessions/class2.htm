@@ -1,0 +1,271 @@
+<h1>Week 2: Variables and Control Structures</h1>
+
+<h2>Variables</h2>
+
+<p>A variable can be thought of as a kind of box to hold information. There are a few different things that matter about a variable:</p>
+
+<ul>
+<li>the name (this needs to be made up of letters, numbers, and underscores, and cannot start with a number. It must also not be any of C++'s built-in keywords)</li>
+
+<li>the type (more on this in a bit)</li>
+
+<li>the location (this doesn't matter much for now, but will when we get to pointers)</li>
+</ul>
+
+<p>To create a variable, you must declare it, with in the following way:</p>
+
+<pre><code>[variable type] [variable name]</code></pre>
+
+<p>For example, to create an integer variable named “myNum”, we would do the following:</p>
+
+<pre><code class="C++">int myNum;</code></pre>
+
+<p>Examples of valid variable names:</p>
+
+<ul>
+<li>MyNum (this is the preferred option, as laid out in the AAU coding stadards</li>
+<li>My_Num</li>
+<li>Mynum2</li>
+<li>mynum</li>
+</ul>
+
+<p>Examples of <em>invalid</em> variable names</p>
+
+<ul>
+<li>2num (starts with a number)</li>
+<li>num! (includes a non-number, non-letter character that isn't an underscore)</li>
+<li>int ("int" is a C++ keyword)</li>
+</ul>
+
+<p>Examples of variable names that are technically okay, but should still (usually) shouldn't be done</p>
+
+<ul>
+<li>TheNumberThatIAmUsingToCountHowManyEnemiesAreOnScreen (waaay too long)</li>
+<li>t (too short- what does this mean?)</li>
+<li>ThisOneTimeAtBandCamp (not very descriptive- use something more relevant)</li>
+<li>_myNum (starting with an underscore implies certain things- only use this if you have a specific reason)</li>
+</ul>
+
+<h3>Declaration vs initialization</h3>
+
+<p>The above example would create the variable, but not give it a value- doing that is called declaring the variable. A common source of errors is to make use of a variable after declaring it, but before it's been given any actual value, as in:</p>
+
+<pre><code class="C++">int myNum;
+cout << myNum << “\n”;</code></pre>
+
+<p>Declaration carves out a piece of memory to hold a variable of the given type (and possibly size)- it makes the box, while assignment fills the box with a value. It's generally good practice to always give your variables a default value, as in:</p>
+
+<pre><code class="C++">int myNum = 0;</code></pre>
+
+<h3>Common variable types</h3>
+
+<p>The most common types of variables in C++ are as follows:</p>
+
+<ul>
+<li><strong>int</strong>: a whole-number, or integer value. Good for “how many”-type values</li>
+<li><strong>float</strong>: a number with a decimal part. Good for “how much”-type values</li>
+<li><strong>char</strong>: short for “character”- a single letter or symbol</li>
+<li><strong>bool</strong>: short for “Boolean”- either true or false (can also be represented as 0 or 1)</li>
+</ul>
+
+<p>Other types you'll often encounter:</p>
+
+<ul>
+<li><strong>string</strong>: implemented in the &lt;string&gt; library. A much easier way to deal with words and sections of text beyond a single character</li>
+<li><strong>double</strong>: a larger kind of float</li> 
+<li><strong>long</strong>: a bigger (at least on some systems) integer</li>
+<li><strong>long long</strong>: an integer that is larger still</li>
+</ul>
+
+<p>A note on integers- you can optionally designate that an int should be <em>unsigned</em> which means that it will only take positive values. Why would you want to do that? Because that way, you can store numbers almost twice as high without using any more space. By default, integers can store negative values, but the negative range has to take up space too.</p>
+
+<p>If you know for a fact that a give variable should only ever contain positive values or zero, consider using unsigned as in:</p>
+
+<pre><code class="C++">unsigned int NumberOfArrows;</code></pre>
+
+<p>When setting values for integers, you can also specify values in hexadecimal by starting the number with "0x". If you wanted to specify 65 in hex, for example, you could do the following:</p>
+
+<pre><code class="C++">int MyHexNum = 0x41;</code></pre>
+
+<p>This might come in handy if you wanted to <a href="img/hexBillboard.jpg">figure out a certain cryptic billboard</a></p>
+
+<h2>Simple flow control: If, if else, and else</h2>
+
+<p>A big part of writing programs is controlling what gets executed and when. The simplest (and most useful) way to do that is with the simple if statement. An if statement takes a clause that will be evaluated to either true or false. If the statement is true, the corresponding block of code gets run.</p>
+
+<pre><code class="C++">if (thisIsTrue)
+{
+	DoSomethingAwesome();
+}</code></pre>
+
+<p>Sometimes, you'll want to choose between two different options. For those cases, you can pair an if statement with an else clause. If the if clause evaluates to false, the block of code associated with the else will be run instead of the one associated with the if. For example:</p>
+
+<pre><code class="C++">if (thisIsTrue)
+{
+	DoOneThing();
+}
+else
+{
+	DoSomethingElseInstead();
+}</code></pre>
+
+<p>What if you have more than two options? For that, you'll need to string together multiple tests, which can be done with if, else if, as in:</p>
+
+<pre><code class="C++">if (thisIsTrue)
+{
+	DoOneThing();
+}
+else if (somethingElseIsTrue)
+{
+	DoSomethingElse();
+}
+else
+{
+	DoSomethingByDefault();
+}</code></pre>
+
+<p>Note that an if is the only one of the above that can stand on it's own. “else if” clauses, and “else” clauses are completely optional, but if you have them, the “else” must be the final block. So, the most general version is an “if” clause, followed by zero or more “else if” clauses, with an optional “else” clause at the very end.</p>
+
+<h3>Simple (and dangerous) loops- while</h3>
+
+<p>Sometimes you'll want to perform the same action more than once. For that, you'll want a loop of some kind. There are two major kinds of loops- while loops and for loops. A while loop will execute its corresponding block of code as long as the expression tied to it evaluates to true. For example:</p>
+
+
+<pre><code class="C++">while (ThereIsMoreToLearn())
+{
+	LearnSomethingNew();
+}</code></pre>
+
+<p>Be very careful when using while loops, since it's very easy to create a loop that never exits (as would be the case with the above, since there's <em>always</em> more to learn).</p>
+
+
+<h2>Finding truth in code</h2>
+
+<p>One thing that both if, else if, else and while structures have in common is the fact that they evaluate a given expression to a true or false value</p>
+
+<p>This often means testing two values against each other, as in:</p>
+
+<ul>
+<li><strong>Greater than</strong> example:
+<pre><code class="C++">if (Num1 > Num2)
+{
+	DoSomething();
+}
+</code></pre>
+</li>
+<li><strong>Less than</strong> example:
+<pre><code class="C++">if (Num1 < Num2)
+{
+	DoSomething();
+}
+</code></pre>
+</li>
+<li><strong>Equality</strong> example:
+<pre><code class="C++">if (Num1 == Num2)
+{
+	DoSomething();
+}
+</code></pre>
+</li>
+</ul>
+
+<p>Note that, when testing for equality, there are <strong>TWO</strong> equals signs- that's used to differentiate between testing for equality and assignment. Using a single equals will perform an assignment, then evaluate the result (which will generally be evaluated to true). This is a major source of errors for beginning programmers.
+</p>
+
+<p>Very often, you'll want to negate your logic, to (for example) have somthing happen only if something is <strong>NOT</strong> true. In cases like that, you can use the not operator (!) to flip the logic around. Using ! on a true value will make it false, and using it on a false value will make it true. For example:</p>
+
+<pre><code class="C++">if (!EverythingWorkedAsExpected())
+{
+	FixTheProblem();
+}</code></pre>
+
+
+<hr />
+
+<h1>Assignment: bomb defuser</h1>
+
+<p>Write a program that asks the player to defuse a bomb. This should take the form of a small text adventure. 
+Key features:
+
+<ul>
+<li>present the player with a short description</li>
+<li>tell them which wires remain</li>
+<li>prompt them to enter a number of the wire to cut</li>
+<li>if the wire has already been cut, tell them so</li>
+<li>if the wires are cut in the proper order, tell them they succeeded</li>
+<li>if the wires are cut in the wrong order, display “BOOM!” (or something similar)</li>
+<li>if they enter anything other than a number, end early</li> 
+<li>at the end of the loop, display one of two messages:
+	<ol>
+		<li>one if they succeeded</li>
+		<li>a different one if the bomb went off (wires cut in the wrong order), or they entered anything other than the specific numbers</li> 
+	</ol>
+</li>
+</ul>
+</p>
+
+<p>Test cases:
+<ul>
+<li>the user enters numbers in the correct order</li>
+<li>the user enters numbers in the incorrect order</li>
+<li>the user enters something other than a number</li>
+</p>
+
+<p>Don't worry about dealing with the case that the user enters anything other than an integer number for the options.</p>
+
+<p>Example runs of the program:</p>
+
+<pre><code class="C++">There is a bomb here, you should probably do something about that.
+Possible wires:
+1: red
+2: green
+3: blue
+Wire to cut: 1
+You cut the red wire
+There is a bomb here, you should probably do something about that.
+Possible wires:
+2: green
+3: blue
+Wire to cut: 2
+You cut the green wire
+There is a bomb here, you should probably do something about that.
+Possible wires:
+3: blue
+Wire to cut: 3
+You cut the blue wire
+You defused the bomb! You're a hero, and gain all sorts of fame and fortune as a result
+Enter anything to continue
+-1
+</code></pre>
+
+<pre><code class="C++">There is a bomb here, you should probably do something about that.
+Possible wires:
+1: red
+2: green
+3: blue
+Wire to cut: 1
+You cut the red wire
+There is a bomb here, you should probably do something about that.
+Possible wires:
+2: green
+3: blue
+Wire to cut: 3
+You cut the blue wire
+BOOM!
+The bomb exploded. People were very dissappointed, to say the least
+Enter anything to continue
+-1</code></pre>
+
+<pre><code class="C++">There is a bomb here, you should probably do something about that.
+Possible wires:
+1: red
+2: green
+3: blue
+Wire to cut: 7
+You decide to give up and go home.
+The bomb exploded. People were very dissappointed, to say the least
+Enter anything to continue
+-1</code></pre>
+
+<p>I've created an example program that implements all of the above- try playing with it to see what I'll be expecting your code to do. <h1><a href="examples/BombDefuser.zip">Download the ZIP here</a></h1></p>
+

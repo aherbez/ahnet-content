@@ -1,0 +1,109 @@
+<!DOCTYPE html lang="en">
+<html>
+    <head>
+        <link rel="stylesheet" href="css/style.css" />
+        <title>GL Flower</title>
+    </head>
+
+    <body>
+        <canvas id="stage" width="800" height="600"></canvas>
+
+
+        <div id="notes">
+            <h1>GLFlowers v0.07: Colors!</h1>
+
+            <p>
+                v0.07: Colors! Added rudimentary shaders
+
+            </p>
+
+
+            <hr />
+            <p>
+                v0.06: Finally putting it all together into a full flower. Everything is still colored via normals- next step is to improve the shaders.
+
+                <ul>
+                    <li>Created Node3d class to serve as parent nodes</li>
+                    <li>refactored DynamicGeo to be a subclass of Node3d</li>
+                    <li>Created Flower class containing a stem (with leaves), petals, and a center</li>
+                    <li>Made moving the mouse vertically within the canvas control the pitch of the flower (better for seeing into the flower itself)</li>
+                </ul>
+
+            </p>
+            <hr />
+            <p>
+                v0.05: added LathedGeo class to create geometry by lathing a curve. I'll be using this fo the central parts of the flower. <br /><br />
+
+                This is again being rendered with normals for color.
+
+            </p>
+            <hr />
+            <p>
+                v0.04: 
+                <ul>
+                    <li>Refactored leaf class into base ComplexCurveModel class</li>
+                    <li>Extended ComplexCurveModel for both leaves and petals</li>
+                    <li>added in proper normal calculation.</li>
+
+                </ul>
+
+                Shown here are petals (top two rows) and leaves (bottom two rows). In both cases, the backfaces are rendered with either green (leaves) or red(petals), and the front faces are rendered with the color that corresponds to the normal. <br /><br />
+
+                If you mouse over the canvas, you can rotate all the models by moving your mouse left and right. Mouse out to resume animation around the Y axis.
+
+
+            </p>
+            <hr />
+            <p>
+                v0.03: Adding leaves to the stem, plus laying the groundwork for lighting.
+            </p>
+            <hr />
+            <p>
+                v0.02: Big update to leaf geometry generation, with curvature along all three axes.
+            </p>
+            <hr />
+            <p>
+                v0.01: Rough cut of the basic scene and model hierarchy. 
+            </p>
+
+            <hr />
+
+            <p>
+                Notable files:
+                
+                <ul>
+            <li><strong>Scene:</strong> sets up a WebGL context.</li>
+
+            <li><strong>DynamicModel:</strong> base class for a "dynamic" model which in this case means a model with procedurally generated geometry. The random generation is based on a given seed value, so can be persistent if that's what you want</li>
+
+            <li><strong>Petal:</strong> A sub-class of DynamicModel that generates a leaf-shaped mesh and colors it from red to green away from the spine. </li>
+
+            <li><strong>Curves</strong> Implements Bezier curves, both quadratic and cubic (two cubic curves are the basis for the shape of each leaf)</li>
+
+            <li><strong>rand</strong> Implements a linear congruental random number generator with the ability to set a given seed</li>
+                </ul>
+            </p>
+
+        </div>
+
+
+        <script src="js/libs/gl-matrix-min.js"></script>
+        <script src="js/rand.js"></script>
+        <script src="js/curves.js"></script>
+        <script src="js/node3d.js"></script>
+        <script src="js/dynamic_model.js"></script>
+        <script src="js/flowers/complex-curve.js"></script>
+        <script src="js/flowers/leaf.js"></script>
+        <script src="js/flowers/petal.js"></script>
+        <script src="js/primitives.js"></script>
+        <script src="js/flowers/stem.js"></script>
+        <script src="js/flowers/lathed-geo.js"></script>
+        <script src="js/flowers/flower-center.js"></script>
+        <script src="js/flowers/flower.js"></script>
+        <script src="js/scene.js"></script>
+        <script src="js/main.js"></script>
+
+
+        
+    </body>
+</html>

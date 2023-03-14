@@ -1,0 +1,98 @@
+<h1>Using the debugger</h1>
+
+<p>For many development tasks, it's enough to just print out text at various places in your code. However, sometimes that's not enough to get a handle on exactly how your code is functioning and what the problems are. For such situations, you'll want to use a debugger.</p> 
+
+<h2>"Debugging"</h2> 
+
+<center>
+<figure>
+<img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/H96566k.jpg" />
+<figcaption>A page from Grace Hopper's notebook, where she taped an actual "bug" removed from a system she was working on</figcaption>
+<figure>
+</center>
+
+<br />
+
+<p>It's common to talk of "debugging" code, and sometimes it just means that you're methodically working through the problem and trying different things in an effort to fix the issue or issues.</p>
+
+
+
+<p>Debugging can also have a more formal meaning though- it can also mean using a debugger to step through your code.</p>
+
+<p>A debugger is a program, and another part of many IDEs, along with the compiler and linker. There are a few things debuggers offer, including:</p>
+
+<ol>
+<li>allowing you to observe the status of your program step-by-step</li>
+<li>allowing you to examine the value of variables directly</li>
+<li>allowing you to set the conditions under which your code will stop or pause</li>
+</ol>
+
+<p>To start using a debugger, you will generally set one or more breakpoints.</p>
+
+<h2>Setting breakpoints</h2>
+
+<p>A breakpoint is a place where the debugger intervenes to prevent the normal execution of your code. Once you've hit a breakpoint, you can progress through your code one line at a time. </p>
+
+<p>To set a breakpoint, place your cursor on the line of code where you want the debugger to pause code execution, and either:</p>
+
+<ul>
+<li>go to Debug->Toggle Breakpoint</li>
+<li>press F9, or</li>
+</ul>
+
+<p>Once you've done that, try running your project, and you'll see it stop suddenly. Visual Studio will also show you the current value of all the variables in the "Locals" tab. For values of complex types, you can expand them.</p>
+
+<p>Once your code has stopped, you can step through it with either F10 or F11. If you hit code that call out to another function, F10 will "step over" the function (running it, but without stepping through the steps), while F11 will "step into" the code, continuing the debugging process with the code in the function.</p>
+
+<h2>Applying conditions to breakpoints</h2>
+
+<p>You can also apply conditions to breakpoints, to make them trigger only conditionally. To do that, mouse over the dot for the breakpoint to which you want to apply a condition, and click on the gear icon ("settings"). From there, you can apply a condition to the breakpoint.</p> 
+
+<p>There are three types of conditions you can apply:</p>
+
+<ul>
+<li><strong>Conditional expression:</strong> allows you to specify a specific condition, such as when a variable drops below a certain value.</li>
+<li><strong>Hit Count:</strong> allows you to break only after a set nunmber of hits, useful if you want to break midway through a loop</li>
+<li><strong>Filter:</strong> used for more advanced situations, when you're working with multiple machines or multiple threads</li>
+</ul>
+
+<h2>Using assert</h2>
+
+<p>A somewhat related concept to breakpoints is the usage of assert to force your code to stop if something goes wrong. To do that, you'll need to make sure that you include the cassert library.</p>
+
+
+<pre><code class="c++">#include &lt;cassert&gt;</code></pre>
+
+<p>Once you've done that, you can add asserts to your code. For example, you might have a function that causes problems if it receives a negative input. One way to deal with that would be to just return early, as in:</p>
+
+<pre><code class="c++">void MyFunction(int input)
+{
+	if (input &lt; 0) return;
+
+	// the rest of the implementation
+}</code></pre>
+
+<p>The above would work, but has the downside of not making it obvious if a bad input is passed into it. By using assert, we can force the code to fail if it gets a negative number. That would look like the following:</p>
+
+<pre><code class="c++">void MyFunction(int input)
+{
+	assert(input > 0);
+
+	// the rest of the implementation
+}</code></pre>
+
+<p>The assert function accepts a conditional statement. If that evaluates to true, your code continues as normal. However, if it evaluates to false, assert will force the code to stop. That might seem like a bad thing, but it's can actually be really helpful to force code to quit if you know that continuing would likely lead to bad results.</p> 
+
+<hr />
+
+<h1>Week 7 Assignment - OPTIONAL (up to 50 points extra credit)</h1>
+
+<p>Next week is spring break, so there is no actual assignment.</p>
+
+<p>However, I did promise that I would provide an opportunity for extra credit, so here it is- note that this is <strong>completely optional</strong></p>
+
+<p>Take the example chatbot from this week's class as a starting point, and make a chatbot of you own. </p>
+
+
+
+

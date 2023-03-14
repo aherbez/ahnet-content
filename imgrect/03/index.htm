@@ -1,0 +1,30 @@
+<html>
+
+<head>
+    <link href="https://vjs.zencdn.net/7.6.0/video-js.css" rel="stylesheet">
+
+    <!-- If you'd like to support IE8 (for Video.js versions prior to v7) -->
+    <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
+
+    <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+
+    <video id='my-video' class='video-js' muted loop preload='auto' 
+        width="960" height="540" data-setup="{}">
+        <source src="http://www.adrianherbez.net/imgrect/03/vikings.mp4" type="video/mp4">
+    </video>
+
+    <canvas id="stage" width="960" height="500">
+    </canvas>
+
+    <input id="btn1" type="button" value="PLAY" onclick="clickFn()" />
+
+
+    <script src='https://vjs.zencdn.net/7.6.0/video.js'></script>
+    <script src="main.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+TODO (DD: daydream, SP: spreadsheet, CO: chew out):
+
+- DD: make motion constant
+- DD: finalize design
+- CO: implement class for nods
+- consistent timing
+
+CO:
+
+- wait a randomized amount of time
+- add a random up or down glyph
+- reset timer
+
+- when a glyph first enters the reaction range, set a var to false
+- if the appropriate key is pressed, set var to true
+- when the glyph exits the reaction range, check var and react
+
+
+glyph:
+- type (up/down)
+- xpos
+- state (new, success, failed)

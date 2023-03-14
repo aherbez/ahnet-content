@@ -1,0 +1,22 @@
+#stage {
+    border: 1px solid #000;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+#output-canvas {
+    border: 1px solid #000;
+    position: relative;
+}
+
+
+#controls {
+    position: absolute;
+    top: 10px;
+    left: 530px;
+}
+
+#brush-size {
+    width: 50px;
+}

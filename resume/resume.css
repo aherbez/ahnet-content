@@ -1,0 +1,199 @@
+@font-face {
+	font-family: accent;
+	src: url(fonts/breamcatcher.ttf);
+}
+
+a {
+	color: #000;
+	text-decoration: none;
+}
+
+body {
+	font-family: arial, sans;
+}
+
+p {
+	margin: 0px;
+}
+
+#main {
+	width: 100%;
+}
+
+#main-name {
+	font-family: accent;
+	display: block;
+	font-weight: bold;
+	font-size: 4.5em;
+	padding-left: 20px;
+}
+
+#top {
+	min-height: 100px;
+	
+}
+
+#top-left {
+	width: 55%;
+	position: absolute;
+}
+
+#top-right {
+	width: 40%;
+	position: absolute;
+	left: 65%;
+	font-size: 1em;
+	border-left: 1px solid #000;
+	padding-left: 10px;
+}
+
+#middle {
+	width: 100%;
+	position: absolute;
+	top: 90px;
+	border-top: 1px solid #000;
+}
+
+#middle-extras {
+	position: absolute;
+	width: 20%;
+	left: 80%;
+	height: 100%;
+	padding: 0px;
+	
+}
+
+#middle-experience {
+	position: absolute;
+	width: 80%;
+	/*height: 1950px;*/
+	border-right: 1px solid #000;
+}
+
+h1 {
+	margin: 0px;
+	margin-left: 10px;
+	font-family: accent;
+	font-size: 1.5em;
+
+	text-align: center;
+	left: 10%;
+	width: 95%;
+	border-bottom: 3px solid #000;
+}
+
+ul {
+	margin-top: 0px;
+	padding-top: 0px;
+}
+
+li {
+	padding-top: 2px;
+}
+
+.extra {
+	margin: 10px;
+	font-size: 0.8em;
+}
+
+.extra h2 {
+	color: #000;
+	margin: 0px;
+	margin-bottom: 0px;
+	font-size: 1.2em;
+}
+
+.extra h3 {
+	color: #444;
+	margin: 0px;
+	margin-bottom: 0px;
+}
+
+.extra div {
+	margin-bottom: 1em;
+}
+
+.job {
+	margin: 0px;
+	margin-left: 0.2em;
+	margin-right: 0.2em;
+	margin-top: 0.3em;
+}
+
+.job h1 {
+	font-family: accent;
+	text-align: center;
+	font-size: 1.2em;
+}
+
+.job h2 {
+	color: #000;
+	display: inline;
+	margin: 0px;
+	font-size: 1.2em;
+
+}	
+
+.job h3 {
+	color: #444;
+	display: inline;
+	border-left: 1px solid #888;
+	padding-left: 10px;
+	margin: 0px;
+	font-size: 1.1em;
+
+}
+
+.job p {
+	margin: 4px;
+}
+
+
+#topOld {
+	border-bottom: 1px solid #000;
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+	height: 20%;
+}
+
+#top-left2 {
+	width: 75%;
+}
+
+.name {
+	font-weight: bold;
+	font-size: 40px;
+	clear: both;
+	border: 1px solid #000;
+}
+
+.intro {
+	border: 1px solid #000;
+}
+
+#top-right2 {
+	position: absolute;
+	left: 75%;
+	width: 20%;
+	text-align: right;
+}
+
+
+.title {
+	font-weight: bold;
+
+}
+
+.company {
+	color: #888;
+	font-weight: bold;
+}
+
+.dates {
+	color: #888;
+	font-weight: bold;
+}
+
+.job_desc {
+
+}

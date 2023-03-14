@@ -1,0 +1,103 @@
+<h1>Quiz 2</h1>
+
+<ol>
+
+<li>
+<p>When using a while loop, it's important to make sure that (1 pt):</p>
+
+<ul>
+<li>A) the while clause does not contain numbers</li>
+
+<li>B) the while clause is guaranteed to eventually be false</li>
+
+<li>C) the while clause does not contain any nesting (parentheses within parentheses)</li>
+
+<li>D) the while clause is based on an integer value</li>
+</ul>
+</li>
+
+<div class="quiz_ans">
+A is not the case, since it's perfectly valid to have numbers in the clause (while (counter > 0), for example). <br /><br />
+C is not the case, because it's okay to nest clauses, as in: while ( (counter >= 0) &amp;&amp; (IsActive)) <br /><br />
+D is not the case, because you can certainly use non-integer values (bools, for example)<br /><br />
+That leaves B as the correct answer. While loops can be useful, but they also make it really easy to get stuck in an endless loop. If you use one, it's important to make sure that whatever you're testing <em>eventually</em> ends up evaluating to false.
+
+</div>
+
+
+<li>
+	<p>Which of the following ARE valid names for variables (circle all that apply)</p>
+
+<ul>
+<li><strong>MyNum</strong>: VALID!</li>
+<li><strong>int</strong>: NOT valid (variable names must not use any of C++'s keywords)</li>
+<li><strong>2myNum</strong>: NOT valid (variable names must not <em>start</em> with a number)</li>
+<li><strong>!theNum</strong>: NOT valid, at least not as a variable name- variable names cannot include punctuation other than underscores (this is actually an expression, meaning "NOT theNum")</li>
+<li><strong>MyNum2</strong>: VALID!</li>
+<li><strong>th@tNum</strong>: NOT valid- variables cannot contain symbols other than underscores</li>
+<li><strong>theInt</strong>: VALID! (though you'd probably want something more descriptive)</li>
+<li><strong>my number</strong>: NOT valid- the space would cause this to be read as two separate things</li>
+<li><strong>+number+</strong>:NOT valid (characters other than letters, numbers, and underscore)</li>
+</ul>
+
+<div class="quiz_ans">
+The only valid variable names in the list were "MyNum", "MyNum2", and "theInt".
+</div>
+
+</li>
+
+
+<li><p>What number does 0x10 represent? </p>
+
+<ul>
+<li>A) 10</li>
+<li>B) 2</li>
+<li>C) 16</li>
+<li>D) 0</li>
+</ul>
+
+<div class="quiz_ans">
+C is the correct choice. The "0x" at the start indicates that this is a hexadecimal (base 16) number. Given that, we can determine what it represents in decimal (base 10, or "ordinary" numbers) by adding each digit. <br />
+We have a zero in the "ones" place, so we move on. We have a 1 in the "tens" place, but what that really means is that we have 1 x (number base)^1, or 1 16, since this is a base-16 number.<br />
+Putting that together gives us (one 16) + (zero 1s), or 16.
+</div>
+
+
+</li>
+
+
+<li>
+<p>Examine the following code:</p>
+
+<pre><code class="C++">bool testValue = true;
+int MyNum = 2;
+
+if (!testValue)
+{
+	cout << “Alan Turing\n”;
+}
+else if (MyNum <= 2)
+{
+	cout << “Grace Hopper\n”;
+}
+else
+{
+	cout << “Margaret Hamilton\n”;
+}
+</code></pre>
+
+<p>What would be the output? What is the maximum number of lines that would be output?</p>
+
+
+<div class="quiz_ans">
+We start with testValue = true. Our first conditional clause checks against "!testValue". The "!" negates whatever it's placed in front of, so "!testValue" means "!true", which is false. We skip the line that would output "Alan Turing" and move on. <br /><br />
+Next, we check to see if MyNum is less than or equal to 2. Since MyNum was set to 2, this evaluates to true, and "Grace Hopper" is printed to the console. Since that clause was executed, we skip over the final "else" block alltogether. <br /><br />
+So, the output of the snippet is just "Grace Hopper", and since all of the logic is in a single if / if else / else construction (rather than separate if statements), at most <strong>one</strong> line of text is ever output. 
+
+</div>
+
+
+</li>
+
+</ol>
+

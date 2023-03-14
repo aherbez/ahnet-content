@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="icon" href="img/cuboco.ico" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/shinra.css" />
+
+    <style>
+      div#controls {
+        position: absolute;
+        left: 550px;
+      }
+    </style>
+
+  </head>
+  <body>
+
+    <img id="output" width="500" />
+
+    <div id="controls">
+    </div>
+
+    <script src="js/imggen.js"></script>
+    <script src="js/shinra.js"></script>
+    <script type="text/javascript">
+
+    let imgGen = new ShinraGamebox("output", "controls", {
+        width: 1200,
+        height: 840
+      });
+
+
+    </script>
+
+  </body>
+</html>

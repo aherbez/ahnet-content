@@ -1,0 +1,21 @@
+#stage {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+}
+
+#video {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.video-js .vjs-big-play-button {
+    top: 550px;
+}
+
+#btn1 {
+    width: 200px;
+    height: 100px;
+}

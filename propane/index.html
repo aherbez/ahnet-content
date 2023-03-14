@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Propane tank drawings</title>
+  </head>
+  <body>
+
+    <canvas id="stage" width="600" height="800"></canvas>
+
+    <div id="left">
+      <img id="outputImg" width="600"/>
+    </div>
+
+    <div id="right">
+
+      <div class="uiControl">
+          <h1>
+            STILL IN DEVELOPMENT! WIP!
+          </h1>
+
+          <h2>Image</h2>
+          <!--
+          <span>
+          Recommended resolution: 1100x800, or any multiple of that. <br />
+          Smaller images will be scaleed up, larger images scaled down.<br />
+          Images with alternative aspect ratios will be cropped.
+          </span>
+          <br />
+          -->
+          <input id="fileBtn" type="file" value="Add Image" onchange="handleFile(event)"/>
+          <br />
+      </div>
+      <div class="uiControl">
+          <h2>Click below to randomize flames</h2>
+          <input type="button" value="randomize flames" onclick="render()" />
+      </div>
+
+      <br />
+
+      <div class="uiControl">
+          <h2>Name / Personal note</h2>
+          <span class="uiInput">
+              <input type="text" id="noteEl" size="70" onchange="updateText()" />
+          </span>
+      </div>
+
+      <div class="uiControl">
+          <h2>Output</h2>
+          To finish off, print this page. 
+          <br />
+          <strong>Important!</strong>Print the entire page, that way each sheet will be the same size
+      </div>
+    </div>
+
+
+    <script src="js/main.js"></script>
+  </body>
+</html>

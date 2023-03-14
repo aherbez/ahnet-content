@@ -1,0 +1,13 @@
+body {
+	font-family: arial, sans;
+}
+
+canvas {
+	display:block;
+	border: 1px solid #000;
+}
+
+img.img-target {
+	height: 80px;
+	float: left;
+}

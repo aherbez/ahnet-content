@@ -1,0 +1,194 @@
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>HTML5 QTVR Viewer</title>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<script src='libs/RequestAnimationFrame.js'></script>
+<script type="text/javascript">
+
+var canvas;
+var ctx;
+var images;
+var loaded;
+var imgNames = ['front.jpg', 'right.jpg', 'back.jpg', 'left.jpg', 'top.jpg', 'bottom.jpg'];
+var IMG_SIZE = 256;
+var theta = 0;
+var angle = 0;
+
+var xAngle = 0;
+var yAngle = 0;
+var prop;
+
+var layout = [['top','rotateX(90deg) rotate(90deg) translateZ(128px)'],
+				['right','translateZ(128px)'],
+				['back','rotateY(90deg) translateZ(128px)'],
+				['left','rotateY(180deg) translateZ(128px)'],
+				['front','rotateY(-90deg) translateZ(128px)'],
+				['bottom','rotateX(-90deg) rotate(-90deg) translateZ(128px)']
+				];
+
+function startup()
+{
+	var props = 'transform WebkitTransform MozTransform OTransform msTransform'.split(' '),
+	    el = document.createElement('div');
+
+	for(var i = 0, l = props.length; i < l; i++) {
+	    if(typeof el.style[props[i]] !== "undefined") {
+	        prop = props[i];
+	        break;
+	    }
+	}
+
+	document.addEventListener('keydown', function(e)
+	{
+		// alert(e.keyCode);
+		switch(e.keyCode)
+		{
+			case 37:
+				yAngle -= 90;
+				break;
+			case 38: 
+				xAngle += 90;
+				break;
+			case 39:
+				yAngle += 90;
+				break;
+			case 40:
+				xAngle -= 90;
+				break;
+		}
+
+		document.getElementById('cube').style[prop] = "rotateX(" + xAngle + "deg) rotateY(" + yAngle + "deg)";
+
+	}, false);
+
+	for (var i=0; i < layout.length; i++)
+	{
+		document.getElementById(layout[i][0]).style[prop] = layout[i][1];
+	}
+
+	requestAnimationFrame(render);
+}
+
+function render()
+{
+	yAngle += 0.5;
+	document.getElementById('cube').style[prop] = "rotateX(" + xAngle + "deg) rotateY(" + yAngle + "deg)";
+	requestAnimationFrame(render);
+}
+
+</script>
+
+<style type="text/css">
+
+canvas {
+
+	border: 1px solid #000;
+}
+
+#viewer {
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		margin-top: -128px;
+		margin-left: -128px;
+      	-webkit-perspective: 120;
+      	-webkit-perspective-origin: 50% 50%;
+		
+		-moz-perspective: 120;
+      	-moz-perspective-origin: 50% 50%;      	
+    }
+
+
+#cube {
+  position: relative;
+  margin: 0 auto;
+  height: 256px;	
+  width: 256px;
+  -webkit-transition: -webkit-transform 1s linear;
+  -webkit-transform-style: preserve-3d;
+
+  -moz-transition: -moz-transform 1s linear;
+  -moz-transform-style: preserve-3d;  
+}
+
+.face {
+  position: absolute;
+  height: 256px;
+  width: 256px;
+  padding: 0px;
+  background-color: rgba(50, 50, 50, 0.7);
+}
+
+</style>
+
+</head>
+
+<body onLoad="startup();">
+
+<div id="viewer">
+
+	<div id="cube">
+		<div id="top" class="face">
+			<img src="top.jpg" class="img-04" />
+		</div>		
+		<div id="right" class="face">
+			<img src="right.jpg" class="img-01" />
+		</div>
+		<div id="back" class="face">
+			<img src="back.jpg" class="img-02" />
+		</div>
+		<div id="left" class="face">
+			<img src="left.jpg" class="img-03" />
+		</div>
+		<div id="front" class="face">
+			<img src="front.jpg" class="img-00" />
+		</div>
+		<div id="bottom" class="face">
+			<img src="bottom.jpg" class="img-05" />
+		</div>
+	</div>	
+</div>
+<!--
+<canvas id="view" width="500" height="500" ></canvas>
+
+
+#top {
+-webkit-transform: rotateX(90deg) rotate(90deg) translateZ(128px);
+-moz-transform: rotateX(90deg) rotate(90deg) translateZ(128px);
+}
+
+#right {
+-webkit-transform: translateZ(128px);
+-moz-transform: translateZ(128px);
+}
+
+#back {
+-webkit-transform: rotateY(90deg) translateZ(128px);
+-moz-transform: rotateY(90deg) translateZ(128px);
+text-align: center;
+}
+
+#left {
+-webkit-transform: rotateY(180deg) translateZ(128px);
+-moz-transform: rotateY(180deg) translateZ(128px);
+}
+
+#front {
+-webkit-transform: rotateY(-90deg) translateZ(128px);
+-moz-transform: rotateY(-90deg) translateZ(128px);
+}
+
+#bottom {
+-webkit-transform: rotateX(-90deg) rotate(-90deg) translateZ(128px);
+-moz-transform: rotateX(-90deg) rotate(-90deg) translateZ(128px);
+}
+
+
+
+-->
+
+</body>
+</html>

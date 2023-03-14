@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Introduction to CNC for Makers (outline)</title>
+    <style media="screen">
+      body{
+        font-family: Helvetica, Arial, sans;
+        margin: 20px;
+        margin-left: 100px;
+      }
+
+      p {
+        width : 800px;
+      }
+
+      .mainlist > li {
+        margin: 10px;
+      }
+
+      .mainList:nth-child(odd) {
+        background: #000;
+        border: 1px solid #0F0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Introduction to CNC for Makers</h1>
+
+    <p>
+This course serves as an introduction to the exciting world of small-scale computer numerical control (CNC) production for the hobbyist or small business owner. We'll provide an overview of what CNC is and how to create files needed to produce physical goods, whether they be one-offs for home use or fledgling businesses.
+    </p>
+
+    <ol class="mainlist">
+      <li>Introduction / overview of CNC tools
+        <ul>
+          <li>what machining is</li>
+          <li>what CNC is</li>
+          <li>additive vs subtractive manufacturing</li>
+        </ul>
+      </li>
+
+      <li> Overview of 3d files
+        <ul>
+          <li>basis of 3d files (vertices, polygons)</li>
+          <li>non-manifold topology</li>
+          <li>need for watertight meshes</li>
+          <li>intro to the STL file format</li>
+          <li>types of 3d design tools
+            <ul>
+            <li>beginner-friendly</li>
+            <li>CAD based</li>
+            <li>artistic</li>
+            <li>other (repair, special-purpose)</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+
+
+      <li>3d model creation: common operations
+        <ul>
+          <li>primitive creation</li>
+          <li>adding detail (sketch on face, knife tool)</li>
+          <li>extruding</li>
+          <li>Boolean operations</li>
+          <li>vertex manipulation</li>
+        </ul>
+      </li>
+
+      <li>3d file creation tools: CAD based
+        <ul>
+          <li>Fusion 360, FreeCAD, OpenSCAD</li>
+          <li>sketch-based modeling</li>
+          <li>the power of parametric operations</li>
+        </ul>
+      </li>
+
+
+      <li>3d file creation tools: artistic
+        <ul>
+          <li>Maya,Max, Blender</li>
+          <li>importance of good topology</li>
+          <li>need to maintain good edge loop geo</li>
+          <li>ability to paint details onto the surface</li>
+          <li>basic flow:
+            <ul>
+              <li>start with a basic shape</li>
+              <li>add detail at the largest scale at each step</li>
+              <li>smooth</li>
+              <li>sculpt fine details</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+
+      <li>3d file creation: additional tools
+        <ul>
+          <li>cleanup tools (netfabb, meshlab)</li>
+          <li>photogrammetry tools</li>
+          <li>meshmixer for combining models</li>
+
+        </ul>
+      </li>
+
+      <li>design considerations for additive manufacturing: FDM
+
+        <ul>
+          <li>overhang angles</li>
+          <li>designing for your nozzle width and Z resolution</li>
+          <li>tolerances</li>
+          <li>print orientation and strength</li>
+        </ul>
+
+      </li>
+
+
+      <li>design considerations for subtractive manufacturing: laser cutting
+        <ul>
+          <li>cutting and etching</li>
+          <li>accounting for thickness of cuts</li>
+          <li>techniques for joining pieces together</li>
+        </ul>
+      </li>
+
+      <li>Closer look at GCODE
+        <ul>
+          <li>nature of gcode: ordered instructions</li>
+          <li>some common GCODE commands</li>
+          <li>how gcode gets generated</li>
+        </ul>
+      </li>
+
+
+      <li>Making custom CNC tools
+        <ul>
+          <li>basic recipe: microcontroller/single board computer plus one or more stepper motors</li>
+          <li>whats a stepper motor</li>
+          <li>examples of strange/special-purpose CNC tools
+            <ul>
+              <li>pancake bot</li>
+              <li>egg bot</li>
+              <li>wire bender</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+
+
+    </ol>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

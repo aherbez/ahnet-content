@@ -1,0 +1,141 @@
+<html>
+
+<head>
+<title>Things</title>
+
+<script type="text/javascript" src="jquery.js"></script> 
+<script type="text/javascript">
+
+var whichCol = 1;
+var answerCount  = 1;
+var toReveal = 1;
+
+$(document).ready(function() {
+    
+    // set up event handlers    
+    $('#add_ans').click(function() {
+        
+        var name = $('#person').val();
+        var answer = $('#answer').val();
+        
+        var a = $("<div class='answer'><div class='ans_name'></div><div class='ans_ans'></div></div>");
+        a.attr('id',('ans_'+answerCount));
+        $('.ans_name',a).css('display','none');        
+        $('.ans_name',a).html(name);
+        $('.ans_ans',a).html(answer);        
+        $('#ans_col' + whichCol).append(a);
+        
+        $('#person').val('');
+        $('#answer').val('');
+        $('#person').focus();
+        
+        if (whichCol == 1)
+        {
+	    
+            whichCol = 2;
+        }
+        else
+        {
+	    	
+            whichCol = 1;
+        }
+        answerCount++;
+        
+    });
+    
+    $('#reveal_next').click(function() {
+       if (toReveal > answerCount)
+       {
+            return;
+       }
+       
+       var ans = $('#ans_' + toReveal);
+       $('.ans_name',ans).css('display','block');
+       
+       
+       toReveal++; 
+    });
+    
+    $('#enter_question').click(function() {
+	var question = prompt('Enter new topic:','something dirty');
+	$('#question_text').html(question);
+	reset();
+    });
+    
+    $('#new_question').click(function() {
+        loadQuestion();
+    });
+
+
+    $('#person').focus();
+    loadQuestion();
+});
+
+function loadQuestion()
+{
+    // reload the question
+    $.ajax({
+       url: 'get_question.php',
+       success: function(msg) {
+            $('#question_text').html(msg);
+       }
+    });
+    
+	reset();
+}
+
+function reset()
+{
+    // remove all of the answers
+    $('#ans_col1').empty();
+    $('#ans_col2').empty();
+    
+    // reset counters
+    toReveal = 1;
+    answerCount = 1;
+    whichCol = 1;
+    
+    $('#person').focus();
+	
+}
+
+</script>
+
+<link href="things.css" rel="stylesheet"  type="text/css" />
+
+</head>
+
+<body>
+
+<div id="question">
+    <span id="things_text">THINGS:</span>
+    <span id="question_text">that you should never say</span>
+</div>
+
+<div id="answers">
+
+<table width="100%" height="100%">
+    <tr>
+        <td width="50%" valign="top">
+            <div id="ans_col1"></div>
+        </td>
+        <td width="50%" valign="top">
+            <div id="ans_col2"></div>
+        </td>
+    </tr>
+</table>
+    
+</div>
+
+
+<div id="controls">
+	<input type="button" value="New Question" id="new_question"/>
+	<input type="text" id="person" />
+	<input type="text" id="answer" />
+	<input type="button" id="add_ans" value="Add Answer"  />
+	<input type="button" id="reveal_next" value="Reveal N" />
+	<input type="button" id="enter_question" value="New Q" />
+</div>
+
+</body>
+</html>

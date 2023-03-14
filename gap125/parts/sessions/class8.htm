@@ -1,0 +1,193 @@
+<h1>Pointers!</h1>
+
+<p>Working with pointers is a huge part of working with C++. While the specifics can get complicated, the key idea is simple:</p>
+
+<center><h2>
+A pointer is a way to refer to a specific location in memory
+</h2></center>
+
+<p>So far, we've mainly been concerned with the values of variables, but every variable must occupy a specific place in memory. It is often useful to refer to the location where data is stored, rather than the data itself. Some of the reasons you might want to do that include:</p>
+
+<ul>
+<li>avoid passing around large data structures</li>
+<li>allow for pass-by-reference</li>
+</ul>
+
+<h2>Using the Address-of operator (&amp;)</h2>
+<p>So, given that it can be useful to refer to the address of a variable, how do we do it? For that, you'll want to use the address-of operator, or ampersand (&amp;). This is tricky, since it's the same symbol that we use for both logical and bitwise AND. However, when placed directly in front of a variable, it can be used to get the address of that variable.</p>
+
+<pre><code class="c++">int MyNum = 23;
+
+// outputs “23”
+cout &lt;&lt; MyNum &lt;&lt; “\n”; 
+
+// outputs the address of MyNum, something like 0x7fff5092e73c
+cout &lt;&lt; &amp;MyNum &lt;&lt; “\n”; 
+</code></pre>
+
+<h2>Pointer Variables</h2>
+
+<p>Now that we've seen how to grab the address of a variable, now let's look at how to store it in a proper pointer. Creating a pointer variable is very similar to creating a normal variable, with the addition of an asterix. For example:</p>
+
+<pre><code class="c++">// create a normal integer variable 
+int MyNum = 23;
+
+// create a pointer to the integer variable and set its value to the address of MyNum 
+int *MyNum_ptr = &MyNum;
+
+// outputs “23”
+cout &lt;&lt; MyNum &lt;&lt; “\n”;
+// outputs something like 0x7fff5092e73c
+cout &lt;&lt; MyNum_ptr &lt;&lt; “\n”;
+</code></pre>
+
+<p>It's important to note that pointers also have a type, and that an integer pointer is not the same as a float pointer. More on that in a bit, when we talk about pointer math.</p>
+
+<h2>Dereferencing a pointer</h2>
+
+<p>So let's say you have a pointer, but you want to do something with the actual value of the variable it represents, rather than the memory address. For that, you'll need to dereference the pointer, which is done with the asterix. </p>
+
+<pre><code class="c++">// create an integer
+int MyNum = 23;
+
+// create a integer pointer
+int *MyNum_ptr = &MyNum;
+
+// output the address of MyNum, something like 0x7fff5092e73c
+cout &lt;&lt; MyNum_ptr &lt;&lt; “\n”;
+
+// output the value stored at the address in MyNum_ptr (“23”, in this case)
+cout &lt;&lt; *MyNum_ptr &lt;&lt; “\n”;
+</code></pre>
+
+<p>Once you've dereferenced a pointer, you are essentially working with the variable directly, and you can do anything you would normally do with it. For example, if we wanted to change the value stored in MyNum via the pointer, we could do the following:</p>
+
+<pre><code class="c++">// dereference the pointer to get the variable it represents, and set it to 5
+*MyNum_ptr = 5;
+</code></pre>
+
+<h2>Pointer Math</h2>
+
+<p>Now that we've seen how pointers work, we can dive a little deeper into how arrays function. All arrays are are pointers to the first element. Let's say we make an integer array:</p>
+
+<pre><code class="c++">int MyArray[] = {1,2,3,4,5};</code></pre>
+
+<p>If we look at the value of MyArray without adding an index, we'll get a memory address. If we examine the address of the first element in the array, we'll get exactly the same location.</p>
+
+<pre><code class="c++">// both lines would output something like 0x7fff524ad730
+// and both would be the same address
+cout &lt;&lt; MyArray &lt;&lt; “\n”; // note the lack of square brackets
+
+// address of the first element is the same as the array itself
+cout &lt;&lt; &MyArray[0] &lt;&lt; “\n”;
+</code></pre>
+
+<p>Where it gets interesting is that you can increment and decrement pointer values to step through arrays. So, if we add one to MyArray and dereference the result, we'll get the second element in the array.</p>
+
+<pre><code class="c++">// dereference the address of the first element- prints “1”
+cout &lt;&lt; *MyArray &lt;&lt; “\n”;  
+
+// increment the pointer and dereference the new address- prints “2” 
+cout &lt;&lt; *(MyArray + 1) &lt;&lt; “\n”;</code></pre>
+
+<p>One important thing to note about pointer math is that it only works because pointers are aware of their type. When we add one to an integer pointer, the actual address is increased not by one, but by the size of an integer (usually 4 bytes). For example:</p>
+
+<pre><code class="c++">cout &lt;&lt; MyArray &lt;&lt; “\n”; // outputs something like 0x7fff55be5730
+cout &lt;&lt; MyArray + 1 &lt;&lt; “\n”; // outputs the above value plus 4 (0x7fff55be5734)
+</code></pre>
+
+<p>Be careful with pointer math, since there is absolutely nothing to stop you from reading from (or worse yet, writing to) a bad location in memory.</p>
+
+<h2>Passing By Reference</h2>
+
+<p>One of the main reasons to use pointers is to be able to pass data around by reference rather than by value. Passing by value is what we've seen so far, and is fine for simple data types like integers. What happens when you pass by value is that a copy of the data is created. That can be what you want, but usually isn't for complex data types. Instead, you'll generally want to have a function receive a reference to the data in question.</p>
+
+<p>To do that, you can pass in a pointer to the variable, rather than the variable itself. This can also allow the function to modify variables directly.</p>
+
+<pre><code class="c++">// a function that accepts two integers, and a pointer to a third 
+void addTwoAndStoreInPointer(int a, int b, int * result)
+{
+	// dereference the result address, and set the value of the 
+	// variable it represents to a + b
+	*result = a + b;
+}
+
+int main()
+{
+	int MyNum;	// make an integer variable
+	
+	// call the function with two ints and the 
+	// address of the place to store the result
+	addTwoAndStoreInPointer(2, 3, &amp;MyNum);
+	
+	cout &lt;&lt; MyNum; // would output “5”
+}</code></pre>
+
+<h2>Using References</h2>
+
+<p>There's yet another way to use the &amp; symbol. If it appears in an expression, it means “get the address of”. However, if it appears in a declaration of a new variable, it can be used to create an reference. A reference is another name for a variable, and is very similar to a pointer to that variable, except that it doesn't require the use of the dereference operator.</p>
+
+<pre><code class="c++">int MyNum = 23;
+int &amp;MyReference = MyNum;
+
+MyNum = 5;
+cout &lt;&lt; MyReference &lt;&lt; “\n”; // would output “5”;</code></pre>
+
+<p>There is very little reason to use references like the above, but they can be really helpful to create pass-by-reference functions without constantly having to use the dereference operator. Let's revisit the function we created above, but this time with reference arguments.</p>
+
+<pre><code class="c++">Void addTwoStoreByReference(int a, int b, int &amp; result)
+{
+	result = a + b;
+}
+
+int main()
+{
+	int MyNum;
+	addTwoStoreByReference(2, 3, MyNum);
+	cout &lt;&lt; MyNum; // outputs “5”
+}</code></pre>
+
+<p>In the above, we get the same behavior as we saw with passing pointers, but the syntax looks a lot cleaner. What's really happening is that instead of copying the “MyNum” variable when it is passed to the function, a reference is created. That means that anything that is done to “result” will happen to “MyNum”, since they're actually the same variable (or rather, represent the same location in memory).</p>
+
+<h2>Using const</h2>
+
+<p>Passing data around by references is great, in that it allows you to avoid copying data all the time. However, it can also create situations where you accidentally change values that you didn't mean to. For example:</p>
+
+<pre><code class="c++">void someFunction(int &amp; a)
+{
+	a = 3;
+}
+int main()
+{
+	int num = 5;
+	someFunction(num);
+	cout &lt;&lt; num; // outputs “3”
+}</code></pre>
+
+<p>If you're passing in a reference to something that shouldn't change within the function, it is good practice to declare the reference as const in the function definition, which looks like this:</p>
+
+<pre><code class="c++">void someFunction(const int &amp; a)
+{
+	a = 3;
+}</code></pre>
+
+<p>Doing that will cause the compiler to throw an error, which is actually a good thing, since it will bring your attention to the fact that you're setting the value of something that shouldn't be changing.</p>
+
+
+<hr />
+
+<h1>Week 8 Assignment: Text Adventure!</h1>
+
+<p>For this week's assignment, take the class example as a starting point and create your own mini text adventure.</p>
+
+<p>Your program should include multiple locations and the ability to pick up and drop objects.</p>
+
+<p>The player should also be able to take at least two actions, such as looking around or using an object</p>
+
+<h2>Inspiration</h2>
+<ul>
+<li><a href="https://youtu.be/4nigRT2KmCE">ONE</a></li>
+<li><a href="http://www.getlamp.com/">TWO</a></li>
+</ul>
+
+

@@ -1,0 +1,70 @@
+#timelineOuter {
+	width: 100%;
+	position: absolute;
+	left: 0px;
+	top: 80px;
+	height: 200px;
+	clear: both;
+
+}
+
+#timeline {
+	background-color: #aaa;
+	border: 1px solid #000;
+	border-radius: 5px;
+	height: 20px;
+	width: 90%;
+
+	position: absolute;
+	left: 50%;
+	margin-left: -45%;
+
+}
+
+#fulltext {
+	border: 3px solid #000;
+	border-radius: 20px;
+	padding: 10px;
+	width: 100%;
+	min-height: 200px;
+	
+	position: absolute;
+	top: 250px;
+	left: 50%;
+	margin-left: -47.5%;
+	width: 95%;
+	clear: both;
+
+}
+
+#sourceText {
+	
+	width: 100%;
+	min-height: 40px;
+	text-align: right;
+}
+
+
+.dot {
+	margin-top: 0px;
+	border: 2px solid #f00;
+	background-color: #fcc;
+	border-radius: 20px;
+	width: 40px;
+	height: 40px;
+	margin-left: -20px;
+	position: absolute;
+	cursor: pointer;
+}
+
+.dotSummary {
+	background-color: #EEE;
+	border: 2px solid #000;
+	border-radius: 15px;
+	width: 200px;
+	min-height: 50px;
+	position: absolute;
+	top: 60px;
+	margin-left: -100px;
+	padding: 10px;
+}

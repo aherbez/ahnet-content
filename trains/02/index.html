@@ -1,0 +1,66 @@
+<!DOCTYPE html lang="en">
+<html>
+    <head>
+        <link rel="stylesheet" href="css/style.css" />
+        <title>Trains!</title>
+    </head>
+
+    <body>
+        <!--
+        <div id="controls">
+        </div>
+        -->
+        <canvas id="stage" width="800" height="800"></canvas>
+
+        <div id="text-container"> 
+
+            <div class="ver">
+                <h2>v.2</h2>
+                <p>
+                    Broken, but with lots of progress. Working on building up a system for creating details by annotating edges. Things that should break through walls like doors and windows are "features" and run for a certain length along the perimeter of a polygon. The polygon then provides a list of edges which are in turn used to create extruded geometry.
+                </p>
+
+                <p>
+                    Shown here is the result of chopping one door and one window into the base polygon. Definitely numerous problems, but it's definitely progress.
+                </p>
+            </div>
+
+            <div class="ver">
+                <h2>v.1</h2>
+                <p> 
+                    Just getting started. Working on roughing out the base train car shape and adding interior walls. What's shown here is a passenger car consisting of separate cabins (rotated on its side for easier viewing).
+                </p>
+
+                <ul>
+                    <li>Created base 2d polygon class</li>
+                    <li>Added ExtrudedGeometry class</li>
+                    <li>added ability to grow/shrink polygons</li>
+                    <li>added ability to extrude a polygon</li>
+                    <li>added ability to extrude a polygon as a shell of a given thickness</li>
+                    <li>added ability to cut a polygon with a line</li>
+                </ul>
+
+            </div>
+            
+        </div>
+        
+        <script src="js/libs/gl-matrix-min.js"></script>
+        <script src="js/core/rand.js"></script>
+        <script src="js/core/utils.js"></script>
+        <script src="js/core/curves.js"></script>
+        <script src="js/core/node3d.js"></script>
+        <script src="js/core/dynamic_model.js"></script>
+        <script src="js/flowers/complex-curve.js"></script>
+        <script src="js/core/primitives.js"></script>
+        <script src="js/core/lathed-geo.js"></script>
+
+        <script src="js/core/polygon.js"></script>
+        <script src="js/core/extruded-geo.js"></script>
+        <script src="js/trains/traincar.js"></script>
+        <script src="js/core/scene.js"></script>
+        <script src="js/main.js"></script>
+
+
+        
+    </body>
+</html>

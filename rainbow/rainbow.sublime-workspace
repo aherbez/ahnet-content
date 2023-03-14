@@ -1,0 +1,1065 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"CRIT_ADD",
+				"CRIT_ADD_ITEM"
+			],
+			[
+				"CRIT_AD",
+				"CRIT_ADD_LOCATION"
+			],
+			[
+				"_cur",
+				"_currentStepNum	var"
+			],
+			[
+				"CRIT_A",
+				"CRIT_ADD_ITEM"
+			],
+			[
+				"_card",
+				"_cardOffset	var"
+			],
+			[
+				"CRIT_",
+				"CRIT_CLOSE_DOC"
+			],
+			[
+				"bac",
+				"background_bomb"
+			],
+			[
+				"backgroun",
+				"background_poison"
+			],
+			[
+				"Ac",
+				"Actuate	motion"
+			],
+			[
+				"num",
+				"numToCredit"
+			],
+			[
+				"LEVEL2_",
+				"LEVEL2_DRAW_ACTOR"
+			],
+			[
+				"set",
+				"setNewIcon"
+			],
+			[
+				"_icon",
+				"_iconBack	var"
+			],
+			[
+				"_go",
+				"_goalImgBack	var"
+			],
+			[
+				"sh",
+				"showLastLevelPop	var"
+			],
+			[
+				"showL",
+				"showLastLevelPop"
+			],
+			[
+				"Glo",
+				"GlowFilter"
+			],
+			[
+				"_mu",
+				"_musicVolume	var"
+			],
+			[
+				"_mus",
+				"_musicName	var"
+			],
+			[
+				"swit",
+				"switchMusic	function"
+			],
+			[
+				"CARD",
+				"CARD_SPACING	var"
+			],
+			[
+				"FX",
+				"FX_USES_UNLOCKS	var"
+			],
+			[
+				"used",
+				"usedMinusFree"
+			],
+			[
+				"_",
+				"_panelGlows"
+			],
+			[
+				"_tray",
+				"_trayBack	var"
+			],
+			[
+				"tutorialLock",
+				"tutorialLockRating"
+			],
+			[
+				"update",
+				"updateFeedback	var"
+			],
+			[
+				"newRati",
+				"newRatingIndex	var"
+			],
+			[
+				"upate",
+				"updateFeedback	function"
+			],
+			[
+				"_lock",
+				"_lockRating	var"
+			],
+			[
+				"_ch",
+				"_chargesText"
+			],
+			[
+				"_char",
+				"_chargesBack	var"
+			],
+			[
+				"_charge",
+				"_chargesStar	var"
+			],
+			[
+				"freeU",
+				"freeUsesLeft"
+			],
+			[
+				"_ico",
+				"_iconMask"
+			],
+			[
+				"_d",
+				"_directorBacks"
+			],
+			[
+				"_dire",
+				"_directorBacks	var"
+			],
+			[
+				"_direc",
+				"_directorBack	var"
+			],
+			[
+				"_music",
+				"_musicFading	var"
+			],
+			[
+				"_musi",
+				"_musicVolume	var"
+			],
+			[
+				"_rel",
+				"_releaseWindow	var"
+			],
+			[
+				"FRAME",
+				"FRAMES_SRC"
+			],
+			[
+				"FRAM",
+				"FRAME_WIDTH"
+			],
+			[
+				"_goal",
+				"_goalImgBack	var"
+			],
+			[
+				"_goalImg",
+				"_goalImgBack"
+			],
+			[
+				"STATE_M",
+				"STATE_MANAGE_CARDS"
+			],
+			[
+				"spec",
+				"specialsMultExtra	var"
+			],
+			[
+				"spe",
+				"specialsMultDefault	var"
+			],
+			[
+				"ITEM",
+				"ITEM_OFFSET_X"
+			],
+			[
+				"IN",
+				"INTERIOR_WIDTH"
+			],
+			[
+				"_bk",
+				"_bkGreen"
+			],
+			[
+				"_box",
+				"_boxGreen"
+			],
+			[
+				"genre",
+				"genreFound	var"
+			],
+			[
+				"specialP",
+				"specialPercentDef"
+			],
+			[
+				"curr",
+				"currGenres"
+			],
+			[
+				"SP",
+				"SPECIAL_BONUS_EXTRA	var"
+			],
+			[
+				"specials",
+				"specialsMultDefault	var"
+			],
+			[
+				"special",
+				"specialsMultExtra	var"
+			],
+			[
+				"TYPE",
+				"TYPE_SPECIAL"
+			],
+			[
+				"card",
+				"cardType"
+			],
+			[
+				"_gol",
+				"_boxGold	var"
+			],
+			[
+				"cur",
+				"currGenres"
+			],
+			[
+				"_tName",
+				"_tNameGreen"
+			],
+			[
+				"_t",
+				"_tNameGold"
+			],
+			[
+				"_tNam",
+				"_tNameGold"
+			],
+			[
+				"_tNa",
+				"_tNameGold"
+			],
+			[
+				"_tNm",
+				"_tNameGold	var"
+			],
+			[
+				"_tit",
+				"_titleArt"
+			],
+			[
+				"offset",
+				"offsetX"
+			],
+			[
+				"_sp",
+				"_specialsNormBack"
+			],
+			[
+				"_s",
+				"_specialsExtraBack"
+			],
+			[
+				"_spe",
+				"_specialsExtraBack	var"
+			],
+			[
+				"_no",
+				"_specialsNormBack	var"
+			],
+			[
+				"get",
+				"getTextFormat"
+			],
+			[
+				"_spEx",
+				"_spExtraGenreListTxt	var"
+			],
+			[
+				"_spE",
+				"_specialsExtraBack	var"
+			],
+			[
+				"gen",
+				"genresAdded	var"
+			],
+			[
+				"_spNor",
+				"_spNormBonusAmtTxt	var"
+			],
+			[
+				"_spNorm",
+				"_spNormBonusAmtTxt"
+			],
+			[
+				"setCard",
+				"setCardNonSpecial	function"
+			],
+			[
+				"ART",
+				"ART1_POS_X	var"
+			],
+			[
+				"_art",
+				"_artLayer	var"
+			],
+			[
+				"car",
+				"cardName"
+			],
+			[
+				"getCard",
+				"getCardByID"
+			],
+			[
+				"TOBEAT",
+				"TOBEAT_LOOP_PERCENT"
+			],
+			[
+				"arcade",
+				"arcadeLvlIncrease	var"
+			],
+			[
+				"score",
+				"scoreToBeat"
+			],
+			[
+				"TOB",
+				"TOBEAT_LVL_PERCENT	var"
+			],
+			[
+				"Game",
+				"GameRegistry	com.jamwix.hs"
+			],
+			[
+				"act",
+				"activatedCardIndex"
+			],
+			[
+				"activate",
+				"activatedCardIndex	var"
+			],
+			[
+				"_gen",
+				"_genreMusic"
+			],
+			[
+				"cards",
+				"cardsByType	var"
+			],
+			[
+				"CAR",
+				"CARD_TYPES"
+			],
+			[
+				"_con",
+				"_continueBtn	var"
+			],
+			[
+				"DATA",
+				"DATA_PATH"
+			],
+			[
+				"start",
+				"startGame"
+			],
+			[
+				"dis",
+				"disableRating"
+			],
+			[
+				"_btn",
+				"_btnNoThanks	var"
+			],
+			[
+				"_btnNo",
+				"_btnNotNow	var"
+			],
+			[
+				"sta",
+				"startArcade"
+			],
+			[
+				"vi",
+				"viewCards"
+			],
+			[
+				"st",
+				"startArcade"
+			],
+			[
+				"_cli",
+				"_clickSound"
+			],
+			[
+				"_turnsBack",
+				"_turnsBackRed	var"
+			],
+			[
+				"review",
+				"reviews_screen"
+			],
+			[
+				"di",
+				"disableRateGame"
+			],
+			[
+				"game",
+				"gameRated"
+			],
+			[
+				"_ra",
+				"_showRatePropmt	var"
+			],
+			[
+				"_rate",
+				"_rateGameCount	var"
+			],
+			[
+				"WIN",
+				"WINS_TILL_RATE_PROPMT"
+			],
+			[
+				"BTN",
+				"BTN_OFFSET_Y	var"
+			],
+			[
+				"_btnNot",
+				"_btnNotNow	var"
+			],
+			[
+				"BTN_",
+				"BTN_HEIGHT	var"
+			],
+			[
+				"Pop",
+				"PopupBase"
+			],
+			[
+				"_actor",
+				"_actorNamePos	var"
+			],
+			[
+				"_glow",
+				"_glowCoin"
+			],
+			[
+				"_img",
+				"_imgCoin"
+			],
+			[
+				"_release",
+				"_releaseCB	var"
+			],
+			[
+				"_rele",
+				"_releaseCB	var"
+			],
+			[
+				"Popup",
+				"PopupBuyCoins"
+			],
+			[
+				"up",
+				"updateArrows	function"
+			],
+			[
+				"_curr",
+				"_currentType	var"
+			],
+			[
+				"_curre",
+				"_currentIndex	var"
+			],
+			[
+				"_left",
+				"_leftArrow	var"
+			],
+			[
+				"MAX",
+				"MAX_CARD_DISPLAY"
+			],
+			[
+				"genres",
+				"genresToShow	var"
+			],
+			[
+				"l",
+				"length"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 125.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/Debug.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/utils/IntPoint.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/ui/UIManager.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/threads/BMDLoader.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/states/StatePlayGame.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/levels/LevelManager.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/levels/Level.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/directors/DirectorManager.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/assets/AssetManager.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/cards/CardData.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/threads/CardArtLoader.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/states/GameState.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/utils/JWUtils.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/ui/managecards/CostGem.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/cards/GenreBubble.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/effects/FXManager.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/ResourceManager.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/cards/Deck.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/match/MatchGame.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/cards/CardInventory.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/ui/popups/ConfirmDiscard.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/cards/HandDisplay.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/Globals.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/states/StateMainMenu.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/ui/popups/PopupNews.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/tutorial/TutorialManager.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/tutorial/TutorialSteps.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/cards/CardInfoView.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/ui/popups/PopupCheatMenu.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/ui/popups/PopupBuyCoins.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/ui/components/EnemyPosterFrame.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/ui/playgame/ReleaseWindow.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/ui/powerups/FXMenu.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/ui/powerups/PowerupIcon.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/ui/managecards/CardItem.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/ui/popups/PopupOpenPack.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/ui/result/Bonus.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/states/StateCardManager.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/ui/result/GenreBonus.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/states/StateIntro.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/states/StateGameResult.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/ui/components/BuyWithStars.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/Store.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/GameRegistry.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/ui/popups/PopupStore.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/bank/Bank.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/ui/popups/PopupCinebitReward.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/ui/popups/PopupManager.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/ui/popups/PopupBase.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/ui/managecards/CardCount.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/ui/popups/PopupLastLevel.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/cards/GenreDisplay.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/ui/components/RadialGlowImg.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/ui/popups/PopupFXSelect.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/ui/BankBar.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/ui/playgame/BonusIndicator.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/states/StateMapView.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/stats/PlayerStats.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/ui/popups/PopupPromptArcade.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/ui/powerups/PowerupButton.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/powerups/PowerupManager.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/ui/powerups/PowerupTray.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/ui/powerups/PowerupReference.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/ui/popups/PopupConfirmPurchasePowerup.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/ui/PlotBox.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/cards/AttributeDisplay.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/cards/AttributeBubble.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/ui/playgame/Cinemeter.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/sounds/SoundManager.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/ui/components/ButtonNineSlice.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/ui/popups/PopupDailyReward.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/ui/popups/PopupPowerupUseNow.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/db/DBManager.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/ui/playgame/FilmStrip.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/posters/PosterData.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/ui/popups/PopupStarSelect.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/ui/playgame/FXMenu.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/ui/playgame/GenreIconDisplay.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/reviews/Critic.hx",
+		"/Users/adrian/Downloads/JetsamEvent-2015-06-03-115743.txt",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/ui/playgame/BankDisplay.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/cards/Card.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/ui/FontManager.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/ui/UIElement.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/ui/directors/DirectorButton.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/ui/popups/PauseMenu.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/ui/popups/PopupAboutPage.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/ui/popups/PopupBuyStars.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/ui/popups/PopupDoc.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/ui/GreenButton.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/states/StateArcadeLadder.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/cutscenes/CutScene.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/ui/components/BlueGoldBox.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/ui/popups/PopupArcadeEnd.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/ui/popups/PopupOffer.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/ui/playgame/FXBtn.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/ui/popups/MessageBox.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/ui/playgame/GenreStrengthDisplay.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/map/MapStage.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/ui/menu/MenuButton.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/user/UserManager.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/directors/Director.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/ui/RedButton.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/ui/result/CashBar.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/ui/popups/PopupUpgradeOffer.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/ui/ClickButton.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/ui/popups/PopupUnderContract.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/ui/popups/PopupUpgradeConfirm.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/ui/popups/PopupVerdict.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/ui/popups/ErrorBox.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/ui/popups/PopupConfirmMsg.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/ui/popups/PopupConfirmPurchaseFeatured.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/ui/popups/PopupConfirmPurchasePack.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/ui/popups/PopupStarConfirm.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/ui/popups/PopupCashConfirm.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/ui/ImgButton.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/ui/popups/ConfirmDiscardOLD.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/ui/popups/vspopup/FriendsPanel.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/ui/components/GoldGreenButton.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/ui/popups/PopupReward.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/ui/popups/PopupChooseCards.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/ui/popups/PopupUpgradeCardsOffer.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/ui/popups/PopupRateGame.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/cutscenes/CutSceneManager.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/Game.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/ui/popups/PopupChooseCardsGeneric.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/cards/CardGroup.hx",
+		"/Users/adrian/Documents/jamwix/hs_client/HollywoodShuffle/Source/com/jamwix/hs/achievements/AchCriteria.hx"
+	],
+	"find":
+	{
+		"height": 57.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"addItem(",
+			"_turns",
+			"_turns = ",
+			"_allowedFSSlot",
+			"setRandom",
+			"setRandom()",
+			" endTurn(",
+			"shuffleBoard",
+			"animateGemFall",
+			"7",
+			"2",
+			"3",
+			"showArrowAt",
+			"finalizeStateChange",
+			"loadAssets",
+			"loadNextStateAssets",
+			"back_image_new",
+			"back_imgage_new",
+			"activate(",
+			"discard",
+			"resources",
+			"resources.credit",
+			"setCard",
+			"update",
+			"disableCardDraw",
+			"setAllowedDraw",
+			"enableMatch",
+			"LEVEL2_DRAW_ACTOR",
+			"_newsBtn",
+			"_newBtn",
+			"setNewIcon",
+			"levelXP",
+			"_newCardImg",
+			"addNewCardImg",
+			"animateCurtains",
+			"animComboMerge",
+			"_attrBubbs",
+			"animCardMerge",
+			"animateCards",
+			"urtain",
+			"setupMoreTurnsButton",
+			"_cardDiscard",
+			"_powerup",
+			"g",
+			"5",
+			"s",
+			"o",
+			"r",
+			"p",
+			"b",
+			"updateCards",
+			"updateCard",
+			"_values",
+			"resources",
+			"setupFeaturedItems",
+			"deck.addCard(",
+			"tHeadline",
+			"activate",
+			"handleEndGame",
+			"game.nextLevel",
+			"nextLevel",
+			"setLevel(",
+			"handleEndGame",
+			"tHeadline",
+			"_playerCash",
+			"startBuyNow",
+			"playMusic",
+			"_genreMusic",
+			"_classicLoop",
+			"PopupOpenPack",
+			"setInfo",
+			"fxUsesUnlock",
+			"recommendPowerup",
+			"_freePowerupUsed",
+			"_usedCount",
+			"getNumCards",
+			"_timesUsed",
+			"_usedCount",
+			"PAUSE_BTN_Y",
+			"showSettings",
+			"pause_btn.png",
+			"_tMovieGenre",
+			"_beatText",
+			"_toBeatText",
+			"newRating",
+			"getTextRatingIndex",
+			"updateFeedback",
+			"renderGenre",
+			"Genre",
+			"lock",
+			"tutorial",
+			"tutoroal",
+			"updateFeedback",
+			":Bool",
+			"addCard",
+			"package",
+			"_bank",
+			"GlowFilter",
+			"_usedCount -",
+			"_usedCound -",
+			"_usedCount",
+			"_ameliaSm",
+			"_iconBack",
+			"_lockedBack",
+			"PowerupIcon",
+			"_powerupIconPositions",
+			"_fadeDir",
+			";	",
+			"setPlayerMusicVolume",
+			"setSoundsVolume",
+			"setPlayerMusicVolume",
+			"function setPlayerMusicVolume",
+			"setPlayerMusicVolume",
+			"_musicVolume",
+			"mouseMove",
+			"_draggingCard",
+			"loadPlayHighlight",
+			"altActorHighlightRects",
+			"cacheHighlight(",
+			"loadPlayHighlight()",
+			"CardInfo",
+			"updateFeedback(",
+			"ReleaseWindow",
+			"_nextButton",
+			"_playBtn",
+			"frame",
+			"_nameBack",
+			"NAMEBACK_SRC"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"2",
+			"3",
+			"7",
+			"5",
+			"4",
+			"5",
+			"3",
+			"2",
+			"0",
+			"1",
+			"tNextGoal",
+			"tMessage",
+			"_glowBack",
+			"_iconBack",
+			"specialExtraAmt",
+			"genreList",
+			"_normCoin",
+			"_background.",
+			"_msgTxt",
+			"msgTxt",
+			"_btnNoThanks",
+			"_btnNotNow",
+			"_btnRate",
+			"optionText",
+			"_glowArcade",
+			"_imgArcade",
+			"_gemBM",
+			"_gemBMD",
+			"_gemBM",
+			"Globals.MAX_HAND_SIZE",
+			"_viewCardsBtn",
+			"_doneBtn",
+			"_title",
+			"_tNumCoins",
+			"_coinImg",
+			"_numCoins",
+			"_tEarnings",
+			"btfNum",
+			"btfName",
+			"imgBack",
+			"ins",
+			"_tDefeat",
+			"_btnStars",
+			"_btnArcade",
+			"confirmCoinsBought",
+			"buyCoins",
+			"_buyCoins",
+			"Lose",
+			"_LOSE_",
+			"tempData",
+			"_tMovieGenre",
+			"_tIndexNum",
+			"tNum",
+			"_tCash",
+			"_toBeatText",
+			"_backBtn",
+			"_playBtn",
+			"bbevel",
+			"blue",
+			"gold",
+			"_loginBtnSecondary",
+			"_Y",
+			"_tPowerDesc",
+			"_tray",
+			"_indicatorArrows",
+			"coin",
+			"tTap",
+			"_tTapToStart",
+			"",
+			":Int = -1; //",
+			"",
+			":Int = -1; // ",
+			"",
+			":Int = -1; // ",
+			"",
+			":Int = -1; // ",
+			"",
+			"static private",
+			":Int = -1; // ",
+			"",
+			"static private",
+			":Int = -1; // ",
+			"",
+			":Int = -1; // ",
+			"",
+			"static private ",
+			" = ",
+			"",
+			":Int = -1; // ",
+			"static private",
+			"",
+			":Int = -1; // ",
+			"",
+			" = ",
+			"",
+			"static private ",
+			"",
+			" = ",
+			"",
+			"Globals.UIInt(BAR_INT_HEIGHT)",
+			"Globals.UIInt(BAR_INT_WIDTH)",
+			"Globals.UIInt(BAR_HEIGHT)",
+			"Globals.UIInt(BAR_WIDTH)",
+			"Globals.UIInt(CARD_POS_Y)",
+			"Globals.UIInt(CARD_POS_X)",
+			"Globals.UIInt(CARD_HEIGHT)",
+			"Globals.UIInt(CARD_WIDTH)",
+			"Globals.UIInt(BAR_HEIGHT)",
+			"Globals.UIInt(BORDER)",
+			"tField2",
+			"_textLine2",
+			"line2",
+			"_cardParticle",
+			"_starsParticles[i]",
+			"tapInstructions",
+			"_maskBot",
+			"_maskTop",
+			"_enemyPosterBot",
+			"_cardFrame",
+			"text3",
+			"text2",
+			"DESC",
+			"_docImg",
+			"TOBEAT_HEIGHT",
+			"TOBEAT_WIDTH",
+			"desc",
+			"3",
+			"_msgLine2"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 32.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 100.0
+	},
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 322.0,
+	"status_bar_visible": true
+}

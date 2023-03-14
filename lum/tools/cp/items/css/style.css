@@ -1,0 +1,46 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    margin-top: 0px;
+    margin-bottom: 5px;
+}
+
+.uiField {
+    padding: 2px;
+}
+
+.fieldValue {
+    width: 100px;
+}
+
+.fieldLabel {
+    width: 200px;
+}
+
+
+canvas {
+    border: 1px solid #000;
+}
+
+#left {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+#right {
+    position: absolute;
+    top: 10px;
+    left: 820px;
+}
+
+#outputWrapper {
+    border: 1px solid #000;
+    width: 400px;
+    height: 400px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+

@@ -1,0 +1,14 @@
+Flash test notes:
+
+resources consulted: 
+http://vimeo.com/6133881: refresh my memory about the screensaver
+
+TODO:
+- mitigate stutter
+- lookup table for trig functions
+- track more performance stats
+	- memory usage
+	
+DONE
+- fade stars in
+- keyboard controls

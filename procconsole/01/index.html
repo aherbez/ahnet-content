@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Security-Policy" contents="script-src 'self' 'unsafe-inline';" />
+        <link rel="stylesheet" href="css/style.css" />
+    </head>
+    <body>
+        <div class="container">
+            
+            <div id="col-editor">
+                <div id="code" contenteditable="true"></div>
+            </div>
+
+            <div id="col-stage">
+                <canvas id="stage" width="600" height="600"></canvas>
+            </div>
+
+        </div>
+        
+        <script src="js/libs/three.min.js"></script>
+        <script src="js/libs/OrbitControls.js"></script>
+        <script src="js/libs/ace/ace.js"></script>
+        <script src="js/geo/console.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>

@@ -1,0 +1,72 @@
+<h1>Dynamic memory</h1>
+
+<p>We've talked a bit about memory so far, but this week we're going to go a bit deeper.</p>
+
+<p>There are actually two different places where C++ allocates memory for variables: the stack and the heap.</p>
+
+<p>
+The stack:
+<ul>
+<li>Is the default location for created variables (unless they are global or static)</li>
+<li>Is a fixed-size</li>
+<li>Is implemented as a “stack”</li>
+<li>Is faster to allocate to</li>
+<li>Variables stored here are automatically deleted when their block terminates</li>
+</ul>
+</p>
+
+<p>The heap:
+<ul>
+<li>Can grow in size during execution</li>
+<li>Can be used to make data persist from one part of a program to another</li>
+<li>Requires that you manually delete things when they are no longer needed to avoid a memory leak</li>
+</ul>
+</p>
+
+<p>The main upshot is that the stack is easier to use, but if you need more memory than it provides, you end up with something called a stack overflow which is caused by attempting to put more data onto the stack than it can hold.</p>
+
+<p>If you find yourself needing to work with more memory than the stack provides, you'll need to use dynamic memory to place data onto the heap. However, if you allocate memory without later freeing it, you can end up with something called a memory leak where your program gobbles up more and more RAM until it crashes.</p>
+
+<h2>Dynamically allocating memory</h2>
+
+<p>To create a new variable on the stack, just create a variable in the same way we've been doing all semester. So,</p> 
+
+<pre><code class="c++">int MyNum = 3;</code></pre>
+
+<p>...will create a new integer on the stack and move the stack pointer up by the size of the integer. Creating variables on the heap requires the use of the new keyword.</p>
+
+<p>Let's say we wanted to create an integer and place it in the heap. To do that, we could do the following:</p>
+
+<pre><code class="c++">int *MyIntPointer = new int;</code></pre>
+
+<p>Notice that our new variable is actually a pointer to an integer. When you use the new keyword, the system will look for a place in the heap that has enough available memory for the type of variable you're creating. If such a place is found, a space will be allocated, and the address will be returned.</p>
+
+<p>One important thing to know is that new is not guaranteed to work- there are at least two situations where it might fail to find a suitable location:</p>
+
+<ol>
+<li>there isn't enough space left (not enough available RAM)</li>
+<li>there's enough space, but not in a single block of memory</li>
+</ol>
+
+<p>If either of the above things happens, an error (std::bad_alloc) will be thrown.</p>
+
+<h2>Freeing memory when it's no longer needed</h2>
+
+<p>Once you've allocated memory directly with the new keyword, it stays around.... forever! Well, not really *forever- it will get freed when your program ends. But if you allocate memory without freeing it, you end up with a situation where your program consumes an ever-increasing amount of memory until there's no more memory left. This is what's called  “memory leak” and is a common source of crashes.</p>
+
+<p>It's very, very, VERY important to make sure that anything you declare with the new keyword eventually gets freed. We don't have to worry about freeing variables declared on the stack, since that's handled for us.</p> 
+
+<p>However, just as new explicitly allocates memory, we must also explicitly free that memory with the delete keyword.</p>
+
+<p>Let's say we had created an integer variable with new, as in:</p>
+
+<pre><code class="c++">int *MyDynamicInt = new int;</code></pre>
+
+<p>...and later on, we're done making use of it and want to mark its memory as free for re-use. To do that, we need to call delete as in:</p>
+
+<pre><code class="c++">delete MyDynamicInt;</code></pre>
+
+<p>ALWAYS be sure that you have a corresponding delete call for every instance of “new” in your code. </p>
+
+<hr />
+

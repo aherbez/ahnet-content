@@ -1,0 +1,62 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>starfield</title>
+<!--url's used in the movie-->
+<!--text used in the movie-->
+<!-- saved from url=(0013)about:internet -->
+<style type="text/css">
+
+body
+{
+	font-family: arial, sans;
+}
+
+</style>
+
+</head>
+<body bgcolor="#ffffff">
+
+<h1>Starfield simulation</h1>
+
+<p>
+This demo draws a large number of stars shooting out from the center, similar to the Windows 3.1 stars screensaver. It also displays performance stats, both the current frames per second as well as the total number of stars being rendered at the momment vs the target number of stars. The difference between the two is intentional, as the app gradually adds stars to meet the target number, instead of just adding them all at once. Adding all the stars at once produced a sharp ring at the begining, which I thought didn't look quite as nice as the results from adding them a few hundred at a time.
+</p>
+<p>
+Instructions: Use the arrow keys to adjust the number of stars. The application starts out at 30,000 stars, and the maximum range (while keeping the frame rate in the mid-40s) ranges between 50,000 (Chrome) and 72,000 (Firefox).
+<ul>
+<li>Up Arrow: increase the target number by 100</li>
+<li>Down Arrow: reduce the target number by 100</li>
+<li>Left Arrow: reduce the target number by 500</li>
+<li>Right Arrow: increase the target number by 500</li>
+</ul>
+</p>
+
+<p>Scroll down for links to the source code</p>
+
+<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0" width="640" height="480" id="starfield" align="middle">
+		<param name="allowScriptAccess" value="sameDomain" />
+		<param name="allowFullScreen" value="false" />
+		<param name="movie" value="starfield.swf" />
+		<param name="quality" value="high" />
+		<param name="bgcolor" value="#999999" />	
+		<embed src="starfield.swf" quality="high" bgcolor="#999999" width="640" height="480" 
+			name="starfield" align="middle" allowScriptAccess="sameDomain" allowFullScreen="false" 
+			type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
+</object>
+
+<div>
+<p>
+<h2>Files</h2>
+<ul>
+<li><a href="StarfieldDoc.as">StarfieldDoc.as</a> Base document class- just creates an instance of the Starfield class</li>
+<li><a href="Starfield.as">Starfield.as</a> Starfield class- draws stars to the screen using pixel operations and double bufferring</li>
+<li><a href="Star.as">Star.as</a> Star class- holds the position and heading info for a single star</li>
+<li><a href="Tracker.as">Tracker.as</a> Tracker class- used to display FPS </li>
+<li><a href="starfield_source.zip">All source files (zip)</a></li>
+</ul>
+</p>
+</div>
+
+</body>
+</html>

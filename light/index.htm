@@ -1,0 +1,192 @@
+<html>
+
+<head>
+<title>LiteBrite Portable Image maker</title>
+
+<style type="text/css">
+
+body
+{
+	background: #ccc;
+}
+
+table
+{
+	border: 2px solid #000;
+}
+
+div#workarea
+{
+	width: 310;
+	height: 300;
+	background: #333;
+}
+
+img.cellimg
+{
+}
+
+span.cell
+{
+	width:20px;
+	height:20px;
+	min-height: 20px;
+}	
+
+span.spacer
+{
+	width:10px;
+	height:20px;
+	background: #000;
+	minimum-width: 20px;	
+}
+
+</style>
+
+<script type="text/javascript">
+
+var COLORS = new Array();
+COLORS[0] = '#333';
+COLORS[1] = '#f11';
+COLORS[2] = '#1f1';
+COLORS[3] = '#11f';
+
+var CELLS = new Array();
+
+var GRID_WIDTH = 15;
+var GRID_HEIGHT = 15;
+
+var current_color = 0;
+
+function clicked(e,which)
+{
+	if (!e)
+	{
+		var e = window.event;
+	}
+	
+	var cell_id = 'cell' + which;
+	if (CELLS[which] == current_color)
+	{
+		document.getElementById(cell_id).style.background = COLORS[0];
+		CELLS[which] = 0;
+	}
+	else
+	{
+		document.getElementById(cell_id).style.background = COLORS[current_color];
+		CELLS[which] = current_color;
+	}
+}
+
+function setColor(e,which)
+{
+	if (!e)
+	{
+		var e = window.event;
+	}
+	current_color = which;
+}
+
+function init()
+{
+	var wa_html = "";
+	var cell_id = 0;
+	
+	for (j=0;j<GRID_HEIGHT;j++)
+	{
+		if (j%2 == 0)
+		{
+			wa_html += "<span class='spacer'><img src='spacer.gif' /></span>";
+		}
+		for (i=0;i<GRID_WIDTH;i++)
+		{
+			cell_id = j*GRID_WIDTH+i;
+			wa_html += "<span class='cell' id='cell";
+			wa_html += cell_id 
+			wa_html += "'><img src='circle.gif' class='cellimg'  onmousedown='clicked(event," 
+			wa_html += cell_id 
+			wa_html += ")' /></span>";			
+			
+			CELLS[cell_id] = 0;
+		}
+		if (j%2 == 1)
+		{
+			wa_html += "<span class='spacer'><img src='spacer.gif' /></span>";
+		}
+
+		wa_html += "<br/>"
+	}
+	document.getElementById('workarea').innerHTML = wa_html;
+
+	var palette = "<table style='width: ";
+	palette += (COLORS.length * 40) + "px; height: 40px'><tr>";
+	for (i=0;i<COLORS.length;i++)
+	{
+		palette += "<td style='background:";
+		palette += COLORS[i];
+		palette += "' onmousedown='setColor(event,";
+		palette += i + ")' ></td>";
+	}
+	palette += "</tr></table>";
+	
+	document.getElementById('paletteDiv').innerHTML = palette;
+}
+
+function SendData()
+{
+	// collate all of the values for the grid
+	var tosend = '';
+
+	for (i=0;i<GRID_HEIGHT;i++)
+	{
+		for (j=0;j<GRID_WIDTH;j++)
+		{
+			var cellid = i*GRID_WIDTH + j;
+			var next = '';
+			switch(CELLS[cellid])
+			{
+				case 0: 
+					next = 'k';
+					break;
+				case 1:
+					next = 'r';
+					break;
+				case 2:
+					next = 'g';
+					break;
+				case 3:
+					next = 'b';
+					break;
+				default:
+					next = 'k';
+					break;
+			}
+			tosend += next;
+		}
+	}
+
+	document.getElementById('senddata').value = tosend;
+	document.lb_form.submit();
+}
+
+</script>
+
+</head>
+
+<body onload="init()">
+
+<div id="workarea">
+</div>
+<br />
+<div id='paletteDiv'></div>
+
+<br />
+
+<form action='lb_pdf.php' method='POST' name='lb_form' >
+<input type='button' value='makePDF' onclick='SendData()' />
+<input type='hidden' name='data' id='senddata' />
+</form>
+
+
+</body>
+</html>

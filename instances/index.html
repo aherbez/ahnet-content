@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Instanced Geometry Texture Maker</title>
+        <link rel="stylesheet" href="css/main.css" />
+    </head>
+
+    <body>
+
+        <canvas id="stage" width="512" height="512"></canvas>
+
+        
+        <div id="controls">
+            <hr />
+                <p>
+                    This tool allows for sepcifying the areas where a given instanced model should appear.
+                </p>
+                <p>
+                    Click to draw where the model should go on the map, then click "save image" to translate it into a format that our shader can use.
+                </p>
+                
+            <hr />
+
+            Load background:
+            <input type="file" id="input-img" />
+            <br />
+            Load layers from image:
+            <input type="file" id="input-file-layers" />
+
+            <hr />
+            <label for="layer-list">Edit Layer:</label>
+            <select id="layer-list">
+                <option value="0" selected>layer 1</option>
+                <option value="1">layer 2</option>
+                <option value="2">layer 3</option>
+                <option value="3">layer 4</option>
+            </select>
+            <br />
+            
+            <button id="btn-draw" disabled>draw</button>
+            <button id="btn-erase" >erase</button>
+            <br />
+            Brush size:
+            <button id="btn-smaller">-</button>
+            <input id="brush-size" value="10" />
+            <button id="btn-bigger">+</button>
+            <hr />
+            <canvas id="output-canvas" width="200" height="200"></canvas>
+            <br />
+            
+            <label for="file-name">Output File:</label>
+            <input type="text" id="file-name" value="swatches"/>
+            <br />
+            <button value="Save Tex" onclick="saveImg()">Save Image</button>
+        </div>
+        
+        <script src="js/main.js"></script>
+
+    </body>
+</html>

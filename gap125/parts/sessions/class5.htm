@@ -1,0 +1,169 @@
+<h1>Class 5: Arrays, more loops</h1>
+
+
+<h2>Arrays</h2>
+
+<p>So far we've looked at single-serving variables of various types. Very often, you'll want to be able to use a number of values as a single set. For those situations, you'll want to use an array.</p>
+
+<p>Just like you can think of a variable as a box, an array is a box of boxes. Declaring an array works almost the same way as declaring a normal variable, except that you also specify a number of entries for the array. If we wanted to create a two-element array of integers, for example, we would do the following:</p>
+
+<pre><code class="c++">int MyArray[2];</code></pre>
+
+<p>The "[2]" in the declaration tells the compiler that:</p>
+
+<ol>
+<li>MyArray is an array, and</li>
+<li>it has two entries</li>
+</ol>
+
+<p>If we wanted to also initialize the contents of the array at the same time that we create it, we could do that in the following way: </p>
+
+<pre><code class="c++">int MyArray[2] = {23, 42};</code></pre>
+
+<p>Making use of values in an array works almost the same way as regular variables, but with the addition of specifying which entry we're dealing with. The key thing to remember is that array indices always start with 0, not 1.</p> 
+
+<p>So, if we wanted to access the first entry in the above array (to print it, for example), we would do this:</p>
+
+<pre><code class="c++">cout &lt;&lt; MyArray[0];</code></pre>
+
+<p>When accessing into an array, always check to be sure that the index you're about to grab is within range (meaning that it's >= 0 and its < the size of the array). If you don't do that, you run the risk of grabbing data from a random part of memory.</p>
+
+<p>Getting the number of items in an array is tricky. If you have an array that was created in the same scope as you're currently in, you can use sizeof to get the total size of the array (in bytes) and divide that by the size of the type stored in the array. For example:</p>
+
+<pre><code class="c++">int FiveElementArray[5] = {0,0,0,0,0};</code></pre>
+// would output 5
+cout &lt;&lt; sizeof(FiveElementArray) / sizeof(int) &lt;&lt; “\n”
+
+<p>This does not work on arrays passed in to functions, however, since all arrays (as well as other non-base types) are passed by reference, rather than by value. That means that if you do want to pass an array to a function (for now), you should also pass the size of the array, as in:</p>
+
+<pre><code class="c++">int FindLargest(int InputArray[], int ArraySize)
+{
+	
+}</code></pre>
+
+<h3>Multi-dimensional arrays</h3>
+
+<p>Since an array can hold any type of data, you might wonder if an array can hold other arrays, and it certainly can! That gives you something called a multidimensional array, since there is more than one dimension. A normal array can be thought of as a line of values, while a multi-dimensional array can be thought of as a grid (for 2 dimensions) a cube (for 3), or some very tricky shapes indeed for anything above that. In practice, you usually won't have anything greater than 2 (or maybe 3) dimensions, though.
+</p>
+<p>Creating a multidimensional array is simple enough. The following would create a 4x3 array:</p>
+
+<pre><code class="c++">int MyGrid[4][3];</code></pre>
+
+<p>MyGrid is an array of 4 entries, each of which is an array of its own with 3 entries. To access the values in a multi-dimensional array, you have to use as many indices as you have dimensions. So, if we wanted to index into the above array, we could do the following:</p>
+
+<pre><code class="c++">// grab the first element from the second entry
+cout &lt;&lt; MyGrid[1][0];</code></pre>
+
+
+<h2>For Loops</h2>
+
+<p>Storing multiple values in arrays is great, but it also requires some good way to iterate over them. The most common way to do that is with for loops. For loops tend to be used more often than while loops, because they are less prone to ending up in an infinite loop.</p>
+
+<p>The most common form of a for loop looks like the following:</p>
+
+<pre><code class="c++">for (int i=0; i < SomeNum; i++)
+{
+	DoSomething(i);
+}</code></pre>
+
+<p>That would run the DoSomething action SomeNum number of times. Note that i is a local variable within the loop, and will end up with values from 0 to (SomNum – 1). If we wanted to print out all of the elements in a 5-element array named MyArray, we could use a for loop as follows:</p>
+
+<pre><code class="c++">for (int i=0; i < 5; i++)
+{
+	cout &lt;&lt; MyArray[i] &lt;&lt; “\n”;
+}</code></pre>
+
+<p>That would print each element on its own line. While looping a set number of times is the most common use of for loops, its important to understand what's really happening. A for loop can be understood as:</p>
+
+for ([initial action] ; [conditional test] ; [code to run at end of the loop])
+
+<p>Another way to look at it is it's as if we had the following:</p>
+
+<pre><code class="c++">[initial action]
+while ([conditional test])
+{
+	// body of the loop
+	[code to run at the end of the loop]
+}</code></pre>
+
+<p>The only thing different between the above psuedo-code and a real for loop is that execution jumps back to the condition at the end of each loop. What we've seen so far is the most common way to use for loops, but certainly not the only. For one simple example, here's code that would count backwards by 5 from 100 to 0:</p>
+
+<pre><code class="c++">for (int num=100; num >= 0; num -= 5)
+{
+	cout &lt;&lt; num &lt;&lt; “\n”;
+}</code></pre>
+
+<h3>Ending loops early: break and continue</h3>
+<p>C++ provides us two ways to end a loop early- break and continue. The key difference is that:</p>
+
+<ul>
+<li><strong>continue</strong> will skip over the rest of the current pass through the loop, while</li>
+<li><strong>break</strong> will exit the loop entirely</li>
+</ul>
+
+<p>For example, if we wanted to print only odd numbers from 1 to 100, we could do this:</p>
+
+<pre><code class="c++">for (int num=0; num <= 100; num++)
+{
+	if (num % 2 == 0) continue; 
+	cout &lt;&lt; num &lt;&lt; “\n”;
+}</code></pre>
+
+<p>The continue statement would cause the rest of the loop (in this case, the cout) to be skipped, but would not stop the execution of the loop. </p>
+
+<p>If, on the other hand, we wanted to stop the loop entirely once some condition was reached (to find the location of a given value in an array, for example) we could use break.</p>
+
+<pre><code class="c++">int Needle = 23;
+
+int Haystack[5] = {0, 23, 15, 2, 42};
+
+for (int i=0; i < 5; i++)
+{
+	if (Haystack[i] == Needle)
+	{
+		cout &lt;&lt; “Found needle at position : “ &lt;&lt; i &lt;&lt; “\n”;
+		break;
+	}
+}</code></pre>
+
+<p>That would cause the loop to only be executed twice, since the value we're looking for would be found in the second position.</p>
+
+
+<hr />
+
+<h1>Week 5 Assignment: Mini Dungeon!</h1>
+Build off of the <a href="example_code/wk5_minidungeon.pdf">example from today's class</a>
+example from today's class to make a simple ASCII-based dungeon (or other setting) crawler. At a minimum, your game shoud:
+
+<ol>
+<li>Print a "dungeon" or other setting using ASCII characters</li>
+<li>Allow the player to move around in the environment </li>
+<li>Allow for various types (at least 3) of things to happen (item pickups, random events, etc)</li>
+</ol>
+
+<p>Example output:
+
+<pre><code>
+1: move left, 2: move up, 3: move down, 4: move right, 5: quit
+Current status: Health: 100 Food: 20 Gold: 0
+************************************************************
+*..........................................................*
+*..........................................%...............*
+*..........................................%...............*
+*@...........................%.............................*
+*..........................................................*
+*..........................................................*
+*..........................................................*
+*..........................................................*
+*..........................................................*
+*................%.........................................*
+*.................%........................................*
+*..........................................................*
+*..........................................................*
+************************************************************
+
+</code></pre>
+
+
+
+

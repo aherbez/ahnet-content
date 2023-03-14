@@ -1,0 +1,45 @@
+canvas {
+  border: 1px solid #000;
+  position: absolute;
+  left: -1000px;
+}
+
+body {
+    font-family: Helvetica, Arial, sans;
+}
+
+#outputImg {
+}
+
+h2 {
+    margin-bottom: 3px;
+}
+
+#page {
+    position: absolute;
+    top: 10px;
+    left: -7000px;
+}
+
+#left {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+}
+
+#right {
+    position: absolute;
+    left: 650px;
+    top: 10px;
+}
+
+#mainTextEl {
+    width: 500px;
+}
+
+@font-face {
+    font-family: 'BenguiatBTC-med';
+    src: url('../fonts/BenguiatStdMedium.otf');
+    font-weight: normal;
+    font-style: normal;
+}

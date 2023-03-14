@@ -1,0 +1,210 @@
+<h1>Intro to Object-Oriented Programming</h1>
+
+<p>One of the most powerful aspects of C++ is the ability to define new data types. Instead of being limited to the built-in types (int, bool, char, etc), you can define your own types for things like inventory objects, monsters, game levels, or anything else. This allows you to group the data (variables) and functionality (methods) of an object together, which is (generally) a much easier way to approach large projects.</p>
+
+<h2>Using structs</h2>
+
+<p>Structs (short for “structures”) are one way to create custom types, and are most commonly used to create data-only types. For example, if we wanted an easy way to deal with 3-dimensional points, we could define a point struct as follows:</p>
+
+<pre><code class="c++">struct point {
+	int x;
+	int y;
+	int z;
+};</code></pre>
+
+<p>That would define a “point” as a collection of three integers, labeled x, y, and z.Once we had done that, we could create new points just like we create new variables of any other type. To access the data contained in a struct, combine the variable name, a dot, and the member name. The following code would create a new point and set its data:</p>
+
+<pre><code class="c++">point p;
+p.x = 1;
+p.y = 2;
+p.z = 3;
+</code></pre>
+
+<p>Structs can also contain functionality, as well as data, but they are most commonly used as pure data types- sometimes referred to as “POD” or “Plain Old Data” types. To create types that have both data and functionality, you'll generally want to define a class.</p>
+
+
+<h2>Creating classes</h2>
+
+<p>Creating a class starts with the class keyword, and looks a lot like a struct. A class definition can be as simple as the following:</p>
+
+<pre><code class="c++">class PointClass
+{
+	int x;
+	int y;
+	int z;
+}</code></pre>
+
+<p>That would define the PointClass class and allow us to create instances of it. However, if we tried to access any of the data, as in:</p>
+
+<pre><code class="c++">PointClass p;
+p.x = 23;
+</code></pre>
+
+<p>...we would get an error. That's because of access specifiers, and it illustrates the only real difference between structs and classes- data and methods in structs default to public, while in classes everything defaults to private. But what do those mean?</p>
+
+<h2>Access specifiers (public, private, protected)</h2>
+
+<p>Each of the elements (data and methods) of a class (or a struct) has its own access level, which determines what can access it. </p>
+
+<ul>
+<li><strong>Public</strong> items can be accessed by anything, anywhere a class instance exits.</li>
+<li><strong>Private</strong> items can only be accessed by the class itself</li>
+<li><strong>Protected</strong> prevents access from outside the class, but allows it for classes that inherit from the class (more on that when we talk about inheritance)</li>
+</ul> 
+
+<p>To set a given variable or method as public or private, add the appropriate keyword within the class definition and a colon. Everything after that will have that access. For example, here's a simple class that defines a ogre:</p>
+
+<pre><code class="c++">class Ogre
+{
+public:
+	string name;
+private:
+	int age;
+};</code></pre>
+
+<p>The above class would allow for direct access of the name member, but age would only be accessible by the class itself. If we left it at the above, age wouldn't be all that useful, since we haven't added anything that can do anything with it.</p>
+
+<h2>Adding functionality to a class</h2>
+
+<p>What we've seen so far is only half the picture. Setting up custom types requires that you set up both the definition and the implementation. What we've seen so far is the definition. If all your class has is data, that's all you need. If you want to add functionality though, you'll need to do two things:</p>
+
+<ol>
+<li>add the function prototype to the class definition (with the appropriate access specifier)</li>
+<li>add the function implementation outside the definition, using the scope resolution modifier</li>
+</ol>
+
+<pre><code class="c++">class Ogre
+{
+public:
+	string name;
+	int askAge();
+private:
+	int age;
+}</code></pre>
+
+<p>Here we've added an askAge function, but not yet implemented it. Implementing it is similar to any other function definition, but with the addition of using the scope-resolution operator (::) to link the class name to the function name, as in:</p>
+
+<pre><code class="c++">int Ogre::askAge() {
+	return age;
+}</code></pre>
+
+<p>In the above example, we've added a way to get the age, but we don't yet have a way to set it. Let's add that in as well. First off, we need to add another public function to the class definition.</p>
+
+<pre><code class="c++">class Ogre
+{
+public:
+	string name;
+	int askAge();
+	void setAge(int);
+private:
+	int age;
+}</code></pre>
+
+<p>Then we'll need to add the function definition:</p>
+
+<pre><code class="c++">void Ogre::setAge(int ageIn)
+{
+	age = ageIn;
+}</code></pre>
+
+<p>The above is very standard practice- we have a variable (the age) that is set to private, then public functions to retrieve its value and to set it. Those functions are usually referred to as “getter” and “setter” methods. By setting the variable to private and creating methods to control access, you can ensure that the variable never takes on a value that it shouldn't (like a negative age, for example).</p>
+
+<h2>Constructors and Destructors</h2>
+
+<p>Getters and setters are two common types of methods added to classes. You'll often also want to create your own code to control exactly what happens when you create an instance (to do things like setting variables to default values) and what happens when an instance is destroyed (such as freeing resources).</p>
+
+<p>The compiler will automatically generate a default constructor and a default destructor, but you can certainly define your own by implmenting a function that has the same name as the class. For example, if we wanted to start each Person out with an age of 1, we could do the following:</p>
+
+<pre><code class="c++">class Ogre {
+public:
+	Ogre();
+private:
+	int age;
+}
+
+Ogre::Ogre()
+{
+	age = 1;
+}</code></pre>
+
+<p>One of the great things about C++ is that it allows for the same function to be defined more than once, with different inputs. Its very common to implement multiple constructors, each with different inputs. Let's say that we want to also have the ability to create an Ogre at a certain age.</p>
+
+<pre><code class="c++">class Ogre {
+public:
+	Ogre(); // default constructor
+	Ogre(int); // additional constructor
+private:
+	int age;
+};
+
+Ogre::Ogre() 
+{
+	age = 1;
+}
+
+Ogre::Ogre(int ageIn)
+{
+	age = ageIn;
+}
+</code></pre>
+
+<p>...which would allow us to create an Ogre at a given age in the following way:</p>
+
+<pre><code class="c++">Ogre o1; // uses default constructor, age will be 1
+Ogre o2(21); // uses alternate constructor, age will be 21
+</code></pre>
+
+<p>To create a custom destructor, define a function that starts with the ~ character and has the same name as the class, as in:</p>
+
+<pre><code class="c++">class Ogre {
+public:
+	Ogre();
+	~Ogre();
+}
+
+Ogre::~Ogre() { 
+	cout << “Terrorized villagers for “ << age << “ years\n”;
+}</code></pre>
+
+<p>Which would print a message each time an Ogre instance is destroyed.</p>
+
+
+<h2>Using static</h2>
+
+<p>Typical class members exist for each instance of a class, which makes sense- each Ogre should have their own name and age, for example. Sometimes it can be helpful to have attributes that are shared by all the instances of a class. For example, we might want to have a maximum age for our ogres.</p>
+
+<p>To do that, use the static keyword when defining your class member, as in:</p>
+
+<pre><code class="c++">class Ogre {
+public:
+	Ogre();
+	~Ogre();
+	static in MAX_AGE;
+	int getAge();
+	void setAge(int);
+private:
+	int age;
+}</code></pre>
+
+<p>Note that the above doesn't actually set the value of MAX_AGE- to do that, you'll need to define it outside of the class definition, as in:</p>
+
+int Ogre::MAX_AGE = 500;
+
+<p>Static values are a great way to implement constants that you might want to change, but that you want to be the same for every instance of the class. They can also be used to make code more readable.</p>
+
+
+<hr />
+
+<h1>Week 10 Assignment</h1>
+
+<p>For this week's assignment, revist one of your previous assignments and add some new functionality using classes.</p>
+
+<p>You can do something like what we did in class- adding enemies or pickups to the dungeon example, or maybe you could revist the text adventure and create a proper class to implement a room</p>
+
+<p>Either way, I'll be looking to see that: 
+
+<ol>
+<li>There is new functionality (and functionality that is not <em>exactly</em> the same as what we covered in class), and </li>
+<li>The new functionality includes one or more classes</li>
+</ol>
+</p>

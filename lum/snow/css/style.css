@@ -1,0 +1,12 @@
+body {
+    font-family: arial, sans;
+}
+
+canvas {
+    border: 1px solid #000;
+}
+
+#offscreen {
+    position: absolute;
+    left: -10000px;
+}

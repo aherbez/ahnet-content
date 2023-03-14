@@ -1,0 +1,82 @@
+body
+{
+	font-family: arial, sans;
+	overflow-y: none;
+}
+
+#background_img
+{
+}
+
+div#controls
+{
+    position: absolute;
+    top: 100%;
+    margin-top: -30px;
+    height: 50px;
+    width: 90%;   
+}
+
+div#answers
+{
+    height: 75%;
+	overflow-y: scroll;
+}
+
+div
+{
+    // border: 1px solid #000;
+}
+
+.answer
+{
+    padding: 5px;
+    margin: 5px;
+    border: 4px solid #000;
+    position: relative;
+    min-height: 50px; 
+    
+    border-radius: 15px;
+    background: #fff;
+	
+	font-weight: 900;
+	font-size: 20px;
+    
+}
+
+.ans_ans
+{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    padding: 5px;
+    width: 100%;
+	height: 300px;
+}
+
+.ans_name
+{
+	position: absolute;
+	top: -2px;
+	left: -4px;
+	padding: 5px;
+	font-size: 18px;
+	background-color: rgb(20,20,20);
+	color: #fff;
+	width: 100%;
+	height: 100%;
+	z-index: 1000;
+	text-align: center;
+	filter:alpha(opacity=80);
+	opacity:0.8;    
+	border-radius: 15px;
+	font-weight: 900;
+	font-size: 20px;
+}
+
+
+#question
+{
+    font-size: 50px;
+}
+

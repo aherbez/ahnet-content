@@ -1,0 +1,46 @@
+<html>
+
+<head>
+    <link href="https://vjs.zencdn.net/7.6.0/video-js.css" rel="stylesheet">
+
+    <!-- If you'd like to support IE8 (for Video.js versions prior to v7) -->
+    <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
+
+    <style>
+        body {
+            background-image: url(./background2.jpg);
+        }
+        #my-video {
+            position: absolute;
+            top: 5%;
+            left: 50%;
+            margin-left: -270;
+        }
+        canvas#stage {
+            position: absolute;
+            top: 5%;
+            left: 50%;
+            margin-left: -270;
+        }
+    </style>
+
+    <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+
+    <video id='my-video' class='video-js' preload='auto' 
+        width="540" height="720" data-setup="{}">
+        <!-- <source src="http://www.adrianherbez.net/imgrect/03/vikings.mp4" type="video/mp4"> -->
+        <source src="./cameo.mp4" type="video/mp4">    
+    </video>
+
+    <canvas id="stage" width="540" height="720">
+    </canvas>
+
+    <script src='https://vjs.zencdn.net/7.6.0/video.js'></script>
+    <script src="main.js"></script>
+
+
+</body>
+</html>

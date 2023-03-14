@@ -1,0 +1,19 @@
+#topbar a.logo .logo-icon {
+    background: url(/images/hologur/logo.png) no-repeat;
+    width: 125px;
+    padding: 0;
+    height: 43px;
+    position: relative;
+    display: block;
+    margin-top: 7px;
+}
+
+
+#header-logo a.logo {
+    width: 130px;
+    height: 50px;
+    margin: 0;
+    float: left;
+    background-color: transparent;
+    padding: 0 7px;
+}

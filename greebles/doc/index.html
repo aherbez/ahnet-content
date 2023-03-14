@@ -1,0 +1,93 @@
+<html>
+    <head>
+        <title>Greeble Modeler</title>
+    
+        <style>
+            body {
+                font-family:Arial, Helvetica, sans-serif;
+            }
+
+            h1 {
+                margin-bottom: 0px;
+            }
+
+            h2 {
+                margin-top: 0px;
+                margin-bottom: 0px;
+            }
+            
+            .img-box {
+                margin-top: 10px;
+                display: flex;
+                flex: 1 1 auto;
+                width: 100%;
+                border: 1px solid #000;
+                flex-flow: row nowrap;
+                justify-content: space-between;
+                border-radius: 10px;
+            }
+
+            img {
+                object-fit: contain;
+                width: inherit;
+                max-width: 30%;
+                max-height: 300px;
+            }
+
+            .img-border {
+                border-left: 1px solid #000;
+                border-right: 1px solid #000;
+            }
+
+            .caption {
+                width: 100%;
+                text-align: center;
+                font-style: italic;
+            }
+
+
+        </style>
+    </head>
+
+    <body>
+
+        <h1>Make a thing to make a thing</h1>
+        <h2>A Primer on 3d-printable Procedural Content in the Browser</h2>
+        <h2>Try it <a href="http://adrianherbez.net/greebles/08/">here</a></h2>
+
+        <div class="img-box">
+            <img src="screenshot1.png" />
+            <img class="img-border" src="screenshot2.png" />
+            <img src="screenshot3.png" />
+        </div>
+        <div class="caption">
+            Examples of models generated with my web-based modeler
+        </div>
+
+        <p>
+            Making your own 3d modeling tool that runs in a browser, and that generates procedural meshes is suprisinging easy. I've made a web-based parametric modeler that supports clicking and dragging to define rectangular areas on a face that are then filled in with a new procedurally-generated feature.
+        </p>
+
+        <p>
+            In the talk,  I’ll walk viewers through how they can use ThreeJS and javascript to make tools to generate models on their own, and share the progress on my greeble generator.
+        </p>
+
+        <p>
+            So far, the system supports:
+
+            <ul>
+                <li>Extruding with beveled edges</li>
+                <li>Adding arrays of buttons (or holes)</li>
+                <li>Adding a set of handles similar to rack-mounted equipment</li>
+                <li>Adding a dial/meter indicator</li>
+            </ul>
+        </p>
+
+        <div>
+            <iframe width="840" height="480" src="https://www.youtube.com/embed/WRCzxcN5BWo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+
+
+
+    </body>
+</html>

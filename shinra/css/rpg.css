@@ -1,0 +1,45 @@
+
+div#controls {
+  position: absolute;
+  left: 420px;
+  top: 10px;
+}
+
+img {
+  border: 1px solid #000;
+}
+
+@font-face {
+  font-family: 'sourceserif-black';
+  src: url('../fonts/SourceSerifPro-Black.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'sourceserif-bold';
+  src: url('../fonts/SourceSerifPro-Bold.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'sourceserif-light';
+  src: url('../fonts/SourceSerifPro-Light.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'sourceserif-reg';
+  src: url('../fonts/SourceSerifPro-Regular.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'sourceserif-med';
+  src: url('../fonts/SourceSerifPro-Semibold.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}

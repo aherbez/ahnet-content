@@ -1,0 +1,52 @@
+<html>
+    
+    <head>
+        <title>Tiny World</title>
+    
+        <style type="text/css">
+        
+        body{
+            font-family: arial, sans;
+            background: #000;
+        }
+        
+        canvas {
+            border: 1px solid #000;
+        }
+        
+        div#output {
+            border: 1px solid #000;
+            height: 20px; 
+        }
+        
+        div#instructions {
+            color: #fff;
+        }
+        
+        </style>
+    </head>
+    
+    <body>
+        
+        <!-- <div id="output"></div>-->
+        <center>
+        <canvas width="500" height="500" id="stage" ></canvas>
+        </center>
+        <script type="text/javascript" src="levels.js"></script>
+        <script type="text/javascript" src="types.js"></script>
+        <script type="text/javascript" src="pix.js"></script>
+        <script type="text/javascript" src="tworld.js"></script>
+        
+        <div id="instructions">
+            Instructions: <br />
+            You are a recently recruited planet builder in SpaceCorps's planetary system division.
+            <br />
+            Build planets by distributing matter around your Super Gravity Sphere. <br />
+            Use your shield (press W) to reject things you don't want. <br />
+            Use the arrow keys to rotate your planetoid and distribute matter evenly around the core. <br />
+            To finish a planet, complete its outer shell of matter, but be sure to have the proper makeup.
+        </div>
+        
+        
+    </body>
+</html>

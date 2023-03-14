@@ -1,0 +1,151 @@
+<h1>Pointers!</h1>
+
+<ol>
+
+
+<li>
+<p>True or False: it is possible to have a pointer to a variable of type pointer (1pt).</p>
+
+<div class="quiz_ans">The correct answer is <strong>TRUE</strong>. It is possible to have a pointer to any kind of data, including other pointers.</div>
+</li> 
+
+<li>
+<p>Which of the following could be used to get the memory address of a variable named MyNum? (2 pts)</p>
+
+<ul>
+<li>A) *MyNum</li>
+<li>B) &amp;MyNum</li>
+<li>C) int *MyNum</li>
+<li>D) int &amp;MyNum</li>
+</ul>
+
+<div class="quiz_ans">To get the address in memory of a given variable, you'll need to use the &amp;, or <em>address-of</em> operator. Both the &amp; and * symbols have different meanings when they are used in declarations and expressions. To get the address, we want to use &amp; in an expression, which gives us B as the correct answer.</div>
+
+</li>
+
+<li>
+<p>Which of the following would be used to get the value of variable whose address was stored in MyPointer? (2 pts)</p>
+
+<ul>
+<li>A) *MyPointer</li>
+<li>B) &amp;MyPointer</li>
+<li>C) int *MyPointer</li>
+<li>D) int &amp;MyPointer</li>
+</ul>
+
+<div class="quiz_ans">To get the actual value of a variable stored at a given memory location, we'll need to dereference the pointer, which can be done by using the * symbol in an expression (as opposed to a declaration). As such, A is the correct answer.</div>
+
+</li>
+
+
+<li>
+<p>Fill in the following to make the addTwoByReference function work. You'll need to fill in the function signature, the arguments passed to it (in main), and the body of the function itself. (5 pts).</p>
+
+<pre><code class="c++">#include &lt;iostream&gt;
+using namespace std;
+
+void addTwoByReference(                                       )
+{
+
+
+}
+
+int main()
+{
+	int num1 = 2;
+	int num2 = 3;
+	int result;
+	addTwoByReference(                                       );
+}
+</code></pre>
+
+
+<div class="quiz_ans">
+<p>There are a couple of different ways you could go about this. The main difference is whether you want to pass the values by pointers or by references. If you want to pass by pointers, you would need to do the following:</p>
+
+<pre><code class="c++">#include &lt;iostream&gt;
+using namespace std;
+
+void addTwoByReference(int *a, int *b, int *r)
+{
+	*r = *a + *b;
+}
+
+int main()
+{
+	int num1 = 2;
+	int num2 = 3;
+	int result;
+	addTwoByReference(&amp;num1, &amp;num2, &amp;result);
+}
+</code></pre>
+
+<p>Note that the function declaration for the addTwoByReference function specifies integer pointers. That means that when we call it, we need to pass in the addresses of the values we pass in, requiring that we use the address-of operator. Also, since we're dealing with pointers, we have to dereference them with * to access the actual values (and to set the value of the r variable).</p>
+
+<p>The other way to approach it would be to pass by references, instead of pointers, which would give us the following:</p>
+
+<pre><code class="c++">#include &lt;iostream&gt;
+using namespace std;
+
+void addTwoByReference(int &amp;a, int &amp;b, int &amp;r)
+{
+	r = a + b;
+}
+
+int main()
+{
+	int num1 = 2;
+	int num2 = 3;
+	int result;
+	addTwoByReference(num1, num2, result);
+}
+</code></pre>
+
+<p>By setting up our addTwoByReference function to take references, we can pass in the variables directly (without using the address-of operator). We can also avoid using the dereference operator within the function.</p>
+
+<p>In both of the above examples, I've passed in both of the numbers to be added as reference (rather than by value). That's not strictly necessary, but it also doesn't hurt. You could also just pass them is by value, and use pass-by-reference only for the result.</p>
+
+<p>For the pointer-based approach, that would look like this:</p>
+
+<pre><code class="c++">#include &lt;iostream&gt;
+using namespace std;
+
+void addTwoByReference(int a, int b, int *r)
+{
+	*r = a + b;
+}
+
+int main()
+{
+	int num1 = 2;
+	int num2 = 3;
+	int result;
+	addTwoByReference(num1, num2, &amp;result);
+}
+</code></pre>
+
+<p>...and the reference-based approach:</p>
+
+<pre><code class="c++">#include &lt;iostream&gt;
+using namespace std;
+
+void addTwoByReference(int a, int b, int &amp;r)
+{
+	r = a + b;
+}
+
+int main()
+{
+	int num1 = 2;
+	int num2 = 3;
+	int result;
+	addTwoByReference(num1, num2, result);
+}
+</code></pre>
+
+</div>
+
+
+
+
+</ol>

@@ -1,0 +1,25 @@
+<html>
+<head>
+    <link rel="stylesheet" href="css/pannellum.css" />
+    <script src="js/pannellum.js"></script>
+
+    <style>
+        #panorama {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="panorama"></div>
+
+    <script>
+        pannellum.viewer('panorama', {
+            "type": "equirectangular",
+            "panorama": "imgs/sub.jpg",
+            "autoLoad": true,
+
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+body {
+	font-family: arial, sans;
+}
+
+div#desc {
+	position: absolute;
+	left: 820px;
+	top: 10px;
+}
+
+canvas#stage {
+	border: 1px solid #000;
+	position: absolute;
+	left: 10px;
+	top: 10px;
+	cursor: default;
+}

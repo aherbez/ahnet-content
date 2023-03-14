@@ -1,0 +1,6 @@
+room: dungeon
+gold sword dagger
+room: kitchen
+coffee soda snacks
+room: office
+laptop

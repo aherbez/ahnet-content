@@ -1,0 +1,19 @@
+canvas {
+    border: 1px solid #000;
+}
+
+#controls {
+    position: absolute;
+    left: 50%;
+    margin-left: 420px;
+    top: 10px;
+    border: 1px solid #000;
+    width: 120px;
+}
+
+.btn-lvl {
+    margin: 10px;
+    padding: 5px;
+    height: 40px;
+    width: 90px;
+}

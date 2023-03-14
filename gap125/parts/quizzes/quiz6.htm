@@ -1,0 +1,106 @@
+<h1>Introduction to the STL</h1>
+
+<ol>
+
+<li>
+<p>Which of the following are benefits of using an STL array (std::array) as opposed to “normal” arrays (2 pts)?</p>
+
+<ul>
+<li>a) the ability to always grab the size of the array</li>
+<li>b) the ability to easily sort the contents</li>
+<li>c) both A and B</li>
+<li>d) none of the above</li>
+</ul>
+
+<div class="quiz_ans">
+
+A is definitely true, since you can always use the <pre><code class="C++">size</code></pre> method to retrieve the size of a std::array. <br />
+B is also true, since you can use the algorithm library to sort arrays<br />
+Therefore, C is the correct answer.
+
+</div>
+
+</li>
+
+
+<li>
+<p>If you need a list-like object that can grow in size during your program, which of the following libraries do you want to use (2 pts)?</p>
+
+<ul>
+<li>a) std::vector </li>
+<li>b) std::algorithm </li>
+<li>c) std::array </li>
+<li>d) std::string </li>
+</ul>
+
+<div class="quiz_ans">
+While std::array arrays are more capable than their built-in equivalents, they are still fixed-size, so that rules out C. <br />
+The algorithm library provides tools for working with data structures, rather than the data structures themselves, so that rules out B<br />
+Strings can kind of be considered "list-like", since they're a sequence of characters, but that's a bit of a stretch, and of no help to us if we want to store something like floats.<br />
+That leaves us with A, std::vector as the correct choice. Vectors are definitely list-like objects, with the added benefit of being able to change their size after creation.
+</div>
+
+</li>
+
+<li>
+<p>What does the “Template” in “Standard Template Library” refer to (2 pts)?</p>
+
+<ul>
+<li>a) that the classes should only be used in certain situations</li>
+<li>b) mathematical filtering of input data</li>
+<li>c) range checking on things like arrays </li>
+<li>d) the ability for a given piece of code to be run with multiple types of input</li>
+</ul>
+
+<div class="quiz_ans">
+The "templating" of the standard template library refers to the fact that a given STL base class can be used with different types of data. For example, we can certainly use std::array to hold integers, but we can also use it to hold strings, floats, or any other kind of data we want.<br />
+As such, D is the best answer.
+</div>
+
+</li>
+
+<li>
+<p>Look at the following code. Add a single line to sort MyArray in ascending order (4 pts).</p>
+
+<pre><code class="C++">#include &lt;array&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+
+int main()
+{
+	array&lt;int&gt; MyArray = {5,1,9,2,0,4};
+	
+	// add code here:
+
+	return 0;
+}
+</code></pre>
+
+<div class="quiz_ans">
+The correct answer reads as follows:
+
+<pre><code class="C++">#include &lt;array&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+
+int main()
+{
+	array&lt;int&gt; MyArray = {5,1,9,2,0,4};
+	
+	sort(MyArray.begin(), MyArray.end());
+
+	return 0;
+}
+</code></pre>
+
+The sort function is part of the agorithm library, and requires that we give it <em>iterators</em> as its arguments. The first input needs to be an iterator corresponding to the start of the list-like object that we wish to sort, and the second input an iterator corresponding to its end. <br />
+
+This probably seems a bit more involved than it needs to be- why not just have something like MyArray.sort()?<br />
+
+While it's definitely true that we end up with odd syntax, it's necessary to provide greater flexibility for the sort funciton. By accepting iterators, the sort method in std::algorithm can be used with a much wider range of data types, of which arrays and vectors are only two.
+
+
+</div>
+
+</li>
+</ol>

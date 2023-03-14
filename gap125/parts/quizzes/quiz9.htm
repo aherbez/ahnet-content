@@ -1,0 +1,68 @@
+<h1>Dynamic Memory</h1>
+
+<ol>
+<li><p>Both the stack and the heap are parts of what? (2 pts)</p>
+
+<ul>
+<li>A) the hard drive</li>
+<li>B) RAM</li>
+<li>C) CPU registers</li>
+<li>D) object-oriented programming</li>
+</ul>
+
+<div class="quiz_ans">B is the correct answer, since both the stack and the heap are just different areas of RAM.</div>
+
+</li>
+
+<li><p>Which of the following can be caused by allocating variables on the stack? (2 pts)</p>
+
+<ul>
+<li>A) stack overflow</li>
+<li>B) memory leaks</li>
+<li>C) segmentation fault</li>
+<li>D) bus error</li>
+</ul>
+
+<div class="quiz_ans">Both segmentation faults and bus errors can be caused in a variety of ways, and are caused by attempting to access a bad region of memory. The best answer for the question though is A, since stack overflow is specifically caused by having allocated too much memory from the stack, causing it to "overflow" or to bump up against the region of memory reserved for the program itself.</div>
+
+</li>
+
+<li><p>Which of the following can be caused by allocating variables in the heap? (2 pts)</p>
+
+<ul>
+<li>A) stack overflow</li>
+<li>B) memory leaks</li>
+<li>C) segmentation fault</li>
+<li>D) bus error</li>
+</ul>
+
+<div class="quiz_ans">Again, there are a variety of ways to get segmentation faults and bus errors, but the best answer for problems specifically related to the heap is B, memory leaks. Memory leaks are caused when memory is dynamically allocated (using <strong>new</strong>), but never deallocated (with <strong>delete</strong>), which prevents the memory locations from being used again.</div>
+
+</li>
+
+<li><p>Which of the following is the proper way to dynamically allocate memory for an integer named MyNum (2 pts)?</p>
+
+<ul>
+<li>A) int MyNum = new int;</li>
+<li>B) int MyNum;</li>
+<li>C) new int MyNum;</li>
+<li>D) int *MyNum = new int;</li>
+</ul>
+
+<div class="quiz_ans">D is the correct choice. A is very nearly correct, but misses the fact that the new keyword returns a <em>pointer to</em> the newly-created variable, rather than the variable itself. As such, you have to make sure to store the result in a pointer variable.</div>
+
+</li>
+
+<li><p>Which of the following is the proper way to free the memory used by the above MyNum variable? (2 pts)</p>
+
+<ul>
+<li>A) MyNum.delete();</li>
+<li>B) delete &amp;MyNum;</li>
+<li>C) delete MyNum;</li>
+<li>D) delete(MyNum);</li>
+</ul>
+
+<div class="quiz_ans">There are actually two correct answers here. C is the way I generally do things, and what I was looking for, but D will also work as well.</div>
+
+</li>
+</ol>

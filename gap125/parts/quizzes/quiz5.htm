@@ -1,0 +1,85 @@
+<h1>Arrays and for loops</h1>
+
+<ol>
+
+<li>
+<p>Fill in the blanks. To exit out of a single pass through a loop, but keep going with the rest of the loop, use the  _____________________ command. To exit out of a loop completely, use _______________________. (2 pts)</p>
+
+<div class="quiz_ans">
+The correct answers are <pre><code class="c++">continue</code></pre> and <pre><code class="c++">break</code></pre> in that order. The continue command merely skips the rest of the code in a single pass through the loop, while break will exit the loop entirely.
+<br /><br />
+One way to think about it is that continue <em>continues</em> with the rest of the loop, while break <em>breaks out of</em> the loop alltogether.
+
+</div>
+
+
+</li>
+
+
+<li>
+<p>Which of the following is the correct way to declare an integer array with 5 elements? (2 pts)</p>
+
+<ul>
+<li>a) int{5} MyArray;</li>
+<li>b) int[] MyArray(5);</li>
+<li>c) int MyArray = new Array(5);</li>
+<li>d) int MyArray[5];</li>
+</ul>
+
+<div class="quiz_ans">
+D is the correct answer, and the right way to declare a 5-element integer array in C++. The <em>new</em> keyword <em>is</em> used in C++, but not in the way we see in option C, above. Both A and B are not proper syntax at all.
+</div>
+
+</li>
+
+<li>
+<p>What would be the output of the following code: (2 pts)</p>
+
+<pre><code class="c++">int TestArray[] = {1,2,3,4,5};
+cout << TestArray[10] &lt;&lt; endl;
+</code></pre>
+
+<ul>
+<li>a) an integer resulting from reading a random section of memory</li>
+<li>b) nothing- the code would fail to compile</li>
+<li>c) 0</li>
+<li>d) 5</li>
+</ul>
+
+<div class="quiz_ans">
+B would be nice, since we generally <em>want</em> this kind of error to be pointed out to us. However, the compiler wouldn't complain about the above, even though it's very dangerous code. <br /><br />
+The correct answer is A. That's because indexing into an array can be thought of as reading from the area of memory that corresponds to the starting location plus: the size of the array contents (in this case, an int), multiplied by the index. <br /><br />
+So, in the sample code, TestArray[10] refers to the area of memory that is 4 * 10, or 40 bytes ahead of wherever the first element is stored (the 4 is because plain integers are usually stored in 4 bytes). Our actual array, however, only has five elements, meaning that it occupies 4 * 5, or 20 bytes. What, then, occupies the next 20 bytes? That's just it- those memory locations contain effectively random data. <br /><br />
+In most cases, you'll just get a value that doesn't make sense, but reading from (or worse yet, writing to) portions of memory that lay outside an array can be quite dangerous, and should be avoided in all cases.
+<br /><br />
+Note: there <em>is</em> a non-zero chance that the code could actually just so happen to output either 0 or 5, but those are both very unlikely results- they would only happen if the memory location we read from just happened to have all 0s (for 0), or exactly the right bits to correspond to 5. <br /><br />
+
+A is the right answer.
+
+
+
+</div>
+
+</li>
+
+<li><p>Let's say that you wanted to write a for loop that would work backwards from 100 to 0, doing something with every 5th number, which of the following would you want to use (2 pts)</p>
+
+<ul>
+<li>a) for (int i=0; i < 100; i++)</li>
+<li>b) for (int i=0; i < 100; i+=5)</li>
+<li>c) for (int i=100; i >= 0; i -= 5)</li>
+<li>d) none of the above, as for loops cannot be used in that way</li>
+</ul>
+
+<div class="quiz_ans">
+First off, we can discard D, since it's absolutely possible to use a for loop to count down instead of up, and it's also possible to increment / decrement by something other than one.<br /><br />
+
+A is incorrect, as it would count from 0 to 99, incrementing by 1 each loop.<br /><br />
+
+B is also incorrect. It would (correctly) change the index by 5 each time, but it would count upwards from 0 to 99.<br /><br />
+
+That leaves us with C, which is the correct answer. The loop in C starts at 100, continues as long as i is 0 or greater, and subtracts 5 each time through, which gives us all of the qualities we were looking for.
+
+</div>
+
+</li>

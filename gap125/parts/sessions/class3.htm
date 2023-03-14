@@ -1,0 +1,259 @@
+<h1>Week 3: Variables continued, more control, random numbers </h1>
+
+<h2>Variable Scope</h2>
+
+<p>Every variable has a scope, or a region within your code for which it is defined. Referring to a variable that is out of scope will cause an error.  By default, a variable is scoped to the block in which it is defined. </p>
+
+<pre><code class="cpp">int FirstNum = 1;
+
+if (true)
+{
+	int SecondNum = 2;
+} // SecondNum goes out of scope here</code></pre>
+
+<p>In the above snippet, FirstNum is declared outside the block, so is available everywhere. SecondNum, on the other hand, is declared inside the block of code, and goes out of scope as soon as we hit the closing bracket.</p>
+
+<p>Variables declared outside any block of code are said to be global, and can be used anywhere. Bear in mind that global variables shouldn't be used more than is absolutely necessary (more on that later in the semester, when we talk about encapsulation).</p>
+
+<h2>Const, #define, enums, and static</h2>
+
+<p>One of the things that makes programming so difficult is that humans tend to use words, and computers are much better with numbers. Luckily, there are a few different ways to bridge that gap, all of which have additional benefits to boot.</p>
+
+<h3>const</h3>
+
+<p>The const keyword can be used when declaring variables and is used to indicate that a variable should never change its value. That might seem odd- should't variables be... variable? However, it's often the case that you'll have certain values that appear multiple times in your code, but that should never change during a run of the program. For example, a (simple) RPG inventory system might have a max limit for the weight the player can carry of say, 120 pounds. You could check against 120 directly, but that would be error-prone if you ever changed the value. Much better to do the following:</p>
+
+<pre><code class="cpp">const int k_maxWeight = 120;</code></pre>
+
+<p>This would create a variable to hold the max weight, resulting in fewer errors and more readable code.</p>
+
+<h3>#define</h3>
+
+<p>On a related note, you can also use the #define preprocessor directive to define values that you want to replicate across your code. Upon compilation, the compiler will replace all occurances of the keyword with the value you have given it. So, if we did the following:</p>
+
+<pre><code class="cpp">#define MAX_WEIGHT 120
+// more code follows
+if (CurrentWeight >= MAX_WEIGHT)</code></pre> 
+
+<p>It would end up being identical in functionality as if we had written:</p>
+
+<pre><code class="cpp">if (CurrentWeight >= 120)</code></pre>
+
+<p>You'll often see defines used, but bear in mind that they are not type safe. In other words, we could just as easily have done this:</p>
+
+<pre><code class="cpp">#define MAX_WEIGHT “some string that makes no sense”</code></pre>
+
+<p>...which would get us into trouble later if we wanted to use it as an integer value.</p>
+
+<h3>enums</h3>
+
+<p>Enums are short for “enumerated list”, and provide a handy way of using natural language for options. For example, we might want to have a program that deals with colors, and we might decide that we want red to be represented by 1, green by 2, and blue by 3. One way to do that would be:</p>
+
+<pre><code class="cpp">const int Red = 1;
+const int Green = 2;
+const int Blue = 3;</code></pre>
+
+<p>That would allow us to do things like setting values to “Red” instead of 1, leading to more readable code. But there's an even easier way. Instead, we could declare an enum of colors, as in:</p>
+
+<pre><code class="cpp">enum {red, green, blue};</code></pre>
+
+<p>This would tell the compiler that we want to use red, green, and blue as stand-ins for integer values. So, instead of saying:</p>
+
+<pre><code class="cpp">int MyColor = 1;</code></pre> 
+
+<p>...and having to remember that 1 means red, we could just do the following:</p>
+
+<pre><code class="cpp">int MyColor = red;</code></pre>
+
+<p>...which is nicer to read. Bear in mind that, while enums will correspond to integer values, they will (by default) start at 0. So, if we really want red to be 1, we need to specify that as follows:</p>
+
+<pre><code class="cpp">enum {red=1, green, blue};</code></pre>
+
+<p>If we <em>do</em> specify a specific value for an enum, the following entries will increment up from there (green would be 2, and blue 3 in the above)</p>
+
+<h3>static</h3> 
+<p>The static keyword is used in a way similar to const, in that it is added to variable declarations, as in:</p>
+
+<pre><code class="cpp">static int MyStaticInt;</code></pre>
+
+<p>What it does is a bit tricky, though. It's very useful when creating classes, but don't worry about it much until then.</p>
+
+
+<h2>Random values</h2>
+
+<p>Very often in game development, you'll want to use random values. To do that, you can use the rand() function. That will output an random integer between 0 and RAND_MAX (which may differ from platform to platform, but will always be at least 32767. In order to make use of it, you'll generally need to wrap it in some math. 
+For a random integer value, you can take the result modulo the maximum number you want. If you wanted a number from 0-9, for example, you could do the following:</p>
+
+int MyRandomNumber = rand() % 10;
+
+<p>If you want a random decimal number, you'll want to divide the result by RAND_MAX to get a number between 0 and 1, as in:</p>
+
+<pre><code class="cpp">float MyRandomFloatBroken = rand() / RAND_MAX;</code></pre>
+
+<p>But that's not quite all- the above would always result in 0, since dividing one integer by another will always result in an integer answer. If the result is something less than 1, it gets truncated to 0. To get around that, we'll need to make sure that we treat at least one of the numbers as a float, which we can do by casting it.</p>
+ 
+<p>Casting can be used to convert a variable from one type to another. This is often useful, but can also be very dangerous, since there's no guarantee that a variable of type A makes sense when interpreted as type B. If we cast the RAND_MAX constant to a float, the math will happen as full floating-point division, giving us a proper decimal result.</p>
+
+<pre><code class="cpp">float MyRandomFloatWorking = rand() / float(RAND_MAX);</code></pre>
+
+<p>One last thing on random numbers- they're not actually random. If you re-run your program, you'll get exactly the same result. That's because all random numbers on a computer are the result of deterministic math. To ensure that you get different results each time, you'll want to use the srand  (short for Seed RANDom) function to set the starting point to the system time, as in the following:</p>
+
+<pre><code class="cpp">srand(time(NULL));</code></pre>
+
+<p>The time function will return the number of seconds since January 1st, 1970. That number is passed in as the starting point for succssive calls to rand().</p>
+
+
+<h2>More control: Switch/case statements</h2>
+
+<p>Last week, we looked at how to test values with if statements, and how they can be linked together into if, if else, and else statements. That's fine if you have only a few things to check for, but it quickly becomes cumbersome if you're looking to test one value against a number of others. For those situations, a switch statement is really helpful. Let's say that we had a variable that could be any one of a variety of integer values. We could do the following:</p>
+
+<pre><code class="cpp">switch (MyVariable)
+{
+	case 1:
+	{
+		DoSomething1();
+		break;
+	}
+	case 2:
+	{
+		DoSomething2();
+		break;
+	}
+	case 47:
+	{
+		DoSomething3();
+		break;
+	}
+	default
+	{
+		DoSomething4();
+	}
+
+}</code></pre>
+
+<p>The above would be functionally equivalent to the following:</p>
+
+<pre><code class="cpp">if (MyVariable == 1)
+{
+	DoSomething1();
+}
+else if (MyVariable == 2)
+{
+	DoSomething2();
+}
+else if (MyVariable == 47)
+{
+	DoSomething3();
+}
+else
+{
+	DoSomething4();
+}
+</code></pre>
+
+
+<p>There are a couple of things to be careful about when using switch statements- 
+
+<ul>
+<li>Don't forget the colon (":") after each value. It's a bit different than other C++ syntax, and is easy to miss</li>
+<li>Make sure that you include break in each clause- if you don't, multiple clauses may be executed. This is sometimes useful, but in most cases, it's to be avoided (at least until you've used switch/case constructions a few times)</li>
+<li>The thing that you're comparing the variable to must be a constant or a literal</li>
+<li>While not strictly necessary, it's alwasy good practice to include a default option</li>
+</ul>
+
+</p>
+
+<hr />
+<h1>Examples from class</h1>
+<p>In this class, we built two different examples. Click below for a printable PDF of the code for each
+
+<ol>
+<li><a href="example_code/wk3_randomGuess.pdf">A randomized number guessing game</a></li>
+<li><a href="example_code/wk3_machine.pdf">A funny sort of machine</a></li>
+</ol>
+
+</p>
+
+<hr />
+
+<h1>Week 3 Assignment: Management Game</h1>
+
+<p>This week's assignment is to implement a simple management sim type game, in which the player is asked to make decisions to manage their empire. The requirements are that:
+
+<ul>
+<li>There be at least two resources (gold and food, for example)</li>
+<li>Each time the player is prompted, they should see the current values of their resources</li>
+<li>There be at least three options for the player to choose from each round. For example, the player might choose to:
+	<ol>
+		<li>Send a raiding party to a neighboring village (high risk, high reward)</li>
+		<li>Devote all resouces to farming this round (low risk, low reward)</li>
+		<li>Buy food from a neighboring village (reduces gold, increases food)</li> 
+	</ol>
+</li>
+<li>Options should be presented to the user as a list, and the input should be in the form of a number</li>
+<li>Each option should have differnt results, in terms of the effect on your resources, and at least some of them should be randomized (the raiding party might have a 50% chance of success, for example)</li>
+<li>There should be at least one final conidition. For example, you might lose if your food drops to zero. Conversely, you might win if you manage to stockpile enough gold to pay for the construction of a monument to your splendor.</li>
+<li>The player should be able to quit at any time</li>
+</ul>
+
+<p>Example output:
+
+<pre><code>URRENT STATUS: food- 195 gold- 1000
+1: Send out a raiding party
+2: Grow food
+3: Buy food
+4: Sell food
+5: Build Monument (2000 gold)
+6: quit
+What do you want to do: 1
+Result of raid: -93
+CURRENT STATUS: food- 140 gold- 907
+1: Send out a raiding party
+2: Grow food
+3: Buy food
+4: Sell food
+5: Build Monument (2000 gold)
+6: quit
+What do you want to do: 2
+You harvest 19 food
+CURRENT STATUS: food- 154 gold- 907
+1: Send out a raiding party
+2: Grow food
+3: Buy food
+4: Sell food
+5: Build Monument (2000 gold)
+6: quit
+What do you want to do: 4
+You sell 20 food for 24
+CURRENT STATUS: food- 129 gold- 931
+1: Send out a raiding party
+2: Grow food
+3: Buy food
+4: Sell food
+5: Build Monument (2000 gold)
+6: quit
+What do you want to do: 5
+You can't afford that!
+CURRENT STATUS: food- 124 gold- 931
+1: Send out a raiding party
+2: Grow food
+3: Buy food
+4: Sell food
+5: Build Monument (2000 gold)
+6: quit
+What do you want to do: 
+
+</code></pre>
+
+</p>
+
+
+
+
+
+
+
+
+
+
+

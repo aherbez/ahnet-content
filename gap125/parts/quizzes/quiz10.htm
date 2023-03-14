@@ -1,0 +1,110 @@
+<h1>Classes</h1>
+
+<ol>
+<li>
+<p>Which of the following can be used to create user-defined types (circle all that apply, 2pts)</p>
+
+<ul>
+<li>A) typedef</li>					
+<li>B) structs</li>				
+<li>C) classes</li>
+<li>D) void</li>
+</ul>
+
+<div class="quiz_ans">Both classes and structs can be used to create user-defined types. The typedef keyword can be used to create alternate names for variable types, but not to define new types. Void is just... void, indicating no type. So, the correct answer is both B and C.</div>
+
+</li>
+
+<li>
+
+<p>Which of the following is NOT an access level specifier (2 pts)</p>
+
+<ul>
+<li>A) public</li>
+<li>B) private</li>
+<li>C) procedural</li>
+<li>D) protected</li>
+</ul>
+
+<div class="quiz_ans">Public can be used to make attributes accessible everywhere, private to make them accessible only within the class, and protected to make them accessible within the class and to classes than inherit from it. The only option left is procedural, which does not name an access specifir. So D is the correct choice.</div>
+
+</li>
+
+
+<li>
+<p>True or false: You can have multiple definitions of a class member function with the same name, as long as they have different inputs (1 pt)</p>
+
+<div class="quiz_ans">This is true, and one of the major strengths of C++, referred to as <em>function overloading</em>. You can absolutely define the same function more than once with the same name but different inputs, as in the following example:
+
+
+<pre><code class="c++">void addAndPrint(int a, int b)
+{
+	cout << (a + b) << "\n";
+}
+
+void addAndPrint(float a, float b)
+{
+	cout << (a + b) << "\n";
+}
+</code></pre>
+
+The above would allow addAndPrint to be called with either two ints or two floats. 
+
+</div>
+
+
+</li>
+
+<li>
+
+<p>
+In the space below, write out the class definition for a class with the following characteristics (5 pts):</p>
+
+<ul>
+<li>named Person</li>
+<li>contains a string “name” value that can be accessed by anyone</li>
+<li>contains an integer “age” value that only it can access</li>
+</ul>
+
+<div class="quiz_ans">
+<p>The absolute minimum to fulfill the requirements would be the following:</p>
+
+<pre><code class="c++">class Person
+{
+	public:
+		string name;
+	private:
+		int age;
+};</code></pre>
+
+<p>There are a couple of additional things you would likely want to include. If you needed to do anything specific when class instances are either created or destroyed, you would want to define your own constructor and destructor:</p>
+
+<pre><code class="c++">class Person
+{
+	public:
+		Person();
+		~Person();
+		string name;
+	private:
+		int age;
+};</code></pre>
+
+<p>Also, having the age attribute isn't much use unless we have some way to work with it. For that, we would likely want a <em>getter</em> function to retrieve the value and a <em>setter</em> function to change it. That would look like this:</p>
+
+<pre><code class="c++">class Person
+{
+	public:
+		Person();
+		~Person();
+		string name;
+		void setAge(int a);
+		int getAge();
+	private:
+		int age;
+};</code></pre>
+
+</div>
+
+
+</li>
+</ol>

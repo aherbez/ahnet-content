@@ -1,0 +1,8 @@
+{
+    "title": "Template Game",
+    "description": "Cool template description that's localized. OH YEAH. This might be more than one line.",
+    "isNumberGreater": "Is the number greater than 5?",
+    "useArrows": "Use the arrow keys to answer",
+    "noCaps": "NO",
+    "yesCaps": "YES"
+}

@@ -1,0 +1,169 @@
+<h1>Object-Oriented Programming Continued</h1>
+
+<h2>Separating interface from implementation: header files</h2>
+
+<p>In most projects, you'll end up with a ton of different classes. You certainly could have all of them in a single file, but that would make it really hard to edit the code, and to work with teammates (having everyone edit a single file is a recipe for disaster).</p>
+
+<p>So, what you'll generally want to do instead is to break up your code into multiple files. Classes provide a handy way to do that, as they're a nice, separate chunk of functionality. Most projects have a separate file for each class definition, which makes it really easy to edit the file you want, and to share code between teammates.</p>
+
+<p>However, there's a downside as well, in that your various files all need to know about each other. One simple way to do that is to use the #include preprocessor directive, as in:</p>
+
+<pre><code class="c++">// inside main.cpp
+#include “MyClass.cpp”
+
+int main()
+{
+	MyClass c;
+	return 0;
+}</code></pre>
+
+<p>That would work, but it's far from ideal. The #include directive is basically just a copy-paste operation. So, the above example would be equivalent to dumping the entire contents of MyClass.cpp into main.cpp. That's less than ideal for a number of reasons, mainly because it would cause the code inside MyClass.cpp to be compiled once for every source file that includes it. On a big project, this can lead to significant slowdowns in compilation time.</p>
+
+<p>This is where header files come in. Instead of having a single file for a class, it's common practice to have two files:</p>
+
+<ol>
+<li>a “header” (.h) file that defines the class but that doesn't contain any implementation</li>
+<li>a source (.cpp) file that includes all of the implementation for the class</li>
+</ol>
+
+<p>Then, when class A needs to know about class B, class A can #include just the header file. By having all of the implementation in a separate .cpp file, we can ensure that it only ever gets compiled once. Here's what the header and source file for a simple class might look like. First, the header:</p>
+
+<pre><code class="c++">/// Person.h
+class Person
+{
+public:
+	Person();
+	~Person();
+	std::string name;
+	int getAge();
+private:
+	int age;
+};</code></pre>
+
+<p>The above contains everything that is needed to define what a “Person” is for the purposes of our code, but it doesn't actually implement anything. For that, we turn to Person.cpp:</p>
+
+<pre><code class="c++">/// Person.cpp
+
+Person::Person()
+{
+	name = “Name”;
+	age = 0;
+} 
+
+int Person::getAge()
+{
+	return age;
+}</code></pre>
+
+<p>The difference between headers and source is similar to what we saw earlier in the semester with forward declarations, in that we first tell the compiler what something looks like (with the header), then we later tell it how it does what it does (with the source).</p>
+
+<h3>Preventing headers from being included more than once</h3>
+
+<p>Once you've definied a class, you'll typically want to make use of it throughout your project. That means that various other source files will need to include your .h file as well. However, it's possible that you might have two classes that both utilize a given class and that are in turn used by some other class. For example- both your Person and Shop classes might include Weapon.h (so that people can use weapons, and shops can sell them). That means that both Person.cpp and Weapon.cpp would have the following line:</p>
+
+<pre><code class="c++">#include “Weapon.h”</code></pre>
+
+<p>Then you would likely want to use both the Person and Shop classes in your main file, meaning that main.cpp would have:</p>
+
+<pre><code class="c++">#include “Weapon.h”
+#include “Shop.h”
+#include “Person.h”</code></pre>
+
+
+<p>If we were only ever including headers into source files, there wouldn't be any problem. However, sometimes you'll need to include headers in headers (most notably for inheritance- more on that later). It can quickly get complicated, and if you ever end up with a given header file being included more than once, you can end up with a host of strange errors.</p>
+
+<p>So, you'll want to make sure that does't happen. If you create a new class in Visual Studio, you'll see the following at the top of the header file:</p>
+
+<pre><code class="c++">#pragma once</code></pre>
+
+<p>That's there to instruct the compiler to ensure that the header only ever gets included once in any given compilation. This is important, but it's also something you generally won't have to do manually if you're using a modern IDE.</p>
+
+<p>This isn't the only way to do it, though. You can also wrap your entire header in a conditional compile block as follows:</p>
+
+<pre><code class="c++">#ifndef MYCLASS_H
+#define MYCLASS_H
+
+// header content goes here
+
+#endif</code></pre>
+
+<p>What's happening in the above is similar to a normal conditional, but it's directed at the compiler, rather than being C++ code. The #ifndef line is short for “if not defined”. If something named “MYCLASS_H” is defined, it will skip to the #endif line, passing over your entire header definition. Otherwise, it continues with the next line, which actually defines MYCLASS_H, and proceeds with the rest of the header.</p> 
+
+<p>So what we're saying is: if this hasn't been imported yet, define a flag to mark it as such and import the header. Otherwise, skip the whole thing.</p>
+
+<p>Note that the "#pragma once" syntax is generally the better way to go- it's less code, and it doesn't rely on cluttering things up with additional #defines. However, it's good to be aware of the above approach (sometimes referred to as "header guards") since you're likely to encounter it.</p>
+
+<h2>Inheritance</h2>
+
+<p>One of the great things about object-oriented programming is that you can have classes that inherit from other classes, which allows you to implement code once and share it amongst multiple classes. To have a class inherit from another, specify the parent class in the child class definition as follows:</p>
+
+<pre><code class="c++">class Dog : public Mammal
+{
+	// class definition for Dogs
+};</code></pre>
+
+<p>In the above example, the Dog class would contain everything defined in the Mammal class, but allow us to add additional functionality. For example, there might be a hairColor variable that we want to be able to set for dogs, but since all mammals have hair, it makes sense to define that at the mammal level instead. We can also add new functionality (either functions or data) that is unique to the Dog class. </p>
+
+<h3>Virtual functions and using override</h3>
+
+<p>Sometimes you'll want to have a function that is guaranteed to be defined in every class that inherits from a given parent, but that only makes sense to implement in the child classes themselves. For that, you'll want to declare the function as a virtual function and use the override  keyword in the child class. That end up looking like the following:</p>
+
+<pre><code class="c++">// parent class
+class Parent
+{
+public: 
+	virtual void printInfo();
+}
+
+// child class
+
+class Child : public Parent
+{
+public:
+	void printInfo() override;
+}</code></pre>
+
+
+<p>Here the “virtual” keyword marks the printInfo as a function that will be ovewritten, and the “override” identifier marks the Child::printInfo function as one that is replacing functionality inherited from the parent class.</p>
+
+<h2>Two routes to functionality: inheritance and composition</h2>
+
+<p>For any given class, there are two different ways to build up the functionality you want- you can have the class inherit functionality from a parent class, or you can have the class contain members of another class type (this is called composition).</p>
+
+<p>Luckily, there's a very easy way to determine which approach to use for each piece of functionality. If you have two classes, A and B, ask yourself which sounds right:</p>
+
+<ol>
+<li>“A is a type of B”, or</li>
+<li>“A has a B”</li>
+</ol>
+
+<p>For example, a car <strong>is a type of</strong> vehicle, and every car <strong>has an</strong> engine. It would be very strange to say instead that a car “has a vehicle” or that a car “is a type of engine”.</p>
+
+<p>If you have a “is a type of” relationship, that's a sure sign that you should use inheritance, and if you have a “has a” relationship, use composition. For example, here's what a simple Car class might look like:</p>
+
+<pre><code class="c++">class Car : public Vehicle
+{
+public:
+	Car();
+	~Car();
+private:
+	Engine myEngine;
+}</code></pre>
+
+<hr />
+
+<h1>Week 11 Assignment</h1>
+
+<p>Create a small game that uses at least five classes.</p>
+
+<p>Your classes should have the following relationships:
+
+<ul>
+<li>There should be at least one class that is a child of another class (inheritance)</li>
+<li>There should be at least one class that contains an instance of another (composition)</li>
+</ul> 
+</p>
+
+<p>For example, you might implement a base Person class, a few different subclasses for things like the player, shopkeepers, and one or more enemies. You might then also implement an Item class with subclasses for Weapon, Armor, etc. You could then use composition to give the player references to a weapon and armor instance.</p>
+
+<p>That's just one example though- the sky's the limit!</p>

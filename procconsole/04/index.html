@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Security-Policy" contents="script-src 'self' 'unsafe-inline';" />
+        <link rel="stylesheet" href="css/style.css" />
+    </head>
+    <body>
+        <div class="container">
+            
+            <div id="col-editor">
+                <div id="code" contenteditable="true">DEMO 2: Gamepads
+                    
+This demo shows off procedural generation
+of gamepad innards, with 3-7 buttons.
+
+Refresh the page to get a new gamepad.
+Use keys z,x,c,v,b,n,m to press buttons.
+
+Use the mouse to move around and get a
+good look.
+                </div>
+            </div>
+
+            <div id="col-stage">
+                <canvas id="stage" width="600" height="600"></canvas>
+            </div>
+
+        </div>
+        
+        <script src="js/libs/three.min.js"></script>
+        <script src="js/libs/OrbitControls.js"></script>
+        <script src="js/libs/ace/ace.js"></script>
+        <script src="js/geo/core.js"></script>
+        <script src="js/geo/display.js"></script>
+        <script src="js/geo/button.js"></script>
+        <script src="js/geo/gamepad.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>

@@ -1,0 +1,24 @@
+room {
+	name office
+	east kitchen
+	north hallway
+	items laptop
+}
+
+room {
+	items coffee
+	name kitchen
+	west office
+	down dungeon
+}
+
+room {
+	name hallway
+	south office
+}
+
+room {
+	name dungeon
+	up kitchen
+	items gold sword dagger
+}

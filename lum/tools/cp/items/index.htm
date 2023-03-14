@@ -1,0 +1,90 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+    <div id="left">
+        <canvas id="stage" width="800" height="600" />
+    </div>
+
+
+    <div id="right">
+        <span class="label">
+            <h1>SPRITESHEET</h1>
+        </span>
+
+
+        <input type="file" onchange="handleFile(event)" id="fileBtn" />
+
+        <div class="uiField">
+            <span class="fieldLabel">Frame Size</span>
+            <input class="fieldValue" id="gridSizeEl" type="text" onchange="updateGridSize()" />
+        </div>
+
+        <div class="uiField">
+            <span class="fieldLabel">Start ID</span>
+            <input class="fieldValue" id="startIdEl" type="text" value="1" />
+        </div>
+
+        <hr />
+
+        <div class="uiField">
+            <span class="label">
+                <h1>FRAME INFO</h1>
+            </span>
+        </div>
+
+
+        <div class="uiField">
+            <span class="fieldLabel">Frame Name</span>
+            <input class="fieldValue" id="frameNameEl" type="text" onchange="setFrameName()" onkeydown="setFrameName()"/>
+        </div>
+
+        <div class="uiField">
+            <input type="button" value="Add Transform" onclick="addTransform()" />
+        </div>
+
+        <hr />
+
+        <div>
+            <div class="uiField">
+                <span class="label">
+                    <h1>Transforms</h1>
+                </span>
+            </div>
+
+            <div id="transformsEl" class="uiField">
+
+        </div>
+
+
+        <hr />
+
+        <div>
+
+            <input type="button" class="btn" value="Get Data" onclick="dumpData()" />
+            <br />
+            <div id="outputWrapper"> 
+                <pre id="dataOutput"></pre>
+            </div>
+
+        </div>
+
+        </div>
+
+        <!--
+        <div class="uiField">
+            <span class="fieldLabel">Frame Name:</span>
+            <input class="fieldValue" id="gridSizeEl" type="text" onchange="updateGridSize()" />
+        </div>
+        -->
+
+    </div>
+    
+    <script src="js/main.js"></script>
+</body>
+
+</html>

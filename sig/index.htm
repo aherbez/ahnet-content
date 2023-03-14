@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<link rel="stylesheet" href="sagea.css" />
+
+</head>
+
+<body>
+
+<h1>
+	Sagea SIGGRAPH demo
+</h1>
+
+<center>
+<img src="screen_1.jpg"/><br />
+</center>
+
+<p>
+This was a prototype content aggregation system which we demoed at SIGGRAPH 2016 as part of the VR Village, and was created along with Blair Erickson, Stephanie Riggs, and Bill Booth. I was responsible for the C++ implementation of the system within the Unreal engine.  
+</p>
+
+<h2>How it works</h2>
+
+<p>
+The system supported a number of different types of content, including:
+
+<ul>
+<li>static images</li>
+<li>2d video</li>
+<li>3d video</li>
+<li>360 degree video</li>
+<li>3d 360 degree video</li>
+</ul>
+</p>
+
+<p>Each piece of content is loaded onto its own piece of geometry and positioned relative to one of several walls. The system by which that happens borrows a page from <a href="http://getbootstrap.com/">bootstrap</a> in that each of the walls spans a 12x9 virtual grid. Assigning a given piece of content to a given wall requires specifying a pair of coordinates for the top-left as well as a number of grid units for the width and the height. 
+</p>
+
+<p>
+So, the call to send a given piece of content to fill the front wall looks like:
+
+<pre>
+content->SetPosition(0, 0, 12, 9);
+</pre>
+
+...making it really easy to throw content onto various walls of the space at various locations and sizes. 
+</p>
+
+<p>
+There are also two special case options for screens: 
+
+<ul>
+<li>a large, partially rounded, IMAX-like display</li>
+<li>a full sphere suitable for 360 degree videos</li>
+</ul>
+
+Both of those options are displayed at a single location, and only one of them can be displayed at a time.
+</p>
+
+<p>
+Once we had all of that working, we implemented a number of different use cases, all tied to what a Reddit or Facebook (or similar) experience might look like in VR, as well as a menu system to choose between the different experiences.
+</p>
+
+<center>
+
+<figure>
+	<img src="screen_2.jpg" /><br />
+	<figcaption>The main menu, showing the various use cases.</figcaption>
+</figure>
+
+<figure>
+	<img src="screen_4.jpg" /><br />
+	<figcaption>The main screen shows a youtube clip, while the left and right walls show video of other people watching the video.</figcaption>
+</figure>
+
+
+<figure>
+	<img src="screen_3.jpg" /><br />
+	<figcaption>Citizen journalism, plus a spinning globe that can be used to show a specific location</figcaption>
+</figure>
+
+
+<figure>
+	<img src="screen_5.jpg" /><br />
+	<figcaption>An example of news reporting- a video about indoor vertical farming plays while reactions are displayed to either side.</figcaption>
+</figure>
+
+<figure>
+	<img src="screen_7.jpg" /><br />
+	<figcaption>At the end of the vertical farm video, video commentary is presented and the user is prompted to vote on supporting the project or not.</figcaption>
+</figure>
+
+</center>
+</body>
+
+
+</html>

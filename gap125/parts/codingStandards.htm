@@ -1,0 +1,278 @@
+<h1>Coding Standards</h1>
+
+<p>The following provides a reference for AAU style, and should be followed as closely as possible</p>
+
+<h2>Naming Conventions</h2>
+
+<p>Classes, namespaces, functions, typedefs and enum names should be named using CamelCase, where the first letter is capitalized:</p>
+
+<pre><code class="C++">class FooBar;
+
+namespace FooBar { }
+
+enum FooBar { };
+
+typedef std::vector&lt;int&gt; IntVector;
+
+void DoTheThing();
+</code></pre>
+
+
+<p>Filenames should be named in the same way:</p>
+
+<pre><code class="C++">FooBar.h
+FooBar.cpp
+</code></pre>
+
+<p>Variables should be named in camel case, but with the first letter lowercase:</p>
+
+<pre><code class="C++">int fooBar;
+</code></pre>
+
+<p>Member variables, global variables, and static variables must have a single letter prefix with an underscore denoting their scope.  Local variables have no prefix.</p>
+
+<pre><code class="C++">int m_fooBar;  // member variable
+int g_fooBar;  // global variable
+int s_fooBar;  // static variable (class or non-class)
+int fooBar;  // local variable
+</code></pre>
+
+<p>Additionally, pointers should be prefixed with a "p":</p>
+
+<pre><code class="C++">int* m_pFooBar;  // member pointer variable
+int* g_pFooBar;  // global pointer variable
+int* s_pFooBar;  // static pointer variable (class or non-class)
+int* pFooBar;  // local pointer variable
+</code></pre>
+
+<p>Constant variables should be prefixed with a k.  This includes const variables and enum values:</p>
+
+<pre><code class="C++">const char* k_fooBar = “baz”;
+enum FooBar
+{
+    k_fooBar,
+    k_fooBarBaz
+};
+</code></pre>
+
+<p>#define's should be all caps, with underscores between each word:</p>
+
+<pre><code class="C++">#define FOO_BAR
+</code></pre>
+
+<h2>Bracing &amp; Formatting</h2>
+
+<p>
+Bracing &amp; indentation should adhere to the <a href="https://en.wikipedia.org/wiki/Indent_style#Allman_style">Allman style</a></p>
+
+<pre><code class="C++">while (x == y)
+{
+    Foo();
+    FooBar();
+}
+
+FooBarBaz();
+</code></pre>
+
+<p>Indentation should be set to 4 spaces.  Make sure you are inserting spaces rather than inserting the tab character.  In Visual Studio 2013, you can set this by going to Tools -> Options -> Text Editor -> C/C++ -> Tabs.  Change the Tab size to 4 and make sure “Insert spaces” is set.</p>
+
+<p>
+Binary operators should always be surrounded by a single space on either end, while unary operators should not have any spaces:</p>
+
+<pre><code class="C++">int foo = bar + baz;
+++foo;
+</code></pre>
+
+<p>Never use single-line if statements or loops:</p>
+
+<pre><code class="C++">if (foo) FooBar();  // NO
+
+while (foo) FooBar();  // NO
+</code></pre>
+
+<p>Instead, put it on the next line:</p>
+
+<pre><code class="C++">if (foo)
+    FooBar();
+
+while (foo)
+    FooBar();
+</code></pre>
+
+<p>Multiple statements on the same line are also not allowed:</p>
+
+<pre><code class="C++">x = 10; y = 15;  // NO</code></pre>
+
+<p>Single-line functions are allowed only if they are trivial accessors or mutators:</p>
+
+<pre><code class="C++">class Foo
+{
+    int m_bar;
+
+public:
+    int GetBar() const { return m_bar; }
+    void SetBar(int bar) { m_bar = bar; }
+
+    // NO.  This function has two statements, so it can't be 
+    // a single line.  It's also no longer a trivial getter 
+    // since it has additional side effects.
+    int IncrementAndGetBar() { ++m_bar; return m_bar; }
+};
+</code></pre>
+
+<p>It's okay to omit the braces on an if statement or loop if there can be absolutely no confusion that it’s the only statement within the body, as is the case above.  You should avoid single-line bodies that take up multiple lines:</p>
+
+<pre><code class="C++">// avoid this -- use braces instead
+if (foo)
+    while (bar)
+        if (baz)
+            DoTheThing();
+</code></pre>            
+
+<p>When in doubt, use braces.  It is always okay to use braces, even if the body is trivial:</p>
+
+<pre><code class="C++">// OK
+if (foo)
+{
+    ++bar;
+}
+</code></pre>
+
+<h2>Classes</h2>
+
+<p>Classes should generally be structured as follows:</p>
+
+<pre><code class="C++">
+class FooBar
+{
+public:
+    // Nested classes, enums, and typedefs go here.  These might 
+    // be private or protected instead of public.
+
+private:
+    // private data goes here
+
+protected:
+    // protected data goes here
+
+public:
+    // public functions goes here
+    // simple accessors & mutators go here
+
+protected:
+    // protected member functions go here
+
+private:
+    // private member functions go here
+};
+</code></pre>
+
+<p>This is more of a guideline than a strict rule.  Do whatever makes the class readable.</p>
+
+<p>No public data!  In other words, you should never have a public member variable.  Use accessors and mutators to manipulate variables from outside of the object.</p>
+
+<p>Prefer initializing member variables in the constructor’s initializer list.  It should be formatting like this:</p>
+
+<pre><code class="C++">Foo::Foo()
+    : m_bar(0)
+    , m_baz(0)
+{
+    //
+}
+</code></pre>
+
+<p>This allows you to easily comment out a single line in the initializer list.</p>
+
+<p>In-class initialization is not allowed:</p>
+
+<pre><code class="C++">class Foo
+{
+    int m_bar = 0;  // NO
+};
+</code></pre>
+
+<p>The exception is for const static ints that are used to set a member array size:</p>
+
+<pre><code class="C++">class Foo
+{
+    static const int sk_barArraySize = 100;  // OK
+    int mBar[sk_barArraySize];
+};
+</code></pre>
+
+
+<h2>Commenting</h2>
+
+<p>You should add comments in the follow circumstances:
+<ul>
+<li><h4>At the top of a function.</h4>
+This comment should explain the purpose of the function.
+It should describe the inputs, outputs, and any assumptions.
+</li>
+<li><h4>At the top of a class.</h4>
+Describe the purpose of the class and how it should be used.
+Explain the main public interface.
+It’s not necessary to explain simple accessors or mutators.
+</li>
+<li><h4>For each block of code.</h4>
+There should be a short comment at the top of each block of code describing what that section does.
+</li>
+<li><h4>For anything that's not extremely obvious.</h4>
+If you're doing something tricky, write a big comment explaining it.
+If you had trouble figuring something out, write out your solution.
+If there's a bit of confusing code, write a comment that explains it.
+</li>
+<li><h4>For any bug fixes or optimizations that weren't obvious.</h4>
+If you changed something that seems like it should have worked, write a comment explaining what you changed and why.
+</li>
+</ul>
+</p>
+
+<h2>Headers</h2>
+
+<p>For header guards, there is a choice between this:</p>
+
+<pre><code class="C++">#pragma once</code></pre>
+
+and this:
+
+<pre><code class="C++">#ifndef FOO_BAR_H
+#define FOO_BAR_H
+
+…
+
+#endif  // FOO_BAR_H
+</code></pre>
+
+<p>Use the second method since it is more portable.</p>
+
+<p>Header files should be self-contained.  They should have header guards and include all the other headers necessary to compile them.  In general, try to avoid adding #include’s inside header files where possible.  Use forward declarations when you can.</p>
+
+
+<h2>Misc</h2>
+
+<p>Avoid the postfix increment and decrement operators.  Always use the prefix version unless there’s a real reason not too (though there almost never is):</p>
+
+<pre><code class="C++">// yes
+++foo;
+--bar;
+
+// no
+foo++;
+bar--;
+</code></pre>
+
+<p>Use parentheses whenever there's any confusion over the order of operations.  Don't rely on other programmers memorizing the operator precedence tables.  For example:</p>
+
+<pre><code class="C++">// NO
+if (foo && bar || baz)
+    DoTheThing();
+
+// YES
+if (foo && (bar || baz))
+    DoTheThing();
+</code></pre>
+
+<p>C++ exceptions should not be used for any reason.</p>
+
+ 
